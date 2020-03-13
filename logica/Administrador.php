@@ -11,7 +11,9 @@ class Administrador extends Persona
     public function __construct($id="", $nombre="", $apellido="", $correo="", $salt="", $clave="")
     {
         parent::__construct($id,$nombre,$apellido,$correo,$salt,$clave);
-        $this->administradorDAO;
+        $this->administradorDAO = new AdministradorDAO();
         $this->conexion = new Conexion();
     }
 }
+
+?>
