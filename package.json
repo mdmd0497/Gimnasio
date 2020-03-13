@@ -1,0 +1,28 @@
+{
+  "name": "proygym",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/oscarce10/proygym.git"
+  },
+  "author": "Oscar Cely, Michael",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/oscarce10/proygym/issues"
+  },
+  "homepage": "https://gitlab.com/oscarce10/proygym#readme",
+  "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "gulp": "^4.0.2",
+    "gulp-connect-php": "^1.0.3",
+    "gulp-sass": "^4.0.2"
+  },
+  "dependencies": {
+    "gulp-cli": "^2.2.0"
+  }
+}
