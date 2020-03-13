@@ -1,5 +1,9 @@
 <?php
 session_start();
+require_once 'logica/Persona.php';
+require_once 'logica/Administrador.php';
+require_once 'persistencia/AdministradorDAO.php';
+require_once 'conexion/Conexion.php';
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +30,7 @@ session_start();
 <?php
 if (isset($_GET["pid"])) {
     $pid = base64_decode($_GET["pid"]);
-    if (isset($_GET["nos"]) || (!isset($_GET["nos"]) && $_SESSION['id'] != null)) {
+    if (isset($_GET["nos"]) || (!isset($_GET["nos"]) && $_SESSION['id'] == null)) {
         include $pid;
     } else {
         header("Location: index.php");

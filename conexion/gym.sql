@@ -33,8 +33,8 @@ CREATE TABLE `administrador` (
   `nombre` varchar(100) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   `apellido` varchar(100) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   `correo` varchar(100) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
-  `salt` varchar(100) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
-  `clave` varchar(45) COLLATE utf8mb4_spanish_ci DEFAULT NULL
+  `salt` varchar(20) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `clave` varchar(70) COLLATE utf8mb4_spanish_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 -- --------------------------------------------------------
@@ -48,8 +48,8 @@ CREATE TABLE `cliente` (
   `nombre` varchar(100) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   `apellido` varchar(100) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   `correo` varchar(100) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
-  `salt` varchar(50) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
-  `clave` varchar(150) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `salt` varchar(20) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `clave` varchar(70) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   `foto` varchar(150) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   `telefono` varchar(100) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   `observaciones` varchar(400) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
@@ -67,8 +67,8 @@ CREATE TABLE `enfermero` (
   `nombre` varchar(100) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   `apellido` varchar(100) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   `correo` varchar(100) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
-  `salt` varchar(45) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
-  `clave` varchar(150) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `salt` varchar(20) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `clave` varchar(70) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   `foto` varchar(100) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   `telefono` varchar(100) COLLATE utf8mb4_spanish_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
@@ -84,8 +84,8 @@ CREATE TABLE `entrenador` (
   `nombre` varchar(100) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   `apellido` varchar(100) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   `correo` varchar(100) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
-  `salt` varchar(45) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
-  `clave` varchar(150) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `salt` varchar(20) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `clave` varchar(70) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   `foto` varchar(100) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   `telefono` varchar(100) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   `rutina` int(11) DEFAULT NULL
