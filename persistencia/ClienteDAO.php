@@ -31,5 +31,5 @@ class PacienteDAO
     function registrar()
     {
         return "INSERT INTO cliente (nombre, apellido, correo,salt, clave,telefono, observaciones, estado)
-                VALUES ('" . $this->nombre . "', '" . $this->apellido . "', '" . $this->correo . "', '" . $this->$salt . "', md5('" . $this->clave . "'), '" . $this->telefono . "', '" . $this->observaciones . "', '" . $this->estado . "')";
+                VALUES ('" . $this->nombre . "', '" . $this->apellido . "', '" . $this->correo . "', '" . $this->$salt . "', md5('" . $this->clave . "'), '" . $this->telefono . "', '" . $this->estado . "')";
     }
