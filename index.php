@@ -4,6 +4,7 @@ require_once 'logica/Persona.php';
 require_once 'logica/Administrador.php';
 require_once 'persistencia/AdministradorDAO.php';
 require_once 'conexion/Conexion.php';
+
 ?>
 
 <!DOCTYPE html>
@@ -28,15 +29,26 @@ require_once 'conexion/Conexion.php';
 
 
 <?php
-if (isset($_GET["pid"])) {
-    $pid = base64_decode($_GET["pid"]);
-    if (isset($_GET["nos"]) || (!isset($_GET["nos"]) && $_SESSION['id'] == null)) {
-        include $pid;
-    } else {
+/* Si la sesion esta iniciada no va al inicio de sesion sino al inicio del usuario */
+if(isset($_SESSION["id"]) && isset($_SESSION["tipo"]) && !isset($_GET["logout"])){
+
+    include "presentacion/".$_SESSION["tipo"] . "/inicio.php";
+    echo $_SESSION["id"];
+} else if (isset($_GET["pid"])) {
+    if($_GET["pid"] == null){
         header("Location: index.php");
+        exit();
     }
+    else if (isset($_SESSION["id"]) || isset($_GET["login"])){
+        $pid = base64_decode($_GET["pid"]);
+        include $pid;
+
+    }else {
+        header("Location: index.php");
+        exit();
+    }
+
 } else {
-    $_SESSION['id'] = "";
     include 'presentacion/inicio.php';
 }
 

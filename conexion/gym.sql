@@ -32,8 +32,7 @@ CREATE TABLE `administrador` (
   `id` int(11) NOT NULL,
   `nombre` varchar(100) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   `apellido` varchar(100) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
-  `correo` varchar(100) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
-  `salt` varchar(20) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `correo` varchar(100) COLLATE utf8mb4_spanish_ci DEFAULT NULL UNIQUE,
   `clave` varchar(70) COLLATE utf8mb4_spanish_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
@@ -47,8 +46,7 @@ CREATE TABLE `cliente` (
   `id` int(11) NOT NULL,
   `nombre` varchar(100) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   `apellido` varchar(100) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
-  `correo` varchar(100) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
-  `salt` varchar(20) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `correo` varchar(100) COLLATE utf8mb4_spanish_ci DEFAULT NULL UNIQUE,
   `clave` varchar(70) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   `foto` varchar(150) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   `telefono` varchar(100) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
@@ -66,8 +64,7 @@ CREATE TABLE `enfermero` (
   `id` int(11) NOT NULL,
   `nombre` varchar(100) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   `apellido` varchar(100) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
-  `correo` varchar(100) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
-  `salt` varchar(20) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `correo` varchar(100) COLLATE utf8mb4_spanish_ci DEFAULT NULL UNIQUE,
   `clave` varchar(70) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   `foto` varchar(100) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   `telefono` varchar(100) COLLATE utf8mb4_spanish_ci DEFAULT NULL
@@ -83,8 +80,7 @@ CREATE TABLE `entrenador` (
   `id` int(11) NOT NULL,
   `nombre` varchar(100) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   `apellido` varchar(100) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
-  `correo` varchar(100) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
-  `salt` varchar(20) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `correo` varchar(100) COLLATE utf8mb4_spanish_ci DEFAULT NULL UNIQUE,
   `clave` varchar(70) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   `foto` varchar(100) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   `telefono` varchar(100) COLLATE utf8mb4_spanish_ci DEFAULT NULL,

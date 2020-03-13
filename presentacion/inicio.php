@@ -1,12 +1,12 @@
 <body class="text-center">
-	<form class="form-signin" action="index.php?pid=<?php echo base64_encode("presentacion/autenticar.php") ?>&nos=true" method="post">
+	<form class="form-signin" action="index.php?pid=<?php echo base64_encode("presentacion/autenticar.php") ?>&login=true" method="post">
 		<div class="mb-4 logo">
-			<a href="index.php?pid=<?php echo base64_encode("presentacion/inicio.php") ?>" title="Login"><i class="fab fa-critical-role fa-7x"></i></a>
+			<a href="index.php?pid=<?php echo base64_encode("presentacion/inicio.php") ?>" title="Login"><i class="fas fa-dumbbell fa-7x"></i></a>
 		</div>
 		<div>
 								
 		<h1 class="h3 mb-3 font-weight-normal">Sistema de Gestion Gimnasios</h1>
-		<?php if(isset($_GET['auth'])){?>
+		<?php if(isset($_GET['login']) ){?>
 							<div class="alert alert-danger" role="alert">
 							Correo o clave incorrectos.
 							</div>
@@ -38,3 +38,7 @@
     </form>
 
 </body>
+
+<script>
+    document.title = "Inicio de sesion";
+</script>

@@ -13,9 +13,9 @@ class Enfermero extends Persona
      * @param $foto
      * @param $telefono
      */
-    public function __construct($id="", $nombre="", $apellido="", $correo="", $salt="", $clave="",$foto="", $telefono="")
+    public function __construct($id="", $nombre="", $apellido="", $correo="", $clave="",$foto="", $telefono="")
     {
-        parent::__construct($id,$nombre,$apellido,$correo,$salt,$clave);
+        parent::__construct($id,$nombre,$apellido,$correo,$clave);
         $this->foto = $foto;
         $this->telefono = $telefono;
         $this->conexion = new Conexion();

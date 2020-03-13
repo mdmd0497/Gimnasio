@@ -7,7 +7,6 @@ class Persona
     protected $nombre;
     protected $apellido;
     protected $correo;
-    protected $salt;
     protected $clave;
 
     /**
@@ -16,16 +15,14 @@ class Persona
      * @param $nombre
      * @param $apellido
      * @param $correo
-     * @param $salt
      * @param $clave
      */
-    public function __construct($id="", $nombre="", $apellido="", $correo="", $salt="", $clave="")
+    public function __construct($id="", $nombre="", $apellido="", $correo="", $clave="")
     {
         $this->id = $id;
         $this->nombre = $nombre;
         $this->apellido = $apellido;
         $this->correo = $correo;
-        $this->salt = $salt;
         $this->clave = $clave;
     }
 
@@ -93,21 +90,6 @@ class Persona
         $this->correo = $correo;
     }
 
-    /**
-     * @return string
-     */
-    public function getSalt()
-    {
-        return $this->salt;
-    }
-
-    /**
-     * @param string $salt
-     */
-    public function setSalt($salt)
-    {
-        $this->salt = $salt;
-    }
 
     /**
      * @return string

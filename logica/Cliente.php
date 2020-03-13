@@ -33,16 +33,16 @@ class Cliente extends Persona
     }
 
 
-    function Paciente($id = "", $nombre = "", $apellido = "", $correo = "", $salt, $clave = "", $foto = "", $telefono = "", $observaciones = "", $estado = "")
+    function __construct($id = "", $nombre = "", $apellido = "", $correo = "", $clave = "", $foto = "", $telefono = "", $observaciones = "", $estado = "")
     {
-        $this->Persona($id, $nombre, $apellido, $correo, $salt, $clave);
+        parent::__construct($id, $nombre, $apellido, $correo, $clave);
         $this->foto = $foto;
         $this->telefono = $telefono;
         $this->observaciones = $observaciones;
         $this->estado = $estado;
 
         $this->conexion = new Conexion();
-        $this->pacienteDAO = new ClienteDAO($id, $nombre, $apellido, $correo, $salt, $clave, $foto, $telefono, $observaciones, $estado);
+        $this->pacienteDAO = new ClienteDAO($id, $nombre, $apellido, $correo, $clave, $foto, $telefono, $observaciones, $estado);
     }
 
     function registrar()

@@ -1,9 +1,9 @@
 <?php
+$password = "2";
+$administrador = new Administrador("", "Michael", "Moreno", "2@a.com", password_hash($password, PASSWORD_BCRYPT));
 
-$salt = random_bytes ( 20);
-echo bin2hex($salt);
-$administrador = new Administrador("", "Oscar", "Cely", "1@a.com", bin2hex($salt), hash_pbkdf2("MD5", "1", $salt, 1200, 64));
-$administrador->registroAdministrador();
+$administrador->registro();
+
 ?>
 
 <div class="card" style="width: 18rem;">
