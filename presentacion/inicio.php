@@ -31,7 +31,7 @@
 		<button class="btn btn-lg btn-primary btn-block btn-ingreso" type="submit">
 			Ingresar
 		</button>
-            <a id="btn-registro" class="btn btn-primary" href="index.php?pid=<?php echo base64_encode("presentacion/registro.php");?>" role="button">Registro Cliente</a>
+            <a id="btn-registro" class="btn btn-primary" href="index.php?pid=<?php echo base64_encode("presentacion/registro.php"). "&nos=true";?>" role="button">Registro Cliente</a>
 		
 		</div>
 

@@ -51,6 +51,27 @@ class Cliente extends Persona
         $this->conexion->ejecutar($this->ClienteDAO->registrar());
         $this->conexion->cerrar();
     }
+    
+    function existeCorreo()
+    {
+        $this->conexion->abrir();
+        $this->conexion->ejecutar($this->ClienteDAO->existeCorreo());
+        if ($this->conexion->numFilas() == 0) {
+            $this->conexion->cerrar();
+            return false;
+        } else {
+            $this->conexion->cerrar();
+            return true;
+        }
+    }
+    
+    function registrar()
+    {
+        $this->conexion->abrir();
+        $this->conexion->ejecutar($this->ClienteDAO->registrar());
+        $this->conexion->cerrar();
+    }
+    
 }
 ?>
     

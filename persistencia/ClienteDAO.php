@@ -33,5 +33,12 @@ class PacienteDAO
         return "INSERT INTO cliente (nombre, apellido, correo,salt, clave,telefono, observaciones, estado)
                 VALUES ('" . $this->nombre . "', '" . $this->apellido . "', '" . $this->correo . "', '" . $this->$salt . "', md5('" . $this->clave . "'), '" . $this->telefono . "', '" . $this->estado . "')";
     }
+    
+    function existeCorreo()
+    {
+        return "SELECT id
+                FROM cliente
+                WHERE correo = '" . $this->correo . "'";
+    }
 }
 ?>
