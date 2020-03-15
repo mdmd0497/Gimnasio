@@ -1,4 +1,4 @@
-	<form class="form-signin" action="index.php?pid=<?php echo base64_encode("presentacion/autenticar.php") ?>&login=true" method="post">
+	<form class="form-signin" action="index.php?pid=<?php echo base64_encode("presentacion/autenticar.php") ?>&action=login" method="post">
         <div class="brand text-center">
 		<div class="mb-4 logo">
 			<a href="index.php?pid=<?php echo base64_encode("presentacion/inicio.php") ?>" title="Login"><i class="fas fa-dumbbell fa-7x"></i></a>
@@ -31,7 +31,7 @@
 		<button class="btn btn-lg btn-primary btn-block btn-ingreso" type="submit">
 			Ingresar
 		</button>
-            <a id="btn-registro" class="btn btn-primary" href="index.php?pid=<?php echo base64_encode("presentacion/registro.php"). "&nos=true";?>" role="button">Registro Cliente</a>
+            <a id="btn-registro" class="btn btn-primary" href="index.php?pid=<?php echo base64_encode("presentacion/paciente/registro.php");?>&action=signup" role="button">Registro Cliente</a>
 		
 		</div>
 
@@ -40,7 +40,7 @@
 
     <footer class="footer">
         <div class="container">
-            <p class="text-muted">Hecho con <i class="fas fa-heart"></i> y mucho <i class="fas fa-coffee"></i> Por Oscar Cely y Michael Moreno <a id="lic" href="https://fontawesome.com/license/free"><span>Licencias Font Awessome</span></a></p>
+            <p class="text-muted">Hecho con <i class="fas fa-heart"></i> y mucho <i class="fas fa-coffee"></i> Por Oscar Cely y Michael Moreno <a id="lic" href="https://fontawesome.com/license/free" target="_blank"><span>Licencias Font Awessome</span></a></p>
 
         </div>
     </footer>
