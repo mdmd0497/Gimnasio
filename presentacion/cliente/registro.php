@@ -45,7 +45,7 @@ if (isset($_POST["registrar"])) {
                             El correo <?php echo $correo; ?> ya existe
                         </div>
                     <?php } ?>
-                    <form action="<?php echo "index.php?pid=" . base64_encode("presentacion/paciente/registro.php") . "&action=signup" ?>" method="post">
+                    <form action="<?php echo "index.php?pid=" . base64_encode("presentacion/cliente/registro.php") . "&action=signup" ?>" method="post">
                         <div class="form-group">
                             <input type="text" name="nombre" class="form-control" placeholder="Nombre"
                                    required="required" value="<?php echo $nombre; ?>">
