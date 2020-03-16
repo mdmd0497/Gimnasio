@@ -1,12 +1,12 @@
 <?php
-$administrador = new Administrador($_SESSION["id"]);
-$administrador->consultar();
+$cliente = new cliente($_SESSION["id"]);
+$cliente->consultar();
 ?>
-<title>Inicio Administrador</title>
+<title>Inicio cliente</title>
 
 <header>
     <?php
-    include 'nav.php';
+    include 'navcliente.php';
     ?>
 </header>
 <div class="container">
@@ -14,10 +14,10 @@ $administrador->consultar();
 		<div class="col-12">
 			<div class="card">
 				<div class="card-header bg-primary text-white">Bienvenido
-					Administrador</div>
+					cliente</div>
 				<div class="card-body">
-					<p>Administrador: <?php echo $administrador -> getNombre() . " " . $administrador -> getApellido() ?></p>
-					<p>Correo: <?php echo $administrador -> getCorreo(); ?></p>
+					<p>Cliente: <?php echo $cliente -> getNombre() . " " . $cliente -> getApellido() ?></p>
+					<p>Correo: <?php echo  $cliente -> getCorreo(); ?></p>
 					<p>Hoy es: <?php echo date("d-M-Y"); ?></p>
 				</div>
 			</div>

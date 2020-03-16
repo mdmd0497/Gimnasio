@@ -2,14 +2,21 @@
 
 class Cliente extends Persona
 {
+
     private $observaciones;
+
     private $estado;
+
     private $telefono;
+
     private $clienteDAO;
+
     private $conexion;
+
     private $foto;
 
     /**
+     *
      * @return string
      */
     public function getObservaciones()
@@ -18,6 +25,7 @@ class Cliente extends Persona
     }
 
     /**
+     *
      * @param string $observaciones
      */
     public function setObservaciones($observaciones)
@@ -26,6 +34,7 @@ class Cliente extends Persona
     }
 
     /**
+     *
      * @return string
      */
     public function getEstado()
@@ -34,6 +43,7 @@ class Cliente extends Persona
     }
 
     /**
+     *
      * @param string $estado
      */
     public function setEstado($estado)
@@ -42,6 +52,7 @@ class Cliente extends Persona
     }
 
     /**
+     *
      * @return string
      */
     public function getTelefono()
@@ -50,6 +61,7 @@ class Cliente extends Persona
     }
 
     /**
+     *
      * @param string $telefono
      */
     public function setTelefono($telefono)
@@ -57,23 +69,20 @@ class Cliente extends Persona
         $this->telefono = $telefono;
     }
 
-    /**
-     * @return ClienteDAO
-     */
+   
     public function getClienteDAO()
     {
         return $this->clienteDAO;
     }
 
-    /**
-     * @param ClienteDAO $clienteDAO
-     */
+    
     public function setClienteDAO($clienteDAO)
     {
         $this->clienteDAO = $clienteDAO;
     }
 
     /**
+     *
      * @return Conexion
      */
     public function getConexion()
@@ -82,6 +91,7 @@ class Cliente extends Persona
     }
 
     /**
+     *
      * @param Conexion $conexion
      */
     public function setConexion($conexion)
@@ -90,6 +100,7 @@ class Cliente extends Persona
     }
 
     /**
+     *
      * @return string
      */
     public function getFoto()
@@ -98,6 +109,7 @@ class Cliente extends Persona
     }
 
     /**
+     *
      * @param string $foto
      */
     public function setFoto($foto)
@@ -106,6 +118,7 @@ class Cliente extends Persona
     }
 
     /**
+     *
      * @return string
      */
     public function getId()
@@ -114,6 +127,7 @@ class Cliente extends Persona
     }
 
     /**
+     *
      * @param string $id
      */
     public function setId($id)
@@ -122,6 +136,7 @@ class Cliente extends Persona
     }
 
     /**
+     *
      * @return string
      */
     public function getNombre()
@@ -130,6 +145,7 @@ class Cliente extends Persona
     }
 
     /**
+     *
      * @param string $nombre
      */
     public function setNombre($nombre)
@@ -138,6 +154,7 @@ class Cliente extends Persona
     }
 
     /**
+     *
      * @return string
      */
     public function getApellido()
@@ -146,6 +163,7 @@ class Cliente extends Persona
     }
 
     /**
+     *
      * @param string $apellido
      */
     public function setApellido($apellido)
@@ -154,6 +172,7 @@ class Cliente extends Persona
     }
 
     /**
+     *
      * @return string
      */
     public function getCorreo()
@@ -162,6 +181,7 @@ class Cliente extends Persona
     }
 
     /**
+     *
      * @param string $correo
      */
     public function setCorreo($correo)
@@ -170,6 +190,7 @@ class Cliente extends Persona
     }
 
     /**
+     *
      * @return string
      */
     public function getClave()
@@ -178,16 +199,13 @@ class Cliente extends Persona
     }
 
     /**
+     *
      * @param string $clave
      */
     public function setClave($clave)
     {
         $this->clave = $clave;
     }
-
-
-
-
 
     function __construct($id = "", $nombre = "", $apellido = "", $correo = "", $clave = "", $foto = "", $telefono = "", $observaciones = "", $estado = "")
     {
@@ -207,7 +225,7 @@ class Cliente extends Persona
         $this->conexion->ejecutar($this->clienteDAO->registrar());
         $this->conexion->cerrar();
     }
-    
+
     function existeCorreo()
     {
         $this->conexion->abrir();
@@ -220,8 +238,19 @@ class Cliente extends Persona
             return true;
         }
     }
-
     
+    
+    public function consultar()
+    {
+        $this->conexion->abrir();
+        $this->conexion->ejecutar($this->clienteDAO->consultar());
+        $resultado = $this->conexion->extraer();
+        $this->id = $resultado[0];
+        $this->nombre = $resultado[1];
+        $this->apellido = $resultado[2];
+        $this->correo = $resultado[3];
+        $this->clave = $resultado[4];
+    }
 }
 ?>
     

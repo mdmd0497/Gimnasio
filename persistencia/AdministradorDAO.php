@@ -1,20 +1,22 @@
 <?php
 
-
 class AdministradorDAO extends Persona
 {
 
     /**
      * AdministradorDAO constructor.
      */
-    public function __construct($id="", $nombre="", $apellido="", $correo="", $clave="")
+    public function __construct($id = "", $nombre = "", $apellido = "", $correo = "", $clave = "")
     {
-        parent::__construct($id,$nombre,$apellido,$correo,$clave);
+        parent::__construct($id, $nombre, $apellido, $correo, $clave);
     }
 
-    /** --------------------------- GETTERS AMD SETTERS -----------------------------------------*/
+    /**
+     * --------------------------- GETTERS AMD SETTERS -----------------------------------------
+     */
 
     /**
+     *
      * @return string
      */
     public function getId()
@@ -23,6 +25,7 @@ class AdministradorDAO extends Persona
     }
 
     /**
+     *
      * @param string $id
      */
     public function setId($id)
@@ -31,6 +34,7 @@ class AdministradorDAO extends Persona
     }
 
     /**
+     *
      * @return string
      */
     public function getNombre()
@@ -39,6 +43,7 @@ class AdministradorDAO extends Persona
     }
 
     /**
+     *
      * @param string $nombre
      */
     public function setNombre($nombre)
@@ -47,6 +52,7 @@ class AdministradorDAO extends Persona
     }
 
     /**
+     *
      * @return string
      */
     public function getApellido()
@@ -55,6 +61,7 @@ class AdministradorDAO extends Persona
     }
 
     /**
+     *
      * @param string $apellido
      */
     public function setApellido($apellido)
@@ -63,6 +70,7 @@ class AdministradorDAO extends Persona
     }
 
     /**
+     *
      * @return string
      */
     public function getCorreo()
@@ -71,6 +79,7 @@ class AdministradorDAO extends Persona
     }
 
     /**
+     *
      * @param string $correo
      */
     public function setCorreo($correo)
@@ -79,6 +88,7 @@ class AdministradorDAO extends Persona
     }
 
     /**
+     *
      * @return string
      */
     public function getClave()
@@ -87,6 +97,7 @@ class AdministradorDAO extends Persona
     }
 
     /**
+     *
      * @param string $clave
      */
     public function setClave($clave)
@@ -94,24 +105,21 @@ class AdministradorDAO extends Persona
         $this->clave = $clave;
     }
 
-
-    /** --------------------------------------------------------------------------------------- */
-
-    public  function registro(){
-        return "INSERT INTO administrador (id, nombre, apellido, correo, clave) VALUES" .
-                "('" . $this->id . "', '" . $this->nombre . "', '" . $this->apellido . "', '"
-                    . $this->correo . "', '" . $this->clave . "');";
+    /**
+     * ---------------------------------------------------------------------------------------
+     */
+    public function registro()
+    {
+        return "INSERT INTO administrador (id, nombre, apellido, correo, clave) VALUES" . "('" . $this->id . "', '" . $this->nombre . "', '" . $this->apellido . "', '" . $this->correo . "', '" . $this->clave . "');";
     }
 
-
-    public function consultar(){
+    public function consultar()
+    {
         return "SELECT *
                 FROM administrador
                 WHERE correo LIKE '" . $this->correo . "' 
                 OR id = " . $this->id;
     }
-
-
 }
 
 ?>

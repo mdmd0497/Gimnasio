@@ -1,23 +1,33 @@
 <?php
 
-
 class Persona
 {
+
     protected $id;
+
     protected $nombre;
+
     protected $apellido;
+
     protected $correo;
+
     protected $clave;
 
     /**
      * Persona constructor.
-     * @param $id
-     * @param $nombre
-     * @param $apellido
-     * @param $correo
-     * @param $clave
+     *
+     * @param
+     *            $id
+     * @param
+     *            $nombre
+     * @param
+     *            $apellido
+     * @param
+     *            $correo
+     * @param
+     *            $clave
      */
-    public function __construct($id="", $nombre="", $apellido="", $correo="", $clave="")
+    public function __construct($id = "", $nombre = "", $apellido = "", $correo = "", $clave = "")
     {
         $this->id = $id;
         $this->nombre = $nombre;
@@ -27,6 +37,7 @@ class Persona
     }
 
     /**
+     *
      * @return string
      */
     public function getId()
@@ -35,6 +46,7 @@ class Persona
     }
 
     /**
+     *
      * @param string $id
      */
     public function setId($id)
@@ -43,6 +55,7 @@ class Persona
     }
 
     /**
+     *
      * @return string
      */
     public function getNombre()
@@ -51,6 +64,7 @@ class Persona
     }
 
     /**
+     *
      * @param string $nombre
      */
     public function setNombre($nombre)
@@ -59,6 +73,7 @@ class Persona
     }
 
     /**
+     *
      * @return string
      */
     public function getApellido()
@@ -67,6 +82,7 @@ class Persona
     }
 
     /**
+     *
      * @param string $apellido
      */
     public function setApellido($apellido)
@@ -75,6 +91,7 @@ class Persona
     }
 
     /**
+     *
      * @return string
      */
     public function getCorreo()
@@ -83,6 +100,7 @@ class Persona
     }
 
     /**
+     *
      * @param string $correo
      */
     public function setCorreo($correo)
@@ -90,8 +108,8 @@ class Persona
         $this->correo = $correo;
     }
 
-
     /**
+     *
      * @return string
      */
     public function getClave()
@@ -100,14 +118,11 @@ class Persona
     }
 
     /**
+     *
      * @param string $clave
      */
     public function setClave($clave)
     {
         $this->clave = $clave;
     }
-
-
-
-
 }

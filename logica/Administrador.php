@@ -1,29 +1,32 @@
 <?php
 
-
 class Administrador extends Persona
 {
+
     private $administradorDAO;
+
     private $conexion;
+
     /**
      * Administrador constructor.
      */
-    public function __construct($id="", $nombre="", $apellido="", $correo="", $clave="")
+    public function __construct($id = "", $nombre = "", $apellido = "", $correo = "", $clave = "")
     {
-        parent::__construct($id,$nombre,$apellido,$correo,$clave);
-        $this->administradorDAO = new AdministradorDAO($id,$nombre,$apellido,$correo,$clave);
+        parent::__construct($id, $nombre, $apellido, $correo, $clave);
+        $this->administradorDAO = new AdministradorDAO($id, $nombre, $apellido, $correo, $clave);
         $this->conexion = new Conexion();
     }
 
-    public function registro(){
-
+    public function registro()
+    {
         $this->conexion->abrir();
         echo $this->administradorDAO->registro();
         $this->conexion->ejecutar($this->administradorDAO->registro());
         $this->conexion->cerrar();
     }
 
-    public function consultar(){
+    public function consultar()
+    {
         $this->conexion->abrir();
         $this->conexion->ejecutar($this->administradorDAO->consultar());
         $resultado = $this->conexion->extraer();
@@ -33,7 +36,6 @@ class Administrador extends Persona
         $this->correo = $resultado[3];
         $this->clave = $resultado[4];
     }
-
 }
 
 ?>
