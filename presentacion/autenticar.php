@@ -14,7 +14,7 @@ if ($administrador->getCorreo() != "" && password_verify ( $clave , $administrad
     exit();
 }
 else{
-   header("Location:index.php?pid=" . base64_encode("presentacion/inicio.php") . "&login=fail");
+   header("Location:index.php?pid=" . base64_encode("presentacion/inicio.php") . "&action=login&login=fail");
    exit();
 }
 ?>
