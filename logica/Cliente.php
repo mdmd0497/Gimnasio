@@ -1,6 +1,4 @@
 <?php
-require 'persistencia/ClienteDAO.php';
-require_once 'persistencia/Conexion.php';
 
 class Cliente extends Persona
 {
@@ -206,7 +204,6 @@ class Cliente extends Persona
     function registrar()
     {
         $this->conexion->abrir();
-        $this->clienteDAO->registrar();
         $this->conexion->ejecutar($this->clienteDAO->registrar());
         $this->conexion->cerrar();
     }
@@ -214,7 +211,7 @@ class Cliente extends Persona
     function existeCorreo()
     {
         $this->conexion->abrir();
-        $this->conexion->ejecutar($this->ClienteDAO->existeCorreo());
+        $this->conexion->ejecutar($this->clienteDAO->existeCorreo());
         if ($this->conexion->numFilas() == 0) {
             $this->conexion->cerrar();
             return false;
