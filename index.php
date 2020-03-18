@@ -5,7 +5,11 @@ require_once 'logica/Administrador.php';
 require_once 'persistencia/AdministradorDAO.php';
 require_once 'conexion/Conexion.php';
 require_once 'logica/Cliente.php';
-require_once 'persistencia/ClienteDAO.php'?>
+require_once 'persistencia/ClienteDAO.php';
+require_once 'logica/Enfermero.php';
+require_once 'persistencia/EnfermeroDAO.php';
+?>
+
 
 
 <!DOCTYPE html>

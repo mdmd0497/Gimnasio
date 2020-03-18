@@ -1,29 +1,32 @@
 <?php
-require_once 'logica/Cliente.php';
+    
+require_once 'logica/Enfermero.php';
 $error = - 1;
 $nombre = "";
 $apellido = "";
 $correo = "";
 $clave = "";
 $telefono = "";
-if (isset($_POST["registrar"])) {
-
+if (isset($_POST["registrar_enfermero"])) {
+    
     $nombre = $_POST["nombre"];
     $apellido = $_POST["apellido"];
     $correo = $_POST["correo"];
     $telefono = $_POST["telefono"];
-
-    $cliente = new Cliente("", "", "", $correo);
-    if (!$cliente->existeCorreo()) {
+    
+    $enfermero = new Enfermero("", "", "", $correo);
+    if (!$enfermero->existeCorreo()) {
         $password = $_POST["clave"];
-        $cliente = new Cliente("", $nombre, $apellido, $correo, password_hash($password, PASSWORD_BCRYPT), "", $telefono, "");
-        $cliente->registrar();
+        $enfermero = new Enfermero("", $nombre, $apellido, $correo, password_hash($password, PASSWORD_BCRYPT), "", $telefono, "");
+        $enfermero->registrar();
         $error = 0;
     } else {
         $error = 1;
         $correo = $_POST["correo"];
     }
 }
+
+
 ?>
 <div class="container-fluid" style="margin-top: 20px;">
 	<div class="row">
@@ -36,14 +39,14 @@ if (isset($_POST["registrar"])) {
                     if ($error == 0) {
                         ?>
                         <div class="alert alert-success" role="alert">
-						Cliente registrado exitosamente.</div>
+						enfermero registrado exitosamente.</div>
                     <?php } else if ($error == 1) { ?>
                         <div class="alert alert-danger" role="alert">
                             El correo <?php echo $correo; ?> ya existe
                         </div>
                     <?php } ?>
                     <form
-						action="<?php echo "index.php?pid=" . base64_encode("presentacion/cliente/registro.php") . "&action=signup" ?>"
+						action="<?php echo "index.php?pid=" . base64_encode("presentacion/administrador/registroEnfermero.php") . "&action=signup" ?>"
 						method="post">
 						<div class="form-group">
 							<input type="text" name="nombre" class="form-control"
@@ -69,8 +72,7 @@ if (isset($_POST["registrar"])) {
 								placeholder="telefono" required="required"
 								value="<?php echo $telefono; ?>">
 						</div>
-						<button type="submit" name="registrar" class="btn btn-primary">Registrar</button>
-						<a class="btn btn-primary" href="index.php" role="button">Inicio</a>
+						<button type="submit" name="registrar_enfermero" class="btn btn-primary">Registrar</button>
 					</form>
 				</div>
 			</div>

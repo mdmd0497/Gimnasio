@@ -27,6 +27,26 @@ class Enfermero extends Persona
         $this->conexion = new Conexion();
         $this->EnfermeroDAO = new EnfermeroDAO();
     }
+    
+    function registrar()
+    {
+        $this->conexion->abrir();
+        $this->conexion->ejecutar($this->EnfermeroDAO->registrar());
+        $this->conexion->cerrar();
+    }
+    
+    function existeCorreo()
+    {
+        $this->conexion->abrir();
+        $this->conexion->ejecutar($this->EnfermeroDAO->existeCorreo());
+        if ($this->conexion->numFilas() == 0) {
+            $this->conexion->cerrar();
+            return false;
+        } else {
+            $this->conexion->cerrar();
+            return true;
+        }
+    }
 }
 
 ?>
