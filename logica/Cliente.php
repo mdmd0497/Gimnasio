@@ -225,6 +225,12 @@ class Cliente extends Persona
         $this->conexion->ejecutar($this->clienteDAO->registrar());
         $this->conexion->cerrar();
     }
+    
+    function actualizarEstado(){
+        $this -> conexion -> abrir();
+        $this->conexion->ejecutar($this->clienteDAO->actualizarEstado());
+        $this -> conexion -> cerrar();
+    }
 
     function existeCorreo()
     {
@@ -250,6 +256,51 @@ class Cliente extends Persona
         $this->apellido = $resultado[2];
         $this->correo = $resultado[3];
         $this->clave = $resultado[4];
+    }
+    
+    function actualizar()
+    {
+        $this->conexion->abrir();
+        $this->conexion->ejecutar($this->clienteDAO->actualizar());
+        $this->conexion->cerrar();
+    }
+    
+    public function consultarmodal()
+    {
+        $this->conexion->abrir();
+        $this->conexion->ejecutar($this->clienteDAO->consultarmodal());
+        $resultado = $this->conexion->extraer();
+        $this->id = $resultado[0];
+        $this->nombre = $resultado[1];
+        $this->apellido = $resultado[2];
+        $this->correo = $resultado[3];
+        $this->foto = $resultado[4];
+        $this->telefono = $resultado[5];
+        $this->estado = $resultado[6];
+        
+    }
+    
+    function fotoExiste()
+    {
+        $this->conexion->abrir();
+        
+        $this->conexion->ejecutar($this->clienteDAO->fotoExiste());
+        if ($this->conexion->extraer()[0] === "" || !($this->conexion->extraer()[0])) {
+            $this->conexion->cerrar();
+            return 0;
+        } else {
+            $this->conexion->ejecutar($this->clienteDAO->fotoExiste());
+            $resultado = $this->conexion->extraer()[0];
+            $this->conexion->cerrar();
+            return $resultado;
+        }
+    }
+    
+    function actualizarFoto()
+    {
+        $this->conexion->abrir();
+        $this->conexion->ejecutar($this->clienteDAO->actualizarFoto());
+        $this->conexion->cerrar();
     }
 
     function filtroCliente($filtro) {

@@ -40,12 +40,52 @@ class ClienteDAO extends Persona
                 WHERE correo LIKE '" . $this->correo . "'
                 OR id = " . $this->id;
     }
+    
+    public function consultarmodal()
+    {
+        return "SELECT id,nombre,apellido,correo,foto,telefono,estado
+                FROM cliente
+                WHERE id = " . $this->id;
+    }
+    
+    function actualizar()
+    {
+        return "update cliente set
+                nombre = '" . $this->nombre . "',
+                apellido='" . $this->apellido . "',
+                correo ='" . $this->correo . "',
+                telefono='" . $this->telefono . "'
+                where id=" . $this->id;
+    }
+    
+    function fotoExiste()
+    {
+        return "SELECT foto
+                FROM cliente
+                WHERE id = " . $this->id;
+    }
+    
+    function actualizarFoto()
+    {
+        return "UPDATE cliente
+                SET foto = '" . $this->foto . "'
+                WHERE id = " . $this->id;
+    }
 
     public function filtroCliente($filtro)
     {
         return "SELECT id, nombre, apellido, correo, foto, telefono, observaciones, estado 
 				FROM cliente 
 				WHERE nombre LIKE '%" . $filtro . "%' OR apellido LIKE '%" . $filtro . "%' OR CONCAT(nombre, ' ', apellido) LIKE '%" . $filtro . "%';";
+    }
+    
+    
+    function actualizarEstado(){
+        $est = ($this->estado==1)?"0":"1";
+        return "UPDATE cliente
+                SET estado = " . $est .
+                " WHERE id = " . $this->id;
+        
     }
 
 
