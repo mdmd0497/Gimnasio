@@ -153,7 +153,7 @@ table{
 #nav{
     margin-top: 50px;
     border-radius: 20px;
-    background: #ffcd40 !important;
+
 }
 
 /* -------------------------------------------------------------*/
@@ -196,4 +196,19 @@ textarea {
 
 .result{
     background: #1a252f;
+}
+
+.w-75 {
+    width: 95% !important;
+}
+
+.servicios{
+    color: #7432e2;
+}
+
+.menu{
+    color: #1a252f;
+}
+.menu:hover{
+    color: #f53f40;
 }

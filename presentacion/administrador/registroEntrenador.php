@@ -85,7 +85,7 @@ if (isset($_POST["registrar_entrenador"])) {
                                    placeholder="telefono" required="required"
                                    value="<?php echo $telefono; ?>">
                         </div>
-  
+
                         <div class="form-group">
                             <button type="submit" name="registrar_enfermero" class="btn btn-primary">Registrar</button>
                             <a class="btn btn-secondary" href="index.php" style="float: right">Volver</a>

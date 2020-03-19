@@ -32,7 +32,7 @@ class ClienteDAO extends Persona
                 FROM cliente
                 WHERE correo = '" . $this->correo . "'";
     }
-    
+
     public function consultar()
     {
         return "SELECT *
@@ -40,6 +40,15 @@ class ClienteDAO extends Persona
                 WHERE correo LIKE '" . $this->correo . "'
                 OR id = " . $this->id;
     }
-    
+
+    public function filtroCliente($filtro)
+    {
+        return "SELECT id, nombre, apellido, correo, foto, telefono, observaciones, estado 
+				FROM cliente 
+				WHERE nombre LIKE '%" . $filtro . "%' OR apellido LIKE '%" . $filtro . "%' OR CONCAT(nombre, ' ', apellido) LIKE '%" . $filtro . "%';";
+    }
+
+
 }
+
 ?>

@@ -20,46 +20,46 @@ $administrador->consultar();
 
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="menu nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Consultar
                         </a>
                         <div class="dropdown-menu dropdown-menu-right rounded shadow menu-animate slideIn" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">
+                            <a class="menu dropdown-item" href="index.php?pid=<?php echo base64_encode("presentacion/administrador/consultarcliente.php"); ?>">
                                 Clientes
                             </a>
-                            <a class="dropdown-item" href="#">
+                            <a class="menu dropdown-item" href="#">
                                 Entrenadores
                             </a>
-                            <a class="dropdown-item" href="#">
+                            <a class="menu dropdown-item" href="#">
                                  Enfermero
                             </a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="menu nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           Registrar
                         </a>
-                        	<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          			<a class="dropdown-item" href="index.php?pid=<?php echo base64_encode("presentacion/administrador/registroEntrenador.php")?>&action=regEnf"> registro Entrenador</a>
-                          			<a class="dropdown-item" href="index.php?pid=<?php echo base64_encode("presentacion/administrador/registroEnfermero.php")?>&action=regEnf">
+                        	<div class="menu dropdown-menu" aria-labelledby="navbarDropdown">
+                          			<a class="menu dropdown-item" href="index.php?pid=<?php echo base64_encode("presentacion/administrador/registroEntrenador.php")?>&action=regEnf"> registro Entrenador</a>
+                          			<a class="menu dropdown-item" href="index.php?pid=<?php echo base64_encode("presentacion/administrador/registroEnfermero.php")?>&action=regEnf">
                                 Registro Enfermero
                             </a>
                         		</div>
                       </li>
                     <ul class="social-list list-inline mt-3 mt-lg-0 mb-lg-0 d-flex ml-lg-5 mr-lg-5">
                         <li class="list-inline-item">
-                            <a id="tool" data-toggle="tooltip" data-placement="bottom" title="Github" href="https://github.com/oscarce10" target="_blank">
+                            <a class="menu" id="tool" data-toggle="tooltip" data-placement="bottom" title="Github" href="https://github.com/oscarce10" target="_blank">
                                 <i class="fab fa-github"></i>
                             </a>
                         </li>
                         <li class="list-inline-item">
-                            <a id="tool" data-toggle="tooltip" data-placement="bottom" title="GitLab" href="https://gitlab.com/oscarce10" target="_blank">
+                            <a class="menu" id="tool" data-toggle="tooltip" data-placement="bottom" title="GitLab" href="https://gitlab.com/oscarce10" target="_blank">
                                 <i class="fab fa-gitlab"></i>
                             </a>
                         </li>
                     </ul>
 
-                    <ul class="navbar-nav ml-lg-auto">
+                    <ul class="menu navbar-nav ml-lg-auto">
                         <li class="nav-item mr-lg-4">
                             <span class="nav-link">
                                 <?php echo "Administrador: " . $administrador->getNombre() . " " . $administrador->getApellido();?>
@@ -68,8 +68,8 @@ $administrador->consultar();
 
 
 
-                        <li class="nav-item mr-lg-4">
-                            <a class="nav-link" href="index.php?pid=<?php echo  base64_encode("presentacion/salir.php");?>&logout=true">
+                        <li class="menu nav-item mr-lg-4">
+                            <a class=" nav-link" href="index.php?pid=<?php echo  base64_encode("presentacion/salir.php");?>&logout=true">
                                 Salir
                             </a>
                         </li>

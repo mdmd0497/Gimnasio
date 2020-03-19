@@ -23,9 +23,3 @@ $administrador->consultar();
         </div>
     </div>
 </div>
-
-<script>
-    $("#tool").onclick(function () {
-        $("#tool").tooltip('hide');
-    });
-</script>
