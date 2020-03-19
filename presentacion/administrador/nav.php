@@ -6,7 +6,7 @@ $administrador->consultar();
         <div class="container position-relative">
             <nav id="nav" class="navbar navbar-expand-lg" >
                 <div class="site-logo">
-                    <a id="tool" class="navbar-brand" href="#" data-toggle="tooltip" data-placement="bottom" title="Sistema de Gestion de Gimnasios">
+                    <a id="tool" class="navbar-brand" href="index.php" data-toggle="tooltip" data-placement="bottom" title="Sistema de Gestion de Gimnasios">
                         <i class="fas fa-dumbbell"></i>
                         <span class="logo-text">
                             SGG
@@ -30,8 +30,8 @@ $administrador->consultar();
                             <a class="dropdown-item" href="#">
                                 Entrenadores
                             </a>
-                            <a class="dropdown-item" href="index.php?pid=<?php echo base64_encode("presentacion/administrador/registroEnfermero.php")?>">
-                                registro enfermero
+                            <a class="dropdown-item" href="index.php?pid=<?php echo base64_encode("presentacion/administrador/registroEnfermero.php")?>&action=regEnf">
+                                Registro Enfermero
                             </a>
                         </div>
                     </li>

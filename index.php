@@ -42,7 +42,7 @@ require_once 'persistencia/EnfermeroDAO.php';
 
 <?php
 /* Si la sesion esta iniciada no va al inicio de sesion sino al inicio del usuario */
-if (isset($_SESSION["id"]) && isset($_SESSION["tipo"]) && ! isset($_GET["logout"])) {
+if (!isset($_GET["pid"]) && isset($_SESSION["id"]) && isset($_SESSION["tipo"]) && ! isset($_GET["logout"])) {
 
     include "presentacion/" . $_SESSION["tipo"] . "/inicio.php";
     echo $_SESSION["id"];
@@ -50,7 +50,7 @@ if (isset($_SESSION["id"]) && isset($_SESSION["tipo"]) && ! isset($_GET["logout"
     if ($_GET["pid"] == null) {
         header("Location: index.php");
         exit();
-    } else if (isset($_SESSION["id"]) || isset($_GET["action"])) {
+    } else if (isset($_SESSION["id"]) && $_SESSION["id"] != ""|| isset($_GET["action"])) {
         $pid = base64_decode($_GET["pid"]);
         include $pid;
     } else {

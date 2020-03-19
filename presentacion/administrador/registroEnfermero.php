@@ -1,6 +1,4 @@
 <?php
-    
-require_once 'logica/Enfermero.php';
 $error = - 1;
 $nombre = "";
 $apellido = "";
@@ -17,7 +15,7 @@ if (isset($_POST["registrar_enfermero"])) {
     $enfermero = new Enfermero("", "", "", $correo);
     if (!$enfermero->existeCorreo()) {
         $password = $_POST["clave"];
-        $enfermero = new Enfermero("", $nombre, $apellido, $correo, password_hash($password, PASSWORD_BCRYPT), "", $telefono, "");
+        $enfermero = new Enfermero("", $nombre, $apellido, $correo, password_hash($password, PASSWORD_BCRYPT), "", $telefono);
         $enfermero->registrar();
         $error = 0;
     } else {
@@ -81,11 +79,3 @@ if (isset($_POST["registrar_enfermero"])) {
 	</div>
 
 </div>
-
-<script type="text/javascript">
-    window.onEditorLoaded = function() {
-        tinymce.init({selector: "#editor"});
-    }
-</script>
-<script type="text/javascript"
-	src="https://cloud.n1ed.com/cdn/PDE4DFLT/n1tinymce.js"></script>
