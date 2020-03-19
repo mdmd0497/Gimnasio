@@ -6,7 +6,7 @@ if(!isset($_SESSION["id"])){
 $administrador = new Administrador($_SESSION["id"]);
 $administrador->consultar();
 ?>
-<title>Registro Enfermero</title>
+<title>Registro Entrenador</title>
 
 <header>
     <?php
@@ -18,20 +18,20 @@ $error = - 1;
 $nombre = "";
 $apellido = "";
 $correo = "";
-$clave = "";
 $telefono = "";
-if (isset($_POST["registrar_enfermero"])) {
+if (isset($_POST["registrar_entrenador"])) {
     
     $nombre = $_POST["nombre"];
     $apellido = $_POST["apellido"];
     $correo = $_POST["correo"];
     $telefono = $_POST["telefono"];
     
-    $enfermero = new Enfermero("", "", "", $correo);
-    if (!$enfermero->existeCorreo()) {
+    $entrenador = new Entrenador("","", "", $correo);
+    
+    if (!$entrenador->existeCorreo()) {
         $password = $_POST["clave"];
-        $enfermero = new Enfermero("", $nombre, $apellido, $correo, password_hash($password, PASSWORD_BCRYPT), "", $telefono);
-        $enfermero->registrar();
+        $entrenador = new Entrenador("", $nombre, $apellido, $correo, password_hash($password, PASSWORD_BCRYPT), "", $telefono,"");
+        $entrenador->registrar();
         $error = 0;
     } else {
         $error = 1;
@@ -46,20 +46,20 @@ if (isset($_POST["registrar_enfermero"])) {
 		<div class="col-3"></div>
 		<div class="col-6">
 			<div class="card">
-				<div class="card-header bg-primary text-white">Registro Enfermero</div>
+				<div class="card-header bg-primary text-white">Registro Entrenador</div>
 				<div class="card-body">
                     <?php
                     if ($error == 0) {
                         ?>
                         <div class="alert alert-success" role="alert">
-						enfermero registrado exitosamente.</div>
+						entrenador registrado exitosamente.</div>
                     <?php } else if ($error == 1) { ?>
                         <div class="alert alert-danger" role="alert">
                             El correo <?php echo $correo; ?> ya existe
                         </div>
                     <?php } ?>
                     <form
-						action="<?php echo "index.php?pid=" . base64_encode("presentacion/administrador/registroEnfermero.php") . "&action=signup" ?>"
+						action="<?php echo "index.php?pid=" . base64_encode("presentacion/administrador/registroEntrenador.php") . "&action=signup" ?>"
 						method="post">
 						<div class="form-group">
 							<input type="text" name="nombre" class="form-control"
@@ -85,7 +85,7 @@ if (isset($_POST["registrar_enfermero"])) {
 								placeholder="telefono" required="required"
 								value="<?php echo $telefono; ?>">
 						</div>
-						<button type="submit" name="registrar_enfermero" class="btn btn-primary">Registrar</button>
+						<button type="submit" name="registrar_entrenador" class="btn btn-primary">Registrar</button>
 					</form>
 				</div>
 			</div>
