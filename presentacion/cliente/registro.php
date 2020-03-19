@@ -18,25 +18,21 @@ if (isset($_POST["registrar"])) {
         $password = $_POST["clave"];
         $cliente = new Cliente("", $nombre, $apellido, $correo, password_hash($password, PASSWORD_BCRYPT), "", $telefono, "");
         $cliente->registrar();
-        $error = 0;
+        header("Location: index.php?action=signup&result=success");
     } else {
         $error = 1;
         $correo = $_POST["correo"];
     }
 }
 ?>
-<div class="container-fluid" id="reg-cliente" style="margin-top: 20px;">
+<div class="container-fluid text-center" id="reg-cliente">
 	<div class="row justify-content-center">
-		<div class="col col-md-auto col-lg-6">
+		<div class="col col-md-auto col-lg-8">
 			<div class="card">
 				<div class="card-header bg-primary text-white">Registro</div>
 				<div class="card-body">
                     <?php
-                    if ($error == 0) {
-                        ?>
-                        <div class="alert alert-success" role="alert">
-						Cliente registrado exitosamente.</div>
-                    <?php } else if ($error == 1) { ?>
+                    if ($error == 1) { ?>
                         <div class="alert alert-danger" role="alert">
                             El correo <?php echo $correo; ?> ya existe
                         </div>
@@ -68,8 +64,8 @@ if (isset($_POST["registrar"])) {
 								placeholder="telefono" required="required"
 								value="<?php echo $telefono; ?>">
 						</div>
-						<button type="submit" name="registrar" class="btn btn-primary">Registrar</button>
-						<a class="btn btn-primary" href="index.php" role="button">Inicio</a>
+						<button type="submit" name="registrar" class="btn btn-primary" style="float: left">Registrar</button>
+						<a class="btn btn-secondary" href="index.php" role="button" style="float: right">Volver</a>
 					</form>
 				</div>
 			</div>

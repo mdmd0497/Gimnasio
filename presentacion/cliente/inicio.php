@@ -9,10 +9,9 @@ $cliente->consultar();
     include 'navcliente.php';
     ?>
 </header>
-<div class="container">
-	<div class="row">
-		<div class="col-12">
-			<div class="card">
+<div class="container align-items-center">
+
+    <div class="card" id="inicio-admin">
 				<div class="card-header bg-primary text-white">Bienvenido
 					cliente</div>
 				<div class="card-body">

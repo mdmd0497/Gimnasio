@@ -145,7 +145,7 @@ table{
 }
 
 #reg-cliente{
-    margin-top: auto;
+    margin-top: 20%;
 }
 /* ----------------------------------------------------------*/
 
@@ -192,4 +192,8 @@ textarea {
 
 #reg-enfermero{
     margin-top: 70px;
+}
+
+.result{
+    background: #1a252f;
 }

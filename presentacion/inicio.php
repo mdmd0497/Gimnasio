@@ -5,11 +5,18 @@
                   action="index.php?pid=<?php echo base64_encode("presentacion/autenticar.php") ?>&action=login"
                   method="post">
                 <div class="brand text-center">
+                    <?php
+                    if(isset($_GET["result"]) && $_GET["result"] == "success"){ ?>
+                        <div class="alert alert-success result align-items-center" role="alert">
+                            Cliente registrado exitosamente.</div>
+                    <?php }
+                    ?>
                     <div class="mb-4 logo">
                         <a
                                 href="index.php?pid=<?php echo base64_encode("presentacion/inicio.php") ?>"
                                 title="Login"><i class="fas fa-dumbbell fa-7x"></i></a>
                     </div>
+
 
                     <h1 class="h3 mb-3 font-weight-normal">Sistema de Gestion Gimnasios</h1>
                     <?php if (isset($_GET['login'])) { ?>
