@@ -30,17 +30,22 @@ $administrador->consultar();
                             <a class="dropdown-item" href="#">
                                 Entrenadores
                             </a>
-                            <a class="dropdown-item" href="index.php?pid=<?php echo base64_encode("presentacion/administrador/registroEnfermero.php")?>&action=regEnf">
-                                Registro Enfermero
+                            <a class="dropdown-item" href="#">
+                                 Enfermero
                             </a>
                         </div>
                     </li>
-                    <li class="nav-item mr-lg-4">
-                        <a class="nav-link" href="#">
-                            Opcion
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Registrar
                         </a>
-                    </li>
-
+                        	<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          			<a class="dropdown-item" href="index.php?pid=<?php echo base64_encode("presentacion/administrador/registroEntrenador.php")?>&action=regEnf"> registro Entrenador</a>
+                          			<a class="dropdown-item" href="index.php?pid=<?php echo base64_encode("presentacion/administrador/registroEnfermero.php")?>&action=regEnf">
+                                Registro Enfermero
+                            </a>
+                        		</div>
+                      </li>
                     <ul class="social-list list-inline mt-3 mt-lg-0 mb-lg-0 d-flex ml-lg-5 mr-lg-5">
                         <li class="list-inline-item">
                             <a id="tool" data-toggle="tooltip" data-placement="bottom" title="Github" href="https://github.com/oscarce10" target="_blank">
