@@ -1,4 +1,19 @@
 <?php
+if(!isset($_SESSION["id"])){
+    header("Location: index.php");
+    exit();
+}
+$administrador = new Administrador($_SESSION["id"]);
+$administrador->consultar();
+?>
+<title>Registro Enfermero</title>
+
+<header>
+    <?php
+    include 'nav.php';
+    ?>
+</header>
+<?php
 $error = - 1;
 $nombre = "";
 $apellido = "";

@@ -1,4 +1,5 @@
 <?php
+
 $administrador = new Administrador($_SESSION["id"]);
 $administrador->consultar();
 ?>
