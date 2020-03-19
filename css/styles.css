@@ -3,21 +3,11 @@
     font-family: 'Lexend Deca', sans-serif;
 }
 
-
-
 html,
 body {
     height: 100%;
     background: linear-gradient(to right, #08AEEA, #2AF598);
-}
-
-#page-container {
-    position: relative;
     min-height: 100vh;
-}
-
-#content-wrap {
-    padding-bottom: 2.5rem;    /* Footer height */
 }
 
 
@@ -28,44 +18,19 @@ a:hover{
 
 /* ---------------- LOGIN ------------------------------ */
 
-body.text-center {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-align: center;
-    align-items: center;
-    padding-top: 40px;
-    padding-bottom: 40px;
-    background-color: #f5f5f5;
-    font-family: 'Lexend Deca',
-        sans-serif;
-}
-
 h1 {
     font-family: 'Lexend Deca', sans-serif;
 }
 
 .form-signin {
-    width: 100%;
-    max-width: 330px;
+
+    width: 90%;
+    max-width: 500px;
     padding: 15px;
     margin: auto;
 }
 
-.form-signin .checkbox {
-    font-weight: 400;
-}
 
-.form-signin .form-control {
-    position: relative;
-    box-sizing: border-box;
-    height: auto;
-    padding: 10px;
-    font-size: 16px;
-}
-
-.form-signin .form-control:focus {
-    z-index: 2;
-}
 
 .form-signin input[type="email"] {
     margin-bottom: -1px;
@@ -103,22 +68,8 @@ h1 {
     color: #f5f5f5;
 }
 
-.recordar {
-    clear: both;
-}
 
-.formato {
-    background: #ffffff79;
-    padding: 20px;
-    border: 1px solid gray;
 
-}
-
-.formato p {
-    font-weight: 600;
-    font-size: 14px;
-    text-align: initial;
-}
 
 .btn-password {
     margin-top: 20px;
@@ -148,22 +99,41 @@ h1 {
     background: #FFCD48;
 }
 
-@media(max-width: 400px) {
-    .form-signin {
-        margin-top: -45px;
-    }
+/* -------------------------------------- */
 
-    .logo {
-        font-size: 10px;
-    }
+/* ---------------- MEDIA ------------------- */
 
-    .registro-title {
-        font-size: 18px;
-        margin-top: -10px;
-    }
 
+/*Extra small devices (portrait phones, less than 576px)*/
+@media (max-width: 575.98px) {
+    .form-signin{
+        margin-top: 0px;
+    }
+}
+
+/*Small devices (landscape phones, less than 768px)*/
+@media (max-width: 499px) {
+    .form-signin{
+        margin-top: 10%;
+    }
+    .footer{
+        visibility: hidden;
+    }
+}
+
+/*Medium devices (tablets, less than 992px)*/
+@media (min-width: 991.98px) {
 
 }
+
+/*Large devices (desktops, less than 1200px)*/
+@media (min-width: 1199.98px) {
+    .form-signin{
+        margin-top: 10%;
+    }
+}
+
+/* --------------------------------------------- */
 
 /* ------------------------- Registros ----------------------*/
 .card{
@@ -173,27 +143,32 @@ h1 {
 table{
 	text-align: center;
 }
+
+#reg-cliente{
+    margin-top: auto;
+}
 /* ----------------------------------------------------------*/
 
 /* -------------------------- Nav ----------------------------*/
 #nav{
     margin-top: 50px;
-    margin-bottom: 70px;
     border-radius: 20px;
-    background: #ffcd40;
+    background: #ffcd40 !important;
 }
 
 /* -------------------------------------------------------------*/
 
 /* ---------------------------- Footer -------------------------*/
 .footer {
-    position: fixed;
-    bottom: 0px;
+
     width: 100%;
     /* Set the fixed height of the footer here */
     height: 60px;
     line-height: 60px; /* Vertically center the text there */
     background-color: #ffd387;
+    position: fixed;
+    bottom: 0;
+
 }
 
 #lic{
@@ -205,4 +180,16 @@ textarea {
     width: 300px;
     height: 70px;
 }
-/* ---------------------
+/* ------------------------------------------------------------- */
+
+#inicio-admin{
+    margin-top: 70px;
+}
+
+.text-muted{
+    font-size: 16px;
+}
+
+#reg-enfermero{
+    margin-top: 70px;
+}

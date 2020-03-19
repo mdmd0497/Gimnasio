@@ -10,20 +10,18 @@ $administrador->consultar();
     include 'nav.php';
     ?>
 </header>
-<div class="container">
-	<div class="row">
-		<div class="col-12">
-			<div class="card">
-				<div class="card-header bg-primary text-white">Bienvenido
-					Administrador</div>
-				<div class="card-body">
-					<p>Administrador: <?php echo $administrador -> getNombre() . " " . $administrador -> getApellido() ?></p>
-					<p>Correo: <?php echo $administrador -> getCorreo(); ?></p>
-					<p>Hoy es: <?php echo date("d-M-Y"); ?></p>
-				</div>
-			</div>
-		</div>
-	</div>
+<div class="container align-items-center">
+
+    <div class="card" id="inicio-admin">
+        <div class="card-header bg-primary text-white">Bienvenido
+            Administrador
+        </div>
+        <div class="card-body">
+            <p>Administrador: <?php echo $administrador->getNombre() . " " . $administrador->getApellido() ?></p>
+            <p>Correo: <?php echo $administrador->getCorreo(); ?></p>
+            <p>Hoy es: <?php echo date("d-M-Y"); ?></p>
+        </div>
+    </div>
 </div>
 
 <script>

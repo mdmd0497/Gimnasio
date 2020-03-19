@@ -20,7 +20,6 @@ class Administrador extends Persona
     public function registro()
     {
         $this->conexion->abrir();
-        echo $this->administradorDAO->registro();
         $this->conexion->ejecutar($this->administradorDAO->registro());
         $this->conexion->cerrar();
     }

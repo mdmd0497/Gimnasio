@@ -25,10 +25,9 @@ if (isset($_POST["registrar"])) {
     }
 }
 ?>
-<div class="container-fluid" style="margin-top: 20px;">
-	<div class="row">
-		<div class="col-3"></div>
-		<div class="col-6">
+<div class="container-fluid" id="reg-cliente" style="margin-top: 20px;">
+	<div class="row justify-content-center">
+		<div class="col col-md-auto col-lg-6">
 			<div class="card">
 				<div class="card-header bg-primary text-white">Registro</div>
 				<div class="card-body">

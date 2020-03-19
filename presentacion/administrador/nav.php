@@ -3,8 +3,8 @@ $administrador = new Administrador($_SESSION["id"]);
 $administrador->consultar();
 ?>
 <div class="nav">
-        <div class="container position-relative">
-            <nav id="nav" class="navbar navbar-expand-lg" >
+        <div class="container-fluid">
+            <nav id="nav" class="navbar navbar-expand-lg navbar-light bg-light" >
                 <div class="site-logo">
                     <a id="tool" class="navbar-brand" href="index.php" data-toggle="tooltip" data-placement="bottom" title="Sistema de Gestion de Gimnasios">
                         <i class="fas fa-dumbbell"></i>
@@ -13,8 +13,8 @@ $administrador->consultar();
                         </span>
                     </a>
                 </div>
-                <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon" style="color: #1a252f"></span>
+                <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation" style="color: #1a252f">
+                        <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse" id="navigation">
 
