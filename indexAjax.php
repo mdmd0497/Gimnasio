@@ -7,6 +7,7 @@ require 'logica/Cliente.php';
 require_once 'conexion/Conexion.php';
 require_once 'persistencia/ClienteDAO.php';
 require 'logica/Entrenador.php';
+require_once 'persistencia/EntrenadorDAO.php';
 require 'logica/Enfermero.php';
 require_once 'persistencia/EnfermeroDAO.php';
 $pid = base64_decode($_GET["pid"]);

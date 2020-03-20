@@ -52,7 +52,7 @@ if (isset($_POST["actualizar"])) {
                             </div>
                         <?php }
                     } ?>
-                    <form action=<?php echo "index.php?pid=" . base64_encode("presentacion/administrador/actualizarEnfermero.php") . "&idEnfermero=" . $_GET["idEnfermero"] ?> method="post">
+                    <form action=<?php echo "index.php?pid=" . base64_encode("presentacion/administrador/actualizarEntrenador.php") . "&idEntrenador=" . $_GET["idEntrenador"] ?> method="post">
                         <div class="form-group">
                             <input type="text" name="nombre" class="form-control" placeholder="Nombre"
                                    required="required" value="<?php echo $entrenador->getNombre(); ?>">
