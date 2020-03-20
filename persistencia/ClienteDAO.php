@@ -79,6 +79,13 @@ class ClienteDAO extends Persona
 				WHERE nombre LIKE '%" . $filtro . "%' OR apellido LIKE '%" . $filtro . "%' OR CONCAT(nombre, ' ', apellido) LIKE '%" . $filtro . "%';";
     }
     
+    function consultarTodos()
+    {
+        return "SELECT id, nombre, apellido, correo, foto, telefono, estado
+                FROM cliente
+                ORDER BY id";
+    }
+    
     
     function actualizarEstado(){
         $est = ($this->estado==1)?"0":"1";

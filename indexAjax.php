@@ -6,6 +6,9 @@ require 'logica/Administrador.php';
 require 'logica/Cliente.php';
 require_once 'conexion/Conexion.php';
 require_once 'persistencia/ClienteDAO.php';
+require 'logica/Entrenador.php';
+require 'logica/Enfermero.php';
+require_once 'persistencia/EnfermeroDAO.php';
 $pid = base64_decode($_GET["pid"]);
 if ($_SESSION['id'] != "") {
     include $pid;

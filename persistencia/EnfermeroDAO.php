@@ -42,6 +42,44 @@ class EnfermeroDAO extends Persona
                 WHERE correo LIKE '" . $this->correo . "'
                 OR id = " . $this->id;
     }
+    
+    public function consultarmodal()
+    {
+        return "SELECT id,nombre,apellido,correo,foto,telefono
+                FROM enfermero
+                WHERE id = " . $this->id;
+    }
+    
+    function fotoExiste()
+    {
+        return "SELECT foto
+                FROM enfermero
+                WHERE id = " . $this->id;
+    }
+    
+    function actualizar()
+    {
+        return "update enfermero set
+                nombre = '" . $this->nombre . "',
+                apellido='" . $this->apellido . "',
+                correo ='" . $this->correo . "',
+                telefono='" . $this->telefono . "'
+                where id=" . $this->id;
+    }
+    
+    public function filtroEnfermero($filtro)
+    {
+        return "SELECT id, nombre, apellido, correo, foto, telefono
+				FROM enfermero
+				WHERE nombre LIKE '%" . $filtro . "%' OR apellido LIKE '%" . $filtro . "%' OR CONCAT(nombre, ' ', apellido) LIKE '%" . $filtro . "%';";
+    }
+    
+    function actualizarFoto()
+    {
+        return "UPDATE enfermero
+                SET foto = '" . $this->foto . "'
+                WHERE id = " . $this->id;
+    }
 }
 
 ?>

@@ -27,10 +27,10 @@ $administrador->consultar();
                             <a class="menu dropdown-item" href="index.php?pid=<?php echo base64_encode("presentacion/administrador/consultarcliente.php"); ?>">
                                 Clientes
                             </a>
-                            <a class="menu dropdown-item" href="#">
+                            <a class="menu dropdown-item" href="index.php?pid=<?php echo base64_encode("presentacion/administrador/consultarEntrenador.php"); ?>">
                                 Entrenadores
                             </a>
-                            <a class="menu dropdown-item" href="#">
+                            <a class="menu dropdown-item"href="index.php?pid=<?php echo base64_encode("presentacion/administrador/consultarEnfermero.php"); ?>">
                                  Enfermero
                             </a>
                         </div>

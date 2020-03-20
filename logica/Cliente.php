@@ -231,6 +231,20 @@ class Cliente extends Persona
         $this->conexion->ejecutar($this->clienteDAO->actualizarEstado());
         $this -> conexion -> cerrar();
     }
+    
+    function consultarTodos()
+    {
+        $this->conexion->abrir();
+        $this->conexion->ejecutar($this->clienteDAO->consultarTodos());
+        $resultados = array();
+        $i = 0;
+        while (($registro = $this->conexion->extraer()) != null) {
+            $resultados[$i] = new Cliente($registro[0], $registro[1], $registro[2], $registro[3], "", $registro[4], $registro[5], $registro[6], $registro[7]);
+            $i++;
+        }
+        $this->conexion->cerrar();
+        return $resultados;
+    }
 
     function existeCorreo()
     {
