@@ -73,7 +73,7 @@ if (isset($_POST["filtro"])) {
 
     <?php foreach ($clientes as $p) { ?>
     $("#hab<?php echo $p->getId();?>").click(function () {
-        <?php echo "var ruta = \"indexAjax.php?pid=" . base64_encode("presentacion/cliente/editarEstadoClienteAjax.php") . "&idCliente=" . $p->getId() . "&estado=" . $p->getEstado() . "\";"; ?>
+        <?php echo "var ruta = \"indexAjax.php?pid=" . base64_encode("presentacion/administrador/editarEstadoClienteAjax.php") . "&idCliente=" . $p->getId() . "&estado=" . $p->getEstado() . "\";"; ?>
         // Esto esconde el Tooltip del candado previamente seleccionado
         $("#hab<?php echo $p->getId();?>").tooltip('hide');
         // Esto carga toda la capa de la fila de la tabla del paciente a actualizar vease arriba que la etiqueta <tr> contiene el id pac#

@@ -32,7 +32,7 @@ $('[data-toggle="tooltip"]').tooltip();
 // Se agrega el script de AJAX para el nuevo candado agregado por si el administrador desea actualizar nuevamente el estado.
 // Esto hace que se repita todo el proceso nuevamente solo con esa capa
 $("#hab<?php echo $p -> getId();?>").click(function(){
-	<?php echo "var ruta = \"indexAjax.php?pid=" . base64_encode("presentacion/cliente/editarEstadoClienteAjax.php") . "&idCliente=" . $p -> getId() . "&estado=" . $p -> getEstado() . "\";"; ?>
+	<?php echo "var ruta = \"indexAjax.php?pid=" . base64_encode("presentacion/administrador/editarEstadoClienteAjax.php") . "&idCliente=" . $p -> getId() . "&estado=" . $p -> getEstado() . "\";"; ?>
 	$("#hab<?php echo $p -> getId();?>").tooltip('hide');
 	$("#cli<?php echo $p -> getId();?>").load(ruta);
 });
