@@ -55,7 +55,7 @@ if (isset($_POST["filtro"])) {
 					   			<a class='fas fa-camera servicios' href='index.php?pid=" . base64_encode("presentacion/cliente/actualizarFotoCliente.php") . "&idCliente=" . $p->getId() . "' data-toggle='tooltip' data-placement='bottom' title='Actualizar Foto' class='servicios'></a>";
 
                 // Icono de candado a cambiar dependiendo si el paciente esta activo o no
-                echo "<span class='servicios' id='status" . $p->getId() . "'><a style='margin-left: 3px' class='" . (($p->getEstado() == 0) ? "fas fa-lock-open' title='Habilitar cliente' " : "fas fa-lock' title='Inhabilitar cliente'") . "' id='hab" . $p->getId() . "' href='#cli" . $p->getId() . "' data-toggle='tooltip' data-placement='right' </a></span>";
+                echo "<span class='servicios' id='status" . $p->getId() . "'><a style='margin-left: 3px' class='" . (($p->getEstado() == 0) ? "fas fa-lock-open' title='Habilitar cliente' " : "fas fa-lock' title='Inhabilitar cliente'") . "' id='hab" . $p->getId() . "' href='#" . $p->getId() . "' data-toggle='tooltip' data-placement='right' </a></span>";
 
                 echo "</tr>";
             }
