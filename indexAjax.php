@@ -13,5 +13,3 @@ if ($_SESSION['id'] != "") {
     header("Location: index.php");
 }
 ?>
-
-<script src="js/scripts.js"></script>

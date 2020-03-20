@@ -18,7 +18,7 @@ $administrador->consultar();
 
         </div>
         <div class="card-body">
-            <div class="form">
+            <div>
                 <!-- Search form -->
                 <form class="form-inline active-pink-3 active-pink-4">
                     <i class="fas fa-search" aria-hidden="true"></i> <input

@@ -41,7 +41,7 @@ if (isset($_POST["registrar_enfermero"])) {
 
 
 ?>
-<div class="container-fluid" id="reg-enfermero">
+<div class="container-fluid form" id="reg-enfermero">
     <div class="row justify-content-center">
         <div class="col col-md-auto col-lg-9">
             <div class="card">
