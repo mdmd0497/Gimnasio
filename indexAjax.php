@@ -1,3 +1,8 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <script type="text/javascript" src="js/scripts.js"></script>
+</head>
 <?php
 # session variables are not passed individually to each new page, instead they are retrieved from the session we open at the beginning of each page (session_start()).
 session_start();

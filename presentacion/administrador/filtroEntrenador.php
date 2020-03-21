@@ -49,7 +49,6 @@ if (isset($_POST["filtro"])) {
                 echo "<td>" . "<a class='servicios' href='indexAjax.php?pid=" . base64_encode("modalEntrenador.php"). "&idEntrenador=" . $p->getId() . "' data-toggle='modal' data-target='#modalEntrenador' ><span  class='fas fa-eye' data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"Ver detalles\" ></span> </a>
 								<a class='fas fa-pencil-ruler servicios ' href='index.php?pid=" . base64_encode("presentacion/administrador/actualizarEntrenador.php") . "&idEntrenador=" . $p->getId() . "' data-toggle='tooltip' data-placement='top' title='Actualizar' class='servicios'> </a>
                 
-                                <a class='fas fa-user-edit servicios ' href='index.php?pid=" . base64_encode("presentacion/administrador/asignarClientes.php") . "&idEntrenador=" . $p->getId() . "' data-toggle='tooltip' data-placement='top' title='Asignar Cliente' class='servicios'> </a>
 										
 					   			<a class='fas fa-camera servicios' href='index.php?pid=" . base64_encode("presentacion/administrador/actualizarFotoEntrenador.php") . "&idEntrenador=" . $p->getId() . "' data-toggle='tooltip' data-placement='bottom' title='Actualizar Foto' class='servicios'></a>";
                                

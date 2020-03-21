@@ -23,7 +23,7 @@ if (isset($_FILES['foto'])) {
         $hora = round(microtime(true) * 1000);
         $nombreFoto = $hora . "." . $ext_archivo;
         move_uploaded_file($_FILES['foto']['tmp_name'], "img/" . $nombreFoto);
-        if ($enfermero->fotoExiste() != 0 && file_exists("img/" . $enfermero->getFoto())) {
+        if ($enfermero->getFoto() != null || $enfermero->getFoto() != "" && file_exists("img/" . $enfermero->getFoto())) {
             unlink("img/" . $enfermero->getFoto());
         }
         $enfermero = new Enfermero($_GET["idEnfermero"], "", "", "", "", $nombreFoto, "");

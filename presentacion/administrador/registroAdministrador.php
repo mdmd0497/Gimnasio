@@ -1,6 +1,6 @@
 <?php
-$password = "3";
-$administrador = new Administrador("", "Michael", "Moreno", "3@a.com", password_hash($password, PASSWORD_BCRYPT));
+$password = 1;
+$administrador = new Administrador("", "Oscar", "Cely", "1@a.com", password_hash($password, PASSWORD_BCRYPT));
 
 $administrador->registro();
 

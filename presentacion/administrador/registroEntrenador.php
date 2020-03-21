@@ -41,7 +41,7 @@ if (isset($_POST["registrar_entrenador"])) {
 
 
 ?>
-<div class="container-fluid" id="reg-enfermero">
+<div class="container-fluid form" id="reg-enfermero">
     <div class="row justify-content-center">
         <div class="col col-md-auto col-lg-9">
             <div class="card">
@@ -87,7 +87,7 @@ if (isset($_POST["registrar_entrenador"])) {
                         </div>
 
                         <div class="form-group">
-                            <button type="submit" name="registrar_enfermero" class="btn btn-primary">Registrar</button>
+                            <button type="submit" name="registrar_entrenador" class="btn btn-primary">Registrar</button>
                             <a class="btn btn-secondary" href="index.php" style="float: right">Volver</a>
                         </div>
                     </form>

@@ -23,7 +23,7 @@ if (isset($_FILES['foto'])) {
         $hora = round(microtime(true) * 1000);
         $nombreFoto = $hora . "." . $ext_archivo;
         move_uploaded_file($_FILES['foto']['tmp_name'], "img/" . $nombreFoto);
-        if ($cliente->fotoExiste() != 0 && file_exists("img/" . $cliente->getFoto())) {
+        if ($cliente->getFoto() != null || $cliente->getFoto() != ""  && file_exists("img/" . $cliente->getFoto())) {
             unlink("img/" . $cliente->getFoto());
         }
         $cliente = new Cliente($_GET["idCliente"], "", "", "", "", $nombreFoto, "", "", "");

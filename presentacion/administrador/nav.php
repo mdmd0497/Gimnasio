@@ -40,10 +40,9 @@ $administrador->consultar();
                           Registrar
                         </a>
                         	<div class="menu dropdown-menu" aria-labelledby="navbarDropdown">
-                          			<a class="menu dropdown-item" href="index.php?pid=<?php echo base64_encode("presentacion/administrador/registroEntrenador.php")?>&action=regEnf"> registro Entrenador</a>
-                          			<a class="menu dropdown-item" href="index.php?pid=<?php echo base64_encode("presentacion/administrador/registroEnfermero.php")?>&action=regEnf">
-                                Registro Enfermero
-                            </a>
+                                <a class="menu dropdown-item" href="index.php?pid=<?php echo base64_encode("presentacion/administrador/registroCliente.php")?>&action=regCliente"> registrar Cliente</a>
+                          			<a class="menu dropdown-item" href="index.php?pid=<?php echo base64_encode("presentacion/administrador/registroEntrenador.php")?>&action=regEnf"> registrar Entrenador</a>
+                          			<a class="menu dropdown-item" href="index.php?pid=<?php echo base64_encode("presentacion/administrador/registroEnfermero.php")?>&action=regEnfero"> Registrar Enfermero </a>
                         		</div>
                       </li>
                     <ul class="social-list list-inline mt-3 mt-lg-0 mb-lg-0 d-flex ml-lg-5 mr-lg-5">

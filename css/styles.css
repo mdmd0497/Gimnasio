@@ -123,13 +123,15 @@ h1 {
 
 /*Medium devices (tablets, less than 992px)*/
 @media (min-width: 991.98px) {
-
+    .form-signin{
+        margin-top: 0%;
+    }
 }
 
 /*Large devices (desktops, less than 1200px)*/
 @media (min-width: 1199.98px) {
     .form-signin{
-        margin-top: 10%;
+        margin-top: 5%;
     }
 }
 
