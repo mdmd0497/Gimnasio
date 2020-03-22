@@ -4,7 +4,7 @@ if (isset($_POST["filtro"])) {
     $filtro = $_POST ["filtro"];
     $idenfermero = $_GET["idEnfermero"];
     $clientes = $cliente->filtroClienteEnfermero($idenfermero,$filtro);
-
+    
 } else {
     $cliente = $cliente->consultarTodos();
 }

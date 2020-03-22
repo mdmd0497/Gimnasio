@@ -43,6 +43,26 @@ $Cliente->consultarmodal();
                 <th width="20%">Estado</th>
                 <td><?php echo (($Cliente->getEstado()==1)?"<i class='fas fa-check-circle fa-2x text-success'></i>":"<i class='fas fa-times-circle fa-2x   text-danger'></i>"); ?></td>
             </tr>
+            
+            <tr>
+                <th width="20%">entrenador</th>
+                <td><?php echo $Cliente->getEntrenador(); ?></td>
+            </tr>
+            
+            <tr>
+                <th width="20%">enfermero</th>
+                <td><?php echo $Cliente->getEnfermero(); ?></td>
+            </tr>
+            
+            <tr>
+                <th width="20%">genero</th>
+                <td><?php echo $Cliente->getGenero(); ?></td>
+            </tr>
+            
+            <tr>
+                <th width="20%">rh</th>
+                <td><?php echo $Cliente->getRh(); ?></td>
+            </tr>
         </tbody>
     </table>
 </div>

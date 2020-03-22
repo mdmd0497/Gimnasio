@@ -56,9 +56,9 @@ class ClienteDAO extends Persona
     
     public function consultarmodal()
     {
-        return "SELECT id,nombre,apellido,correo,foto,telefono,estado
-                FROM cliente
-                WHERE id = " . $this->id;
+        return "SELECT c.id,c.nombre,c.apellido,c.correo,c.foto,c.telefono,c.estado,e.nombre,en.nombre,g.genero,r.rh
+                FROM cliente as c,entrenador as e,enfermero as en,genero as g,rh as r
+                WHERE c.id = " . $this->id. " AND c.entrenador_id = e.id AND c.enfermero_id = en.id AND c.genero_id = g.id AND c.rh_id = r.id";
     }
     
     function actualizar()

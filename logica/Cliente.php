@@ -22,9 +22,99 @@ class Cliente extends Persona
     private $id_gen;
     
     private $id_rh;
+    
+    private $entrenador;
+    
+    private $enfermero;
+    
+    private $genero;
+    
+    private $rh;
+    
+    
 
     
     
+    /**
+     * @return mixed
+     */
+    public function getEntrenador()
+    {
+        return $this->entrenador;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEnfermero()
+    {
+        return $this->enfermero;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getGenero()
+    {
+        return $this->genero;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRh()
+    {
+        return $this->rh;
+    }
+
+    /**
+     * @param Ambigous <string, mixed> $identre
+     */
+    public function setIdentre($identre)
+    {
+        $this->identre = $identre;
+    }
+
+    /**
+     * @param Ambigous <string, mixed> $idenfer
+     */
+    public function setIdenfer($idenfer)
+    {
+        $this->idenfer = $idenfer;
+    }
+
+    /**
+     * @param mixed $entrenador
+     */
+    public function setEntrenador($entrenador)
+    {
+        $this->entrenador = $entrenador;
+    }
+
+    /**
+     * @param mixed $enfermero
+     */
+    public function setEnfermero($enfermero)
+    {
+        $this->enfermero = $enfermero;
+    }
+
+    /**
+     * @param mixed $genero
+     */
+    public function setGenero($genero)
+    {
+        $this->genero = $genero;
+    }
+
+    /**
+     * @param mixed $rh
+     */
+    public function setRh($rh)
+    {
+        $this->rh = $rh;
+    }
+
     /**
      * @return mixed
      */
@@ -271,7 +361,7 @@ class Cliente extends Persona
         $this->idenfer = $idenfer;
         $this->id_gen = $id_gen;
         $this->id_rh = $id_rh;
-
+       
         $this->conexion = new Conexion();
         $this->clienteDAO = new ClienteDAO($id, $nombre, $apellido, $correo, $clave, $foto, $telefono, $observaciones, $estado, $identre, $idenfer, $id_gen, $id_rh);
     } 
@@ -350,6 +440,10 @@ class Cliente extends Persona
         $this->foto = $resultado[4];
         $this->telefono = $resultado[5];
         $this->estado = $resultado[6];
+        $this-> entrenador = $resultado[7];
+        $this->enfermero = $resultado[8];
+        $this->genero = $resultado[9];
+        $this->rh = $resultado [10];
         
     }
     
