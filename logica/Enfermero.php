@@ -137,12 +137,28 @@ class Enfermero extends Persona
         $this->clave = $resultado[4];
     }
     
+    
+    function consultarTodos()
+    {
+        $this->conexion->abrir();
+        $this->conexion->ejecutar($this->EnfermeroDAO->consultarTodos());
+        $resultados = array();
+        $i = 0;
+        while (($registro = $this->conexion->extraer()) != null) {
+            $resultados[$i] = new Enfermero($registro[0],$registro[1],$registro[2],"","","","");
+            $i++;
+        }
+        $this->conexion->cerrar();
+        return $resultados;
+    }
+    
     function actualizarFoto()
     {
         $this->conexion->abrir();
         $this->conexion->ejecutar($this->EnfermeroDAO->actualizarFoto());
         $this->conexion->cerrar();
     }
+    
 }
 
 ?>

@@ -80,6 +80,14 @@ class EnfermeroDAO extends Persona
                 SET foto = '" . $this->foto . "'
                 WHERE id = " . $this->id;
     }
+    
+    function consultarTodos()
+    {
+        return "SELECT id, nombre, apellido
+                FROM enfermero";
+    }
+    
+    
 }
 
 ?>

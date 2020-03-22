@@ -10,20 +10,27 @@ class ClienteDAO extends Persona
     private $observaciones;
 
     private $estado;
+    
+    private $identre;
+    
+    private $idenfer;
 
-    function __construct($id = "", $nombre = "", $apellido = "", $correo = "", $clave = "", $foto = "", $telefono = "", $observaciones = "", $estado = "")
+    function __construct($id = "", $nombre = "", $apellido = "", $correo = "", $clave = "", $foto = "", $telefono = "", $observaciones = "", $estado = "", $identre = "", $idenfer = "")
     {
         parent::__construct($id, $nombre, $apellido, $correo, $clave);
         $this->foto = $foto;
         $this->telefono = $telefono;
         $this->observaciones = $observaciones;
         $this->estado = $estado;
+        $this->identre = $identre;
+        $this->idenfer = $idenfer;
     }
 
     function registrar()
     {
-        return "INSERT INTO cliente (nombre, apellido, correo, clave, telefono, observaciones, estado)
-                VALUES ('" . $this->nombre . "', '" . $this->apellido . "', '" . $this->correo . "', '" . $this->clave . "', '" . $this->telefono . "', '" . $this->observaciones . "', 0);";
+        return "INSERT INTO cliente (nombre, apellido, correo, clave, telefono, observaciones, estado,entrenador_id,enfermero_id)
+                VALUES ('" . $this->nombre . "', '" . $this->apellido . "', '" . $this->correo .
+                        "', '" . $this->clave . "', '" . $this->telefono . "', '" . $this->observaciones . "', 0, '$this->identre','$this->idenfer');";
     }
 
     function existeCorreo()

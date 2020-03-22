@@ -1,28 +1,38 @@
 <?php
 require_once 'logica/Cliente.php';
+$entrenador = new Entrenador();
+$entrenadores = $entrenador->consultarTodos();
+
+$enfermero = new Enfermero();
+$enfermeros = $enfermero->consultarTodos();
+$idenfermero = "";
 $error = - 1;
 $nombre = "";
 $apellido = "";
 $correo = "";
-$clave = "";
 $telefono = "";
+$identre = "";
+
 if (isset($_POST["registrar"])) {
 
     $nombre = $_POST["nombre"];
     $apellido = $_POST["apellido"];
     $correo = $_POST["correo"];
     $telefono = $_POST["telefono"];
-
+    $idenfermero = $_POST["enferme"];
+    $identre= $_POST["entrenad"];
+    
     $cliente = new Cliente("", "", "", $correo);
     if (!$cliente->existeCorreo()) {
         $password = $_POST["clave"];
-        $cliente = new Cliente("", $nombre, $apellido, $correo, password_hash($password, PASSWORD_BCRYPT), "", $telefono, "");
+        $cliente = new Cliente("", $nombre, $apellido, $correo, password_hash($password, PASSWORD_BCRYPT), "", $telefono, "", "",$identre, $idenfermero);
         $cliente->registrar();
-        header("Location: index.php?action=signup&result=success");
+        $error = 0;
     } else {
         $error = 1;
         $correo = $_POST["correo"];
     }
+
 }
 ?>
 
@@ -32,6 +42,12 @@ if (isset($_POST["registrar"])) {
 			<div class="card">
 				<div class="card-header bg-primary text-white">Registro</div>
 				<div class="card-body">
+				<?php
+                    if ($error == 0) { ?>
+                        <div class="alert alert-success" role="alert">
+                            Cliente registrado Existosamente
+                        </div>
+                    <?php } ?>
                     <?php
                     if ($error == 1) { ?>
                         <div class="alert alert-danger" role="alert">
@@ -39,7 +55,7 @@ if (isset($_POST["registrar"])) {
                         </div>
                     <?php } ?>
                     <form
-						action="<?php echo "index.php?pid=" . base64_encode("presentacion/cliente/registro.php") . "&action=signup" ?>"
+						action="<?php echo "index.php?pid=" . base64_encode("presentacion/administrador/registroCliente.php") . "&action=signup" ?>"
 						method="post">
 						<div class="form-group">
 							<input type="text" name="nombre" class="form-control"
@@ -65,37 +81,35 @@ if (isset($_POST["registrar"])) {
 								placeholder="telefono" required="required"
 								value="<?php echo $telefono; ?>">
 						</div>
+						
+						<div class="form-group">
+							<label for="formenfermero">enfermero</label> <select name="enferme"
+								class="form-control" id="enferme">
+								<?php foreach ($enfermeros as $en) {
+                                            echo "<option value='" .$en ->getId() . "'>" . $en->getNombre()." ". $en->getApellido() . "</option>";
+                                    } ?>
+							</select>
+						</div>
+						
+						<div class="form-group">
+							<label for="formentrenador">Entrenador</label> <select name="entrenad"
+								class="form-control" id="entrenad">
+								<?php foreach ($entrenadores as $e) {
+                                            echo "<option value='" .$e ->getId() . "'>" . $e->getNombre()." ". $e->getApellido() . "</option>";
+                                    } ?>
+							</select>
+						</div>
+						
+						
+						
+						
+						
 
-                        <div>
-
-                            <label for="exampleFormControlSelect1">Tutor</label>
-                            <div class="dropdown">
-                                <button onclick="myFunction()" class="dropbtn">Dropdown</button>
-                                <div id="myDropdown" class="dropdown-content">
-                                    <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
-                                    <a href="#about">About</a>
-                                    <a href="#base">Base</a>
-                                    <a href="#blog">Blog</a>
-                                    <a href="#contact">Contact</a>
-                                    <a href="#custom">Custom</a>
-                                    <a href="#support">Support</a>
-                                    <a href="#tools">Tools</a>
-                                </div>
-                            </div>
-
-                            <select name="tutor" class="form-control chosen-select" id="tutor" style="display: none;">
-                                <?php
-                                    echo "<option value='sdf'>sadasd</option>";
-                                    echo "<option value='sdf'>asdsad</option>";
-                                    echo "<option value='sdf'>asdsadads</option>";
-                                    echo "<option value='sdf'>asdsadas</option>";
-                                    echo "<option value='sdf'>asdasdd</option>";
-                                 ?>
-                            </select>
+                       
 
 
 						<button type="submit" name="registrar" class="btn btn-primary" style="float: left">Registrar</button>
-						<a class="btn btn-secondary" href="../../index.php" role="button" style="float: right">Volver</a>
+						<a class="btn btn-secondary" href="index.php" role="button" style="float: right">Volver</a>
 					</form>
 				</div>
 			</div>
@@ -106,23 +120,5 @@ if (isset($_POST["registrar"])) {
 </div>
 
 <script>
-    function myFunction() {
-        document.getElementById("myDropdown").classList.toggle("show");
-    }
-
-    function filterFunction() {
-        var input, filter, ul, li, a, i;
-        input = document.getElementById("myInput");
-        filter = input.value.toUpperCase();
-        div = document.getElementById("myDropdown");
-        a = div.getElementsByTagName("a");
-        for (i = 0; i < a.length; i++) {
-            txtValue = a[i].textContent || a[i].innerText;
-            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                a[i].style.display = "";
-            } else {
-                a[i].style.display = "none";
-            }
-        }
-    }
+    
 </script>

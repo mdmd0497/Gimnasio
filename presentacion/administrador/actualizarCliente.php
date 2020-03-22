@@ -14,7 +14,7 @@ if (isset($_POST["actualizar"])) {
 
     $cliente = new Cliente("", "", "", $correo);
     if ($correo == $correoPrin || !$cliente->existeCorreo()) {
-        $cliente = new Cliente($_GET["idCliente"], $nombre, $apellido, $correo, "", "", $telefono, "", "");
+        $cliente = new Cliente($_GET["idCliente"], $nombre, $apellido, $correo, "", "", $telefono, "", "", "", "");
         $cliente->actualizar();
         $error = 0;
     } else {

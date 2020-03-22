@@ -14,7 +14,13 @@ class Cliente extends Persona
     private $conexion;
 
     private $foto;
+    
+    private $identre;
+    
+    private $idenfer;
 
+    
+    
     /**
      *
      * @return string
@@ -206,21 +212,35 @@ class Cliente extends Persona
     {
         $this->clave = $clave;
     }
+    
+    public function getIdentre(){
+        
+        return $this->identre;
+    }
+    
+    public function getIdenfer(){
+        
+        return $this->idenfer;
+    }
+    
 
-    function __construct($id = "", $nombre = "", $apellido = "", $correo = "", $clave = "", $foto = "", $telefono = "", $observaciones = "", $estado = "")
+    function __construct($id = "", $nombre = "", $apellido = "", $correo = "", $clave = "", $foto = "", $telefono = "", $observaciones = "", $estado = "",$identre = "", $idenfer = "")
     {
         parent::__construct($id, $nombre, $apellido, $correo, $clave);
         $this->foto = $foto;
         $this->telefono = $telefono;
         $this->observaciones = $observaciones;
         $this->estado = $estado;
+        $this->identre = $identre;
+        $this->idenfer = $idenfer;
 
         $this->conexion = new Conexion();
-        $this->clienteDAO = new ClienteDAO($id, $nombre, $apellido, $correo, $clave, $foto, $telefono, $observaciones, $estado);
+        $this->clienteDAO = new ClienteDAO($id, $nombre, $apellido, $correo, $clave, $foto, $telefono, $observaciones, $estado, $identre, $idenfer);
     }
 
     function registrar()
     {
+        
         $this->conexion->abrir();
         $this->conexion->ejecutar($this->clienteDAO->registrar());
         $this->conexion->cerrar();
@@ -323,7 +343,7 @@ class Cliente extends Persona
         $resultados = array();
         $i = 0;
         while (($registro = $this->conexion->extraer()) != null) {
-            $resultados[$i] = new Cliente($registro[0], $registro[1], $registro[2], $registro[3], "", $registro[4], $registro[5], $registro[6], $registro[7]);
+            $resultados[$i] = new Cliente($registro[0], $registro[1], $registro[2], $registro[3], "", $registro[4], $registro[5], $registro[6], $registro[7],"","");
             $i++;
         }
         $this->conexion->cerrar();

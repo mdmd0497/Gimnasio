@@ -83,6 +83,12 @@ class EntrenadorDAO extends Persona
                 telefono='" . $this->telefono . "'
                 where id=" . $this->id;
     }
+    
+    function consultarTodos()
+    {
+        return "SELECT id, nombre, apellido
+                FROM entrenador";
+    }
 }
 
 ?>

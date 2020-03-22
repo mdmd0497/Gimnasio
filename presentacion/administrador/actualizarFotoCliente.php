@@ -26,7 +26,7 @@ if (isset($_FILES['foto'])) {
         if ($cliente->getFoto() != null || $cliente->getFoto() != ""  && file_exists("img/" . $cliente->getFoto())) {
             unlink("img/" . $cliente->getFoto());
         }
-        $cliente = new Cliente($_GET["idCliente"], "", "", "", "", $nombreFoto, "", "", "");
+        $cliente = new Cliente($_GET["idCliente"], "", "", "", "", $nombreFoto, "", "", "", "", "");
         $cliente->actualizarFoto();
     }
 }
