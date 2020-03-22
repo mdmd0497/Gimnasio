@@ -10,6 +10,10 @@ require_once 'logica/Enfermero.php';
 require_once 'persistencia/EnfermeroDAO.php';
 require_once 'logica/Entrenador.php';
 require_once 'persistencia/EntrenadorDAO.php';
+require_once 'logica/genero.php';
+require_once 'persistencia/generoDAO.php';
+require_once 'logica/rh.php';
+require_once 'persistencia/rhDAO.php';
 
 ?>
 

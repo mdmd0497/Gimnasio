@@ -14,8 +14,12 @@ class ClienteDAO extends Persona
     private $identre;
     
     private $idenfer;
+    
+    private $id_gen;
+    
+    private $id_rh;
 
-    function __construct($id = "", $nombre = "", $apellido = "", $correo = "", $clave = "", $foto = "", $telefono = "", $observaciones = "", $estado = "", $identre = "", $idenfer = "")
+    function __construct($id = "", $nombre = "", $apellido = "", $correo = "", $clave = "", $foto = "", $telefono = "", $observaciones = "", $estado = "", $identre = "", $idenfer = "", $id_gen = "", $id_rh = "")
     {
         parent::__construct($id, $nombre, $apellido, $correo, $clave);
         $this->foto = $foto;
@@ -24,13 +28,15 @@ class ClienteDAO extends Persona
         $this->estado = $estado;
         $this->identre = $identre;
         $this->idenfer = $idenfer;
+        $this->id_gen =  $id_gen;
+        $this->id_rh = $id_rh;
     }
 
     function registrar()
     {
-        return "INSERT INTO cliente (nombre, apellido, correo, clave, telefono, observaciones, estado,entrenador_id,enfermero_id)
+        return "INSERT INTO cliente (nombre, apellido, correo, clave, telefono, observaciones, estado,entrenador_id,enfermero_id,genero_id,rh_id)
                 VALUES ('" . $this->nombre . "', '" . $this->apellido . "', '" . $this->correo .
-                        "', '" . $this->clave . "', '" . $this->telefono . "', '" . $this->observaciones . "', 0, '$this->identre','$this->idenfer');";
+                        "', '" . $this->clave . "', '" . $this->telefono . "', '" . $this->observaciones . "', 0, '$this->identre','$this->idenfer','$this->id_gen','$this->id_rh');";
     }
 
     function existeCorreo()
@@ -84,6 +90,13 @@ class ClienteDAO extends Persona
         return "SELECT id, nombre, apellido, correo, foto, telefono, observaciones, estado 
 				FROM cliente 
 				WHERE nombre LIKE '%" . $filtro . "%' OR apellido LIKE '%" . $filtro . "%' OR CONCAT(nombre, ' ', apellido) LIKE '%" . $filtro . "%';";
+    }
+    
+    public function filtroClienteEnfermero($idenfermero,$filtro)
+    {
+        return "SELECT id, nombre, apellido, correo, foto, telefono, observaciones, estado
+				FROM cliente
+				WHERE CONCAT(nombre, ' ', apellido) LIKE '%" . $filtro . "%' AND enfermero_id = $idenfermero;";
     }
     
     function consultarTodos()

@@ -10,6 +10,10 @@ require 'logica/Entrenador.php';
 require_once 'persistencia/EntrenadorDAO.php';
 require 'logica/Enfermero.php';
 require_once 'persistencia/EnfermeroDAO.php';
+require_once 'logica/genero.php';
+require_once 'persistencia/generoDAO.php';
+require_once 'logica/rh.php';
+require_once 'persistencia/rhDAO.php';
 $pid = base64_decode($_GET["pid"]);
 if ($_SESSION['id'] != "") {
     include $pid;

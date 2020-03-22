@@ -18,9 +18,45 @@ class Cliente extends Persona
     private $identre;
     
     private $idenfer;
+    
+    private $id_gen;
+    
+    private $id_rh;
 
     
     
+    /**
+     * @return mixed
+     */
+    public function getId_gen()
+    {
+        return $this->id_gen;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getId_rh()
+    {
+        return $this->id_rh;
+    }
+
+    /**
+     * @param mixed $id_gen
+     */
+    public function setId_gen($id_gen)
+    {
+        $this->id_gen = $id_gen;
+    }
+
+    /**
+     * @param mixed $id_rh
+     */
+    public function setId_rh($id_rh)
+    {
+        $this->id_rh = $id_rh;
+    }
+
     /**
      *
      * @return string
@@ -224,7 +260,7 @@ class Cliente extends Persona
     }
     
 
-    function __construct($id = "", $nombre = "", $apellido = "", $correo = "", $clave = "", $foto = "", $telefono = "", $observaciones = "", $estado = "",$identre = "", $idenfer = "")
+    function __construct($id = "", $nombre = "", $apellido = "", $correo = "", $clave = "", $foto = "", $telefono = "", $observaciones = "", $estado = "",$identre = "", $idenfer = "", $id_gen = "", $id_rh = "")
     {
         parent::__construct($id, $nombre, $apellido, $correo, $clave);
         $this->foto = $foto;
@@ -233,10 +269,12 @@ class Cliente extends Persona
         $this->estado = $estado;
         $this->identre = $identre;
         $this->idenfer = $idenfer;
+        $this->id_gen = $id_gen;
+        $this->id_rh = $id_rh;
 
         $this->conexion = new Conexion();
-        $this->clienteDAO = new ClienteDAO($id, $nombre, $apellido, $correo, $clave, $foto, $telefono, $observaciones, $estado, $identre, $idenfer);
-    }
+        $this->clienteDAO = new ClienteDAO($id, $nombre, $apellido, $correo, $clave, $foto, $telefono, $observaciones, $estado, $identre, $idenfer, $id_gen, $id_rh);
+    } 
 
     function registrar()
     {
@@ -265,6 +303,7 @@ class Cliente extends Persona
         $this->conexion->cerrar();
         return $resultados;
     }
+ 
 
     function existeCorreo()
     {
@@ -340,6 +379,19 @@ class Cliente extends Persona
     function filtroCliente($filtro) {
         $this->conexion->abrir();
         $this->conexion->ejecutar($this->clienteDAO->filtroCliente($filtro));
+        $resultados = array();
+        $i = 0;
+        while (($registro = $this->conexion->extraer()) != null) {
+            $resultados[$i] = new Cliente($registro[0], $registro[1], $registro[2], $registro[3], "", $registro[4], $registro[5], $registro[6], $registro[7],"","");
+            $i++;
+        }
+        $this->conexion->cerrar();
+        return $resultados;
+    }
+    
+    function filtroClienteEnfermero($idenfermero,$filtro) {
+        $this->conexion->abrir();
+        $this->conexion->ejecutar($this->clienteDAO->filtroClienteEnfermero($idenfermero,$filtro));
         $resultados = array();
         $i = 0;
         while (($registro = $this->conexion->extraer()) != null) {

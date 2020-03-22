@@ -23,7 +23,7 @@ $enfermero->consultar();
 				aria-haspopup="true" aria-expanded="false"> Consultar </a>
 				<div class="dropdown-menu" aria-labelledby="navbarDropdown"> 
 				<a class="dropdown-item"
-						href="index.php?pid=<?php echo base64_encode("")?>">cliente</a> 
+						href="index.php?pid=<?php echo base64_encode("presentacion/enfermero/consultarClientes.php"); ?>">clientes</a> 
 				</div></li>
 			<li class="nav-item mr-lg-4"><a class="nav-link"
 				href="index.php?pid=<?php echo  base64_encode("presentacion/salir.php");?>&logout=true">

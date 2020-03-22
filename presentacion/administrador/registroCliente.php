@@ -5,6 +5,13 @@ $entrenadores = $entrenador->consultarTodos();
 
 $enfermero = new Enfermero();
 $enfermeros = $enfermero->consultarTodos();
+
+$genero = new genero();
+$generos = $genero->consultarTodos();
+
+$rh = new rh();
+$rhs = $rh->consultarTodos();
+
 $idenfermero = "";
 $error = - 1;
 $nombre = "";
@@ -12,6 +19,8 @@ $apellido = "";
 $correo = "";
 $telefono = "";
 $identre = "";
+$id_gen= "";
+$id_rh= "";
 
 if (isset($_POST["registrar"])) {
 
@@ -21,11 +30,13 @@ if (isset($_POST["registrar"])) {
     $telefono = $_POST["telefono"];
     $idenfermero = $_POST["enferme"];
     $identre= $_POST["entrenad"];
+    $id_gen=$_POST["genero"];
+    $id_rh = $_POST["rh"];
     
     $cliente = new Cliente("", "", "", $correo);
     if (!$cliente->existeCorreo()) {
         $password = $_POST["clave"];
-        $cliente = new Cliente("", $nombre, $apellido, $correo, password_hash($password, PASSWORD_BCRYPT), "", $telefono, "", "",$identre, $idenfermero);
+        $cliente = new Cliente("", $nombre, $apellido, $correo, password_hash($password, PASSWORD_BCRYPT), "", $telefono, "", "",$identre, $idenfermero,$id_gen,$id_rh);
         $cliente->registrar();
         $error = 0;
     } else {
@@ -100,14 +111,24 @@ if (isset($_POST["registrar"])) {
 							</select>
 						</div>
 						
+						<div class="form-group">
+							<label for="formgenero">genero</label> <select name="genero"
+								class="form-control" id="genero">
+								<?php foreach ($generos as $g) {
+                                            echo "<option value='" .$g ->getId_gen() . "'>" . $g->getGenero(). "</option>";
+                                    } ?>
+							</select>
+						</div>
 						
+						<div class="form-group">
+							<label for="formrh">rh</label> <select name="rh"
+								class="form-control" id="rh">
+								<?php foreach ($rhs as $r) {
+                                            echo "<option value='" .$r ->getId_rh() . "'>" . $r->getRh(). "</option>";
+                                    } ?>
+							</select>
+						</div>
 						
-						
-						
-
-                       
-
-
 						<button type="submit" name="registrar" class="btn btn-primary" style="float: left">Registrar</button>
 						<a class="btn btn-secondary" href="index.php" role="button" style="float: right">Volver</a>
 					</form>
