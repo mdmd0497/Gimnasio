@@ -50,7 +50,7 @@ if (isset($_POST["filtro"])) {
                 echo "<td>" . (($p->getFoto() != "" && file_exists("img/" . $p->getFoto() . "") && $p->getFoto()) ? "<img src='img/" . $p->getFoto() . "' alt='Imagen de usuario" . $p->getFoto() . "'>" : "<i class='fas fa-user-tie fa-3x'></i>") . "</td>";
 
                 // Se codifica la url del modal para evitar mostrarla y se asegura la url, en la pagina del modal toca decodificar idPaciente para que el servidor lo pueda leer
-                echo "<td>" . "<a class='servicios' href='indexAjax.php?pid=" . base64_encode("modalCliente.php"). "&idCliente=" . $p->getId() .  "' data-toggle='modal' data-target='#modalCliente' ><span  class='fas fa-eye' data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"Ver detalles\" ></span> </a>
+                echo "<td>" . "<a class='servicios' href='indexAjax.php?pid=" . base64_encode("modalClienteEnfermero.php"). "&idCliente=" . $p->getId() . "' data-toggle='modal' data-target='#modalClienteEnfermero' ><span  class='fas fa-eye' data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"Ver detalles\" ></span> </a>
                                <a class='far fa-edit servicios ' href='index.php?pid=" . base64_encode("presentacion/enfermero/asignarMedidas.php") . "&idCliente=" . $p->getId() . "' data-toggle='tooltip' data-placement='top' title='Asignar Medidas' class='servicios'> </a>";
 
 //                 // Icono de candado a cambiar dependiendo si el paciente esta activo o no

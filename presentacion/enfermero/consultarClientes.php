@@ -35,7 +35,7 @@ $enfermero->consultar();
 
 </div>
 
-<div class="modal fade" id="modalCliente" role="dialog">
+<div class="modal fade" id="modalClienteEnfermero" role="dialog">
     <div class="modal-dialog modal-lg">
         <div class="modal-content" id="modalContent"></div>
     </div>
