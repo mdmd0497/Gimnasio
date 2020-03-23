@@ -14,6 +14,8 @@ require_once 'logica/genero.php';
 require_once 'persistencia/generoDAO.php';
 require_once 'logica/rh.php';
 require_once 'persistencia/rhDAO.php';
+require_once 'logica/Medida.php';
+require_once 'persistencia/MedidaDAO.php';
 
 ?>
 

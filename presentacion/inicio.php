@@ -23,6 +23,10 @@
                         <div class="alert alert-danger" role="alert">Correo o clave
                             incorrectos.
                         </div>
+                    <?php }
+                    elseif (isset($_GET["status"]) && $_GET["status"] == "fail"){?>
+                        <div class="alert alert-danger" role="alert">Usuario no activo aun
+                        </div>
                     <?php } ?>
                 </div>
                 <!--Campo de correo-->

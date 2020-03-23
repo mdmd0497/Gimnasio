@@ -267,4 +267,6 @@ td img{
 }
 
 
-*
+label{
+    float: left;
+}

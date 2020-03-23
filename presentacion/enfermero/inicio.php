@@ -12,6 +12,17 @@ $enfermero->consultar();
 <div class="container">
 	<div class="row">
 		<div class="col-12">
+            <?php
+            if (isset($_GET["action"]) && $_GET["action"] == "medida" &&  isset($_GET["succes"]) && $_GET["succes"] == "true"){
+                $cliente = new Cliente($_GET["idcust"]);
+                $cliente->consultarmodal();?>
+
+            <div class="alert alert-success" role="alert">
+                Medidas agregadas satisfactoriamente a cliente <?php echo $cliente->getNombre() . " " . $cliente->getApellido(); ?>
+            </div>
+
+            <?php }
+                ?>
 			<div class="card">
 				<div class="card-header bg-primary text-white">Bienvenido
 					Enfermero</div>

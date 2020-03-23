@@ -47,6 +47,14 @@ if (isset($_POST["registrar"])) {
 }
 ?>
 
+<title>Registro Cliente</title>
+
+<header>
+    <?php
+    include 'nav.php';
+    ?>
+</header>
+
 <div class="container-fluid text-center form" >
 	<div class="row justify-content-center">
 		<div class="col col-md-auto col-lg-8">

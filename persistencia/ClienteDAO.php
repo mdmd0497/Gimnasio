@@ -56,7 +56,7 @@ class ClienteDAO extends Persona
     
     public function consultarmodal()
     {
-        return "SELECT c.id,c.nombre,c.apellido,c.correo,c.foto,c.telefono,c.estado,e.nombre,en.nombre,g.genero,r.rh
+        return "SELECT c.id,c.nombre,c.apellido,c.correo,c.foto,c.telefono,c.estado,CONCAT(e.nombre, ' ', e.apellido),CONCAT(en.nombre, ' ' , en.apellido), g.genero,r.rh
                 FROM cliente as c,entrenador as e,enfermero as en,genero as g,rh as r
                 WHERE c.id = " . $this->id. " AND c.entrenador_id = e.id AND c.enfermero_id = en.id AND c.genero_id = g.id AND c.rh_id = r.id";
     }
@@ -96,7 +96,7 @@ class ClienteDAO extends Persona
     {
         return "SELECT id, nombre, apellido, correo, foto, telefono, observaciones, estado
 				FROM cliente
-				WHERE CONCAT(nombre, ' ', apellido) LIKE '%" . $filtro . "%' AND enfermero_id = $idenfermero;";
+				WHERE CONCAT(nombre, ' ', apellido) LIKE '%" . $filtro . "%' AND enfermero_id = ". $idenfermero . " AND estado != 0;" ;
     }
     
     function consultarTodos()
@@ -114,8 +114,6 @@ class ClienteDAO extends Persona
                 " WHERE id = " . $this->id;
         
     }
-
-
 }
 
 ?>

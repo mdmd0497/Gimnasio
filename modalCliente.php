@@ -56,7 +56,7 @@ $Cliente->consultarmodal();
             
             <tr>
                 <th width="20%">genero</th>
-                <td><?php echo $Cliente->getGenero(); ?></td>
+                <td><?php echo   $Cliente->getGenero() != 'M'?"Masculino":"Femenino";?></td>
             </tr>
             
             <tr>
