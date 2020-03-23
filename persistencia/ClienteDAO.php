@@ -96,14 +96,15 @@ class ClienteDAO extends Persona
     {
         return "SELECT id, nombre, apellido, correo, foto, telefono, observaciones, estado
 				FROM cliente
-				WHERE CONCAT(nombre, ' ', apellido) LIKE '%" . $filtro . "%' AND enfermero_id = ". $idenfermero . " AND estado != 0;" ;
+				WHERE CONCAT(nombre, ' ', apellido) LIKE '%" . $filtro . "%' AND enfermero_id = ". $idenfermero . " AND estado != 0;";
     }
     
-    function consultarTodos()
+    function consultarTodos($idenfermero)
     {
-        return "SELECT id, nombre, apellido, correo, foto, telefono, estado
+        return "SELECT id, nombre, apellido, correo, foto, telefono, estado,genero_id
                 FROM cliente
-                ORDER BY id";
+                WHERE enfermero_id = ". $idenfermero . " AND estado != 0
+                ORDER BY id;";
     }
     
     
@@ -114,6 +115,14 @@ class ClienteDAO extends Persona
                 " WHERE id = " . $this->id;
         
     }
+    
+    function agruparPorGenero(){
+        return "SELECT c.genero_id, COUNT(c.genero_id) 
+                FROM cliente as c,enfermero as e, genero as g 
+                WHERE c.enfermero_id=e.id AND c.genero_id=g.id AND c.estado != 0 
+                GROUP BY c.genero_id";
+    }
+    
 }
 
 ?>

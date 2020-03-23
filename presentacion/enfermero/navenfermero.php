@@ -26,6 +26,9 @@ $enfermero->consultar();
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item"
                                href="index.php?pid=<?php echo base64_encode("presentacion/enfermero/consultarClientes.php"); ?>">clientes</a>
+                               
+                            <a class="dropdown-item"
+                               href="index.php?pid=<?php echo base64_encode("presentacion/enfermero/AnalizarClientes.php"). "&idEnfermero=" . $enfermero->getId()."\";"; ?>">analizar Clientes</a>   
                         </div>
                     </li>
                     <li class="nav-item mr-lg-4"><a class="nav-link"
