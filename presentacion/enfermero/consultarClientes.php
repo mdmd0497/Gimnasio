@@ -41,6 +41,12 @@ $enfermero->consultar();
     </div>
 </div>
 
+<div class="modal fade" id="modalMedidas" role="document">
+    <div class="modal-dialog modal-lg" >
+        <div class="modal-content" id="modalContent" style="background: rgba(188,185,189,0.94)"></div>
+    </div>
+</div>
+
 <script>
     $(document).ready(function () {
 

@@ -67,21 +67,34 @@ $medida->consultarmodalenfermero();
                 <th width="20%">rh</th>
                 <td><?php echo $Cliente->getRh(); ?></td>
             </tr>
-            
-            <tr>
-                <th width="20%">altura</th>
-                <td><?php echo $medida->getAltura(); ?></td>
-            </tr>
-            
-            <tr>
-                <th width="20%">peso</th>
-                <td><?php echo $medida->getPeso(); ?></td>
-            </tr>
-            
+
+            <?php
+            $altura = $peso = false;
+            if($medida->getAltura() != null && $medida->getAltura() != "") {
+                $altura = true;
+                ?>
+                <tr>
+                    <th width="20%">altura</th>
+                    <td><?php echo $medida->getAltura(); ?></td>
+                </tr>
+                <?php
+            }if($medida->getPeso() != null && $medida->getPeso() != "") {
+                $peso = true;
+                ?>
+
+                <tr>
+                    <th width="20%">peso</th>
+                    <td><?php echo $medida->getPeso(); ?></td>
+                </tr>
+
+                <?php
+            }if($medida && $peso){
+            ?>
             <tr>
                 <th width="20%">IMC</th>
                 <td><?php echo ($medida->getPeso()/pow($medida->getAltura()/100, 2)); ?></td>
             </tr>
+        <?php } ?>
         </tbody>
     </table>
 </div>

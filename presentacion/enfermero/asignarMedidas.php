@@ -8,25 +8,21 @@ if(isset($_POST["registrar"])){
     $peso = $_POST["peso"];
     $enfermero_id = $enfermero->getId();
     $cliente_id = $_GET["idCliente"];
-    
+
     $medida = new Medida("", $altura, $peso, "",$enfermero_id, $cliente_id);
     $medida->agregarMedida();
-    $error=0;
-//     header("Location: index.php?pid=" . base64_encode("presentacion/enfermero/inicio.php") . "&action=medida&succes=true&idcust=" . $_GET["idCliente"]);
-//     exit();
+    header("Location: index.php?pid=" . base64_encode("presentacion/enfermero/inicio.php") . "&action=medida&succes=true&idcust=" . $_GET["idCliente"]);
+     exit();
 }
 
 ?>
-<title>Asignar medidas a cliente</title>
 
-<header>
-    <?php
-    include 'navenfermero.php';
-    ?>
-</header>
-
-
-
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
 <div class="container-fluid text-center form" >
     <div class="row justify-content-center">
         <div class="col col-md-auto col-lg-8">
@@ -57,7 +53,7 @@ if(isset($_POST["registrar"])){
                         <br>
                         <div class="form-group">
 
-                        <button type="submit" name="registrar" class="btn btn-primary" style="float: left">Registrar</button>
+                        <button type="submit" name="registrar" class="btn btn-warning" style="float: left">Registrar</button>
                         <a class="btn btn-secondary" href="index.php" role="button" style="float: right">Volver</a>
                         </div>
                     </form>

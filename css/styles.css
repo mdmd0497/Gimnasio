@@ -270,3 +270,8 @@ td img{
 label{
     float: left;
 }
+
+.card{
+    margin-bottom: 20px;
+}
+

@@ -175,4 +175,17 @@ class Medida
         
     }
 
+    public function obtenerMedidas()
+    {
+        $this->conexion->abrir();
+        $this->conexion->ejecutar($this->MedidaDAO->obtenerMedidas());
+        $resultado = $this->conexion->extraer();
+        $this->id = $resultado[0];
+        $this->altura = $resultado[1];
+        $this->peso=$resultado[2];
+        $this->fecha=$resultado[3];
+        $this->id_enfermero=$resultado[4];
+        $this->conexion->cerrar();
+    }
+
 }
