@@ -52,11 +52,8 @@ if (isset($_POST["filtro"])) {
 
                 echo "<td>" . (($p->getFoto() != "" && file_exists("img/" . $p->getFoto() . "") && $p->getFoto()) ? "<img src='img/" . $p->getFoto() . "' alt='Imagen de usuario" . $p->getFoto() . "'>" : "<i class='fas fa-user-tie fa-3x'></i>") . "</td>";
 
-                echo "<td>" . "<a class='servicios' href='indexAjax.php?pid=" . base64_encode("modalClienteEnfermero.php"). "&idCliente=" . $p->getId() . "' data-toggle='modal' data-target='#modalClienteEnfermero' ><span  class='fas fa-eye' data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"Ver detalles\" ></span> </a>
-                               <a class='servicios' href='indexAjax.php?pid=" . base64_encode("presentacion/enfermero/asignarMedidas.php") . "&idCliente=" . $p->getId() . "' data-toggle='modal' data-target='#modalMedidas'><span  class='far fa-edit servicios' data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"Medidas\" ></a>";
-
-//                 // Icono de candado a cambiar dependiendo si el paciente esta activo o no
-//                 echo "<span class='servicios' id='status" . $p->getId() . "'><a style='margin-left: 3px' class='" . (($p->getEstado() == 0) ? "fas fa-lock-open' title='Habilitar cliente' " : "fas fa-lock' title='Inhabilitar cliente'") . "' id='hab" . $p->getId() . "' href='#" . $p->getId() . "' data-toggle='tooltip' data-placement='right' </a></span>";
+                echo "<td>" . "<a class='servicios' href='indexAjax.php?pid=" . base64_encode("modalClienteEnfermero.php"). "&idCliente=" . $p->getId() . "' data-toggle='modal' data-target='#modalClienteEntrenador' ><span  class='fas fa-eye' data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"Ver detalles\" ></span> </a>
+                               <a class='servicios' href='index.php?pid=" . base64_encode("presentacion/entrenador/asignarRutina.php") . "&idCliente=" . $p->getId() . "'  ><span  class='far fa-calendar-plus servicios' data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"Asignar Rutina\" ></a>";
 
                 echo "</tr>";
             }

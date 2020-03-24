@@ -2,7 +2,7 @@
 require_once 'logica/Persona.php';
 require_once 'logica/Entrenador.php';
 
-$idEntrenador = $_GET['idEntrenador'];
+$idEntrenador = $_SESSION["id"];
 $Entrenador = new Entrenador($idEntrenador);
 $Entrenador->consultarmodal();
 

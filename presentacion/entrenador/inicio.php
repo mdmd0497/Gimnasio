@@ -12,6 +12,11 @@ $entrenador->consultar();
 <div class="container align-items-center">
 
     <div class="card" id="inicio-admin">
+        <?php
+        if(isset($_GET["result"]) && $_GET["result"] == "success"){ ?>
+            <div class="alert alert-success" role="alert">
+                Rutina registrada.</div>
+        <?php } ?>
         <div class="card-header bg-primary text-white">Bienvenido
             Entrenador
         </div>

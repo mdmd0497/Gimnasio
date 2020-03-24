@@ -497,7 +497,6 @@ class Cliente extends Persona
 
     function filtroClienteEntrenador($identrenador,$filtro) {
         $this->conexion->abrir();
-        echo $this->clienteDAO->filtroClienteEntrenador($identrenador,$filtro);
         $this->conexion->ejecutar($this->clienteDAO->filtroClienteEntrenador($identrenador,$filtro));
         $resultados = array();
         $i = 0;
