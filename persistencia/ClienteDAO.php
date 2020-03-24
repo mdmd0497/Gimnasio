@@ -98,6 +98,13 @@ class ClienteDAO extends Persona
 				FROM cliente
 				WHERE CONCAT(nombre, ' ', apellido) LIKE '%" . $filtro . "%' AND enfermero_id = ". $idenfermero . " AND estado != 0;";
     }
+
+    public function filtroClienteEntrenador($identrenador,$filtro)
+    {
+        return "SELECT id, nombre, apellido, correo, foto, telefono, observaciones, estado
+				FROM cliente
+				WHERE CONCAT(nombre, ' ', apellido) LIKE '%" . $filtro . "%' AND entrenador_id = ". $identrenador . " AND estado != 0;";
+    }
     
     function consultarTodos($idenfermero)
     {

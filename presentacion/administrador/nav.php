@@ -1,4 +1,9 @@
 <?php
+if ($_SESSION["tipo"] != "administrador") {
+    header("Location: 404.php");
+    die();
+}
+
 $administrador = new Administrador($_SESSION["id"]);
 $administrador->consultar();
 ?>
