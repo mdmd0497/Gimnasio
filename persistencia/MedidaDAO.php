@@ -34,5 +34,9 @@ class MedidaDAO
                 WHERE cliente_idcliente = " . $this->id_cliente. "";
     }
 
+    public function obtenerMedidas(){
+        return "SELECT * FROM medidas WHERE cliente_idcliente = " . $this->id_cliente .";";
+    }
+
 }
 ?>

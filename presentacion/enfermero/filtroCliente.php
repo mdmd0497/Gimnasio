@@ -4,6 +4,7 @@ if (isset($_POST["filtro"])) {
     $filtro = $_POST ["filtro"];
     $idenfermero = $_GET["idEnfermero"];
     $clientes = $cliente->filtroClienteEnfermero($idenfermero,$filtro);
+
     
 } else {
     $cliente = $cliente->consultarTodos();
@@ -33,6 +34,8 @@ if (isset($_POST["filtro"])) {
 
             <?php
             foreach ($clientes as $p) {
+                $medida = new Medida("", "", "", "", "", $p->getId());
+                $medida->obtenerMedidas();
                 // Esta capa correspondiente a la fila del paciente a actualizar permitira agregar subcapas de estado y el candado a cambiar
                 echo "<tr id='cli" . $p->getId() . "'>";
 
@@ -49,9 +52,8 @@ if (isset($_POST["filtro"])) {
 
                 echo "<td>" . (($p->getFoto() != "" && file_exists("img/" . $p->getFoto() . "") && $p->getFoto()) ? "<img src='img/" . $p->getFoto() . "' alt='Imagen de usuario" . $p->getFoto() . "'>" : "<i class='fas fa-user-tie fa-3x'></i>") . "</td>";
 
-                // Se codifica la url del modal para evitar mostrarla y se asegura la url, en la pagina del modal toca decodificar idPaciente para que el servidor lo pueda leer
                 echo "<td>" . "<a class='servicios' href='indexAjax.php?pid=" . base64_encode("modalClienteEnfermero.php"). "&idCliente=" . $p->getId() . "' data-toggle='modal' data-target='#modalClienteEnfermero' ><span  class='fas fa-eye' data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"Ver detalles\" ></span> </a>
-                               <a class='far fa-edit servicios ' href='index.php?pid=" . base64_encode("presentacion/enfermero/asignarMedidas.php") . "&idCliente=" . $p->getId() . "' data-toggle='tooltip' data-placement='top' title='Asignar Medidas' class='servicios'> </a>";
+                               <a class='servicios' href='indexAjax.php?pid=" . base64_encode("presentacion/enfermero/asignarMedidas.php") . "&idCliente=" . $p->getId() . "' data-toggle='modal' data-target='#modalMedidas'><span  class='far fa-edit servicios' data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"Medidas\" ></a>";
 
 //                 // Icono de candado a cambiar dependiendo si el paciente esta activo o no
 //                 echo "<span class='servicios' id='status" . $p->getId() . "'><a style='margin-left: 3px' class='" . (($p->getEstado() == 0) ? "fas fa-lock-open' title='Habilitar cliente' " : "fas fa-lock' title='Inhabilitar cliente'") . "' id='hab" . $p->getId() . "' href='#" . $p->getId() . "' data-toggle='tooltip' data-placement='right' </a></span>";
