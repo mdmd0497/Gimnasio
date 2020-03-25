@@ -19,14 +19,16 @@ if ($administrador->getCorreo() != "" && password_verify($clave, $administrador-
     header("Location: index.php?pid=" . base64_encode("presentacion/administrador/inicio.php"));
     exit();
 }else if($cliente->getCorreo() != "" && password_verify($clave, $cliente->getClave())){
-    if($cliente->getEstado() != 1){
-        header("Location:index.php?pid=" . base64_encode("presentacion/inicio.php") . "&action=login&status=fail");
+    if($cliente->getEstado() == 0){
+        echo "sadassd" . $cliente->getEstado();
+       header("Location:index.php?pid=" . base64_encode("presentacion/inicio.php") . "&action=login&status=fail");
+       exit();
+    }else {
+        $_SESSION["tipo"] = "cliente";
+        $_SESSION["id"] = $cliente->getId();
+        header("Location: index.php?pid=" . base64_encode("presentacion/cliente/inicio.php"));
         exit();
     }
-    $_SESSION["tipo"] = "cliente";
-    $_SESSION["id"] = $cliente->getId();
-    header("Location: index.php?pid=" . base64_encode("presentacion/cliente/inicio.php"));
-    exit();
 }else if($enfermero->getCorreo() != "" && password_verify($clave, $enfermero->getClave())){
     $_SESSION["tipo"] = "enfermero";
     $_SESSION["id"] = $enfermero->getId();

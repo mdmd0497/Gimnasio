@@ -3,9 +3,9 @@ $cliente = new Cliente();
 if (isset($_POST["filtro"])) {
     $filtro = $_POST ["filtro"];
     $idenfermero = $_GET["idEnfermero"];
-    $clientes = $cliente->filtroClienteEnfermero($idenfermero,$filtro);
+    $clientes = $cliente->filtroClienteEnfermero($idenfermero, $filtro);
 
-    
+
 } else {
     $cliente = $cliente->consultarTodos();
 }
@@ -52,7 +52,7 @@ if (isset($_POST["filtro"])) {
 
                 echo "<td>" . (($p->getFoto() != "" && file_exists("img/" . $p->getFoto() . "") && $p->getFoto()) ? "<img src='img/" . $p->getFoto() . "' alt='Imagen de usuario" . $p->getFoto() . "'>" : "<i class='fas fa-user-tie fa-3x'></i>") . "</td>";
 
-                echo "<td>" . "<a class='servicios' href='indexAjax.php?pid=" . base64_encode("modalClienteEnfermero.php"). "&idCliente=" . $p->getId() . "' data-toggle='modal' data-target='#modalClienteEnfermero' ><span  class='fas fa-eye' data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"Ver detalles\" ></span> </a>
+                echo "<td>" . "<a class='servicios' href='indexAjax.php?pid=" . base64_encode("modalClienteEnfermero.php") . "&idCliente=" . $p->getId() . "' data-toggle='modal' data-target='#modalClienteEnfermero' ><span  class='fas fa-eye' data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"Ver detalles\" ></span> </a>
                                <a class='servicios' href='indexAjax.php?pid=" . base64_encode("presentacion/enfermero/asignarMedidas.php") . "&idCliente=" . $p->getId() . "' data-toggle='modal' data-target='#modalMedidas'><span  class='far fa-edit servicios' data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"Medidas\" ></a>";
 
 //                 // Icono de candado a cambiar dependiendo si el paciente esta activo o no

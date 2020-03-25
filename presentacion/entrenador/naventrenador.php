@@ -30,14 +30,7 @@ $entrenador->consultar();
 
                     </div>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="menu nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Registrar
-                    </a>
-                    <div class="menu dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="menu dropdown-item" href="index.php?pid=<?php echo base64_encode("presentacion/entrenador/registroCliente.php")?>&action=regCliente"> Asignar rutina</a>
-                    </div>
-                </li>
+
                 <ul class="social-list list-inline mt-3 mt-lg-0 mb-lg-0 d-flex ml-lg-5 mr-lg-5">
                     <li class="list-inline-item">
                         <a class="menu" id="tool" data-toggle="tooltip" data-placement="bottom" title="Github" href="https://github.com/oscarce10" target="_blank">

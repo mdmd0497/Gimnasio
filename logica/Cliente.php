@@ -418,6 +418,7 @@ class Cliente extends Persona
         $this->apellido = $resultado[2];
         $this->correo = $resultado[3];
         $this->clave = $resultado[4];
+        $this->estado=$resultado[8];
     }
     
     function actualizar()

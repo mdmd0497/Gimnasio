@@ -53,7 +53,9 @@ if (isset($_POST["filtro"])) {
                 echo "<td>" . (($p->getFoto() != "" && file_exists("img/" . $p->getFoto() . "") && $p->getFoto()) ? "<img src='img/" . $p->getFoto() . "' alt='Imagen de usuario" . $p->getFoto() . "'>" : "<i class='fas fa-user-tie fa-3x'></i>") . "</td>";
 
                 echo "<td>" . "<a class='servicios' href='indexAjax.php?pid=" . base64_encode("modalClienteEnfermero.php"). "&idCliente=" . $p->getId() . "' data-toggle='modal' data-target='#modalClienteEntrenador' ><span  class='fas fa-eye' data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"Ver detalles\" ></span> </a>
-                               <a class='servicios' href='index.php?pid=" . base64_encode("presentacion/entrenador/asignarRutina.php") . "&idCliente=" . $p->getId() . "'  ><span  class='far fa-calendar-plus servicios' data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"Asignar Rutina\" ></a>";
+                               <a class='servicios' href='index.php?pid=" . base64_encode("presentacion/entrenador/asignarRutina.php") . "&idCliente=" . $p->getId() . "'  ><span  class='far fa-calendar-plus servicios' data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"Asignar Rutina\" ></a> 
+                               <a class='servicios' href='index.php?pid=" . base64_encode("presentacion/entrenador/verRutina.php") . "&idCliente=" . $p->getId() ."'  ><span  class='far fa-calendar-alt servicios' data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"Ver Rutina\" ></a>";
+
 
                 echo "</tr>";
             }

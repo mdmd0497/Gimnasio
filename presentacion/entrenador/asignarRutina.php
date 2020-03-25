@@ -8,9 +8,22 @@ $cliente->consultar();
 
 
 if(isset($_POST["registrar"])){
+    if ($_POST["fechaInicio"] < date("Y-m-d") || $_POST["fechaFin"] < $_POST["fechaInicio"] ){
+        header("Location: index.php?pid=".base64_encode("presentacion/entrenador/asignarRutina.php") . "&idCliente=" . $_GET["idCliente"] . "&result=fechaLimit");
+        exit();
+    }
 
-
-    $rutina = new Rutina("", $_POST["descripcion"], $_POST["fechaInicio"], $_POST["fechaFin"], $_SESSION["id"], $cliente->getId());
+    $rutina = new Rutina("", "", "", "", $_SESSION["id"], $cliente->getId(), "");
+    $rutinas = $rutina->consultarRutinas();
+    if($rutinas != null && count($rutinas)>0){
+        foreach ($rutinas as $r){
+            if($_POST["fechaInicio"]>=$r->getFechaInicio() && $_POST["fechaInicio"]<=$r->getFechaFin() || $_POST["fechaFin"]>=$r->getFechaInicio() && $_POST["fechaFin"]<=$r->getFechaFin()){
+                header("Location: index.php?pid=".base64_encode("presentacion/entrenador/asignarRutina.php") . "&idCliente=" . $_GET["idCliente"] . "&result=failFecha");
+                exit();
+            }
+        }
+    }
+    $rutina = new Rutina("", $_POST["descripcion"], $_POST["fechaInicio"], $_POST["fechaFin"], $_SESSION["id"], $cliente->getId(), date("Y-m-d"));
     $rutina->registrarRutina();
     header("Location: index.php?action=regRutina&result=success");
     exit();
@@ -35,7 +48,18 @@ include 'naventrenador.php';
                 </div>
                 <div class="card-body">
                     <form action="index.php?pid=<?php echo base64_encode("presentacion/entrenador/asignarRutina.php") . "&idCliente=" . $_GET["idCliente"]; ?>" method="post">
+                        <?php if(isset($_GET["result"]) && $_GET["result"] == "failFecha"){
+                            echo "<div class='alert alert-danger' role='alert'>";
+                            echo "Error, hay cruces en las fechas de la rutina con otras rutinas ya registradas";
+                            echo "</div>";
+                        }elseif (isset($_GET["result"]) && $_GET["result"] == "fechaLimit"){
+                            echo "<div class='alert alert-danger' role='alert'>";
+                            echo "Error, verifique las fechas ingresadas";
+                            echo "</div>";
+                        }
+                        ?>
                         <div class="md:flex md:items-center mb-6">
+
                             <div class="md:w-1/3">
                                 <label class="block text-green-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
                                        for="fechaInicio">
