@@ -134,6 +134,7 @@ class Rutina
             $this->descripcion=$resultado[1];
             $this->fecha_inicio=$resultado[2];
             $this->fecha_fin=$resultado[3];
+            $this->id_cliente=$resultado[5];
             $this->fecha_registro=$resultado[6];
             $this->conexion->cerrar();
      }

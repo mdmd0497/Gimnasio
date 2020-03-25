@@ -1,11 +1,12 @@
 <?php
 
-include 'naventrenador.php';
+include 'navcliente.php';
 
-$cliente = new Cliente($_GET["idCliente"]);
+$cliente = new Cliente($_SESSION["id"]);
 $cliente->consultar();
 
 ?>
+
 
 <div class="card text-center form">
     <div class="card-header bg-primary text-white">
@@ -13,7 +14,7 @@ $cliente->consultar();
     </div>
     <div class="card-body">
         <?php
-        $rutina = new Rutina("", "", "", "", $_SESSION["id"], $cliente->getId(), "");
+        $rutina = new Rutina("", "", "", "", $cliente->getEntrenador(), $cliente->getId(), "");
         $rutinas = $rutina->consultarRutinas();
         if($rutinas != null && count($rutinas)>0) { ?>
         <table class="table table-striped table-hover">
@@ -30,7 +31,8 @@ $cliente->consultar();
                 echo "<tr>";
                 echo '<td>' .$r->getFechaInicio() . '</td>';
                 echo '<td>' . $r->getFechaFin() . '</td>';
-                echo "<td>" . "<a class='servicios' href='indexAjax.php?pid=" . base64_encode("modalRutinas.php") . "&idRutina=" . $r->getId() . "' data-toggle='modal' data-target='#modalRutinas' ><span  class='fas fa-eye' data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"Ver detalles\" ></span> </a>";
+                echo "<td>" . "<a class='servicios' href='indexAjax.php?pid=" . base64_encode("modalRutinas.php") . "&idRutina=" . $r->getId() . "&idCliente=" . $r->getIdCliente() ."' data-toggle='modal' data-target='#modalRutinas' ><span  class='fas fa-eye' data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"Ver detalles\" ></span> </a>";
+                echo "<a class='servicios' href='indexAjax.php?pid=" . base64_encode("presentacion/cliente/rutinapdf.php") . "&idRutina=" . $r->getId()."' target='_blank'><span  class='far fa-file-pdf' data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"Descargar en PDF\" ></span> </a>";
                 echo '</tr>';
 
             }
