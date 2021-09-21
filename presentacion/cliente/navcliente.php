@@ -24,9 +24,9 @@ $cliente->consultar();
                                                      href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                                                      aria-haspopup="true" aria-expanded="false"> Consultar </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item"href="index.php?pid=<?php echo base64_encode("presentacion/cliente/verRutina.php"); ?>">rutinas</a> <a
+                            <a class="dropdown-item"href="index.php?pid=<?php echo base64_encode("presentacion/cliente/verRutina.php"); ?>">Rutinas</a> <a
                                     class="dropdown-item"
-                                    href="index.php?pid=<?php echo base64_encode("") ?>">entrenador</a>
+                                    href="index.php?pid=<?php echo base64_encode("presentacion/cliente/consultarEntrenador.php"); ?>">Entrenador</a>
                             <a class="dropdown-item"
                                href="index.php?pid=<?php echo base64_encode("") ?>">Medidas</a>
                         </div>

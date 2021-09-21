@@ -419,7 +419,7 @@ class Cliente extends Persona
         $this->correo = $resultado[3];
         $this->clave = $resultado[4];
         $this->estado=$resultado[8];
-        $this->entrenador=$resultado[9];
+        $this->identre=$resultado[9];
     }
     
     function actualizar()

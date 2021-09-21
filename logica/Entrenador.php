@@ -102,6 +102,8 @@ class Entrenador extends Persona
         $this->apellido = $resultado[2];
         $this->correo = $resultado[3];
         $this->clave = $resultado[4];
+        $this->foto = $resultado[5];
+        $this->telefono = $resultado[6];
     }
     
     public function consultarmodal()
