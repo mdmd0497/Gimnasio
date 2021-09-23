@@ -7,7 +7,7 @@ if (isset($_POST["filtro"])) {
 
 
 } else {
-    $cliente = $cliente->consultarTodos();
+    $cliente = $cliente->consultarTodos($idenfermero);
 }
 
 ?>

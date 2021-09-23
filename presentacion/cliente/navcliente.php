@@ -28,7 +28,7 @@ $cliente->consultar();
                                     class="dropdown-item"
                                     href="index.php?pid=<?php echo base64_encode("presentacion/cliente/consultarEntrenador.php"); ?>">Entrenador</a>
                             <a class="dropdown-item"
-                               href="index.php?pid=<?php echo base64_encode("") ?>">Medidas</a>
+                               href="index.php?pid=<?php echo base64_encode("presentacion/cliente/consultarMedidas.php") ?>">Medidas</a>
                         </div>
                     </li>
                     <li class="nav-item mr-lg-4"><a class="nav-link"

@@ -129,6 +129,7 @@ class ClienteDAO extends Persona
                 WHERE c.enfermero_id=e.id AND c.genero_id=g.id AND c.estado != 0 
                 GROUP BY c.genero_id";
     }
+
     
 }
 
