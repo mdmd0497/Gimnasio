@@ -179,13 +179,19 @@ class Medida
     {
         $this->conexion->abrir();
         $this->conexion->ejecutar($this->MedidaDAO->obtenerMedidas());
-        $resultado = $this->conexion->extraer();
-        $this->id = $resultado[0];
-        $this->altura = $resultado[1];
-        $this->peso=$resultado[2];
-        $this->fecha=$resultado[3];
-        $this->id_enfermero=$resultado[4];
+        $resultados = array();
+        while (($registro = $this->conexion->extraer()) != null){
+            array_push($resultados, new Medida(
+                $registro[0],
+                $registro[1],
+                $registro[2],
+                $registro[3],
+                $registro[4],
+                $registro[5]
+            ));
+        }
         $this->conexion->cerrar();
+        return $resultados;
     }
 
 }

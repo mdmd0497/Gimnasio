@@ -176,6 +176,23 @@ class Entrenador extends Persona
         $this->conexion->cerrar();
         return $resultados;
     }
+
+    function consultarPorPagina(){
+        $this->conexion->abrir();
+        $this->conexion->ejecutar($this->EntrenadorDAO->consultarPorPagina());
+        $resultados = array();
+        while (($registro = $this->conexion->extraer()) != null){
+            array_push($resultados, new Entrenador(
+                $registro[0],
+                $registro[1],
+                $registro[2],
+                $registro[3],
+                "",
+                $registro[4],
+                $registro[5]));
+        }
+        return $resultados;
+    }
 }
 
 ?>

@@ -31,11 +31,13 @@ class MedidaDAO
     {
         return "SELECT altura,peso
                 FROM medidas 
-                WHERE cliente_idcliente = " . $this->id_cliente. "";
+                WHERE cliente_idcliente = " . $this->id_cliente. "
+                ORDER BY id DESC
+                LIMIT 1";
     }
 
     public function obtenerMedidas(){
-        return "SELECT * FROM medidas WHERE cliente_idcliente = " . $this->id_cliente .";";
+        return "SELECT * FROM medidas WHERE cliente_idcliente = " . $this->id_cliente ." ORDER BY fecha DESC ";
     }
 
 }

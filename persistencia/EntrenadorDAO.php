@@ -89,6 +89,11 @@ class EntrenadorDAO extends Persona
         return "SELECT id, nombre, apellido
                 FROM entrenador";
     }
+
+    function consultarPorPagina(){
+        return "SELECT id, nombre, apellido, correo, foto, telefono
+                FROM entrenador";
+    }
 }
 
 ?>

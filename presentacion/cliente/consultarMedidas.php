@@ -6,7 +6,7 @@ require_once 'logica/Medida.php';
 $idCliente = $_SESSION["id"];
 
 $medida = new Medida("","","","","",$idCliente);
-$medida->obtenerMedidas();
+$medidas = $medida->obtenerMedidas();
 ?>
 <header>
     <?php
@@ -15,55 +15,39 @@ $medida->obtenerMedidas();
 </header>
 <div class="modal-header">
     <h5 class="modal-title">Detalles Cliente</h5>
-    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-    </button>
 </div>
 <div class="modal-body">
+
     <table class="table table-striped table-hover">
         <tbody>
-
-            <?php
+        <?php
+        foreach ($medidas as $m) {
             $altura = $peso = false;
-            if($medida->getAltura() != null && $medida->getAltura() != "") {
+            if($m->getAltura() != null && $m->getAltura() != "") {
                 $altura = true;
-                ?>
-                <tr>
-                    <th width="20%">altura</th>
-                    <td><?php echo $medida->getAltura(); ?></td>
-                </tr>
-                <?php
-            }if($medida->getPeso() != null && $medida->getPeso() != "") {
+                echo "<tr class='bg-primary text-white'>
+                        <th width='20%'>Medidas para la fecha: </th>
+                        <td>". $m->getFecha() ."</td>
+                         </tr>";
+                echo "<tr>
+                        <th width='20%'>altura</th>
+                        <td>". $m->getAltura() ."</td>
+                    </tr>";
+            }if($m->getPeso() != null && $m->getPeso() != "") {
                 $peso = true;
-                ?>
-
-                <tr>
-                    <th width="20%">peso</th>
-                    <td><?php echo $medida->getPeso(); ?></td>
-                </tr>
-
-                <?php
-            }if($medida && $peso){
-            ?>
-            <tr>
-                <th width="20%">IMC</th>
-                <td><?php echo ($medida->getPeso()/pow($medida->getAltura()/100, 2)); ?></td>
-            </tr>
-        <?php } 
-        $fecha = false;
-        if($medida->getFecha() != null){
-            $fecha = true;
-            ?>
-
-            <tr>
-                <th width="20%">Fecha</th>
-                <td><?php echo $medida->getFecha(); ?></td>
-            </tr>
-
-            <?php
+                echo "<tr>
+                        <th width='20%'>peso</th>
+                        <td>". $m->getPeso() ."</td>
+                    </tr>";
+            }if($peso) {
+                echo "<tr>
+                        <th width='20%'>IMC</th>
+                        <td>" . ($m->getPeso() / pow($m->getAltura() / 100, 2)) . "</td>
+                    </tr>";
+            }
         }
-            ?>
-        
+        ?>
         </tbody>
     </table>
+
 </div>

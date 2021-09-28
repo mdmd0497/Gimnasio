@@ -524,7 +524,11 @@ class Cliente extends Persona
         return $resultados;
     }
     
-    
+    function actualizarEntrenador(){
+        $this->conexion->abrir();
+        $this->conexion->ejecutar($this->clienteDAO->actualizarEntrenador());
+        $this->conexion->cerrar();
+    }
 }
 ?>
     

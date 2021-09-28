@@ -130,7 +130,11 @@ class ClienteDAO extends Persona
                 GROUP BY c.genero_id";
     }
 
-    
+    function actualizarEntrenador(){
+        return "UPDATE cliente
+                SET entrenador_id = " . $this->identre .
+                " WHERE id = " . $this->id;
+    }
 }
 
 ?>
