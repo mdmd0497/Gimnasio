@@ -529,6 +529,22 @@ class Cliente extends Persona
         $this->conexion->ejecutar($this->clienteDAO->actualizarEntrenador());
         $this->conexion->cerrar();
     }
+
+    
+    function consultarMedidas($idCliente) {
+        $this->conexion->abrir();
+        $this->conexion->ejecutar($this->clienteDAO->consultarMedidas($idCliente));
+        $resultados = array();
+        $i = 0;
+        while (($registro = $this->conexion->extraer()) != null) {
+            $resultados[$i][0]=$registro[0];
+            $resultados[$i][1]=$registro[1];
+            $resultados[$i][2]=$registro[2];
+            $i++;
+        }
+        $this->conexion->cerrar();
+        return $resultados;
+    }
 }
 ?>
     

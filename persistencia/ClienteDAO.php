@@ -135,6 +135,10 @@ class ClienteDAO extends Persona
                 SET entrenador_id = " . $this->identre .
                 " WHERE id = " . $this->id;
     }
+
+    function consultarMedidas($idCliente){
+        return "SELECT altura,peso,fecha FROM `medidas` WHERE cliente_idcliente = $idCliente ";
+    }
 }
 
 ?>
