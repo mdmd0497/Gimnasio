@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-03-2020 a las 01:49:24
--- Versión del servidor: 10.4.6-MariaDB
--- Versión de PHP: 7.3.9
+-- Tiempo de generación: 11-10-2021 a las 03:28:33
+-- Versión del servidor: 10.4.21-MariaDB
+-- Versión de PHP: 8.0.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -119,7 +118,7 @@ CREATE TABLE `entrenador` (
 
 INSERT INTO `entrenador` (`id`, `nombre`, `apellido`, `correo`, `clave`, `foto`, `telefono`, `rutina`) VALUES
 (2, 'pedro', 'ruiz', '2@en.com', '$2y$10$G/4gAa/Y480vgJehQHP.UOtO15DWkuD5wTDLzDg5mc9owWUYkvikW', NULL, '7484165', NULL),
-(3, 'maximilio', 'ledger', '4@en.com', '$2y$10$aKbeyUaYQPa/GTqWE1sE6O0SDckD2QgqTZVkSydL5NpO3Z9aPL6SG', NULL, '4234368', NULL);
+(3, 'maximilio', 'ledger', '4@en.com', '$2y$10$aKbeyUaYQPa/GTqWE1sE6O0SDckD2QgqTZVkSydL5NpO3Z9aPL6SG', '1632184343893.jpg', '4234368', NULL);
 
 -- --------------------------------------------------------
 
@@ -155,6 +154,14 @@ CREATE TABLE `medidas` (
   `cliente_idcliente` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
+--
+-- Volcado de datos para la tabla `medidas`
+--
+
+INSERT INTO `medidas` (`id`, `altura`, `peso`, `fecha`, `enfermero_idenfermero`, `cliente_idcliente`) VALUES
+(1, 170, 48, '2021-09-21', 4, 2),
+(2, 170, 58, '2021-09-26', 4, 2);
+
 -- --------------------------------------------------------
 
 --
@@ -189,11 +196,25 @@ INSERT INTO `rh` (`id`, `rh`) VALUES
 CREATE TABLE `rutina` (
   `id` int(11) NOT NULL,
   `descripcion` varchar(1000) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `numero_dia` int(11) NOT NULL,
+  `nombre` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
+  `duracion` bigint(20) NOT NULL COMMENT 'Medición en segundos',
+  `series` int(11) NOT NULL,
+  `repeticiones_series` int(11) NOT NULL,
+  `imagen` varchar(150) COLLATE utf8_spanish_ci NOT NULL,
+  `descanso` bigint(20) NOT NULL COMMENT 'Medición en segundos',
   `fecha_inicio` date DEFAULT NULL,
   `fecha_fin` date DEFAULT NULL,
   `entrenador_identrenador` int(11) NOT NULL,
   `cliente_idcliente` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `rutina`
+--
+
+INSERT INTO `rutina` (`id`, `descripcion`, `numero_dia`, `nombre`, `duracion`, `series`, `repeticiones_series`, `imagen`, `descanso`, `fecha_inicio`, `fecha_fin`, `entrenador_identrenador`, `cliente_idcliente`) VALUES
+(1, 'Flexiones de pecho', 1, 'Push Ups', 60, 4, 10, '1633915608203.jpg', 30, '2021-10-10', '2021-10-17', 3, 2);
 
 --
 -- Índices para tablas volcadas
@@ -287,7 +308,7 @@ ALTER TABLE `entrenador`
 -- AUTO_INCREMENT de la tabla `medidas`
 --
 ALTER TABLE `medidas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `rh`
@@ -299,7 +320,7 @@ ALTER TABLE `rh`
 -- AUTO_INCREMENT de la tabla `rutina`
 --
 ALTER TABLE `rutina`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Restricciones para tablas volcadas

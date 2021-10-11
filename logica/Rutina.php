@@ -5,6 +5,13 @@ class Rutina
 {
     private $id;
     private $descripcion;
+    private $numero_dia;
+    private $nombre;
+    private $duracion;
+    private $series;
+    private $repeticiones_series;
+    private $imagen;
+    private $descanso;
     private $fecha_inicio;
     private $fecha_fin;
     private $id_entrenador;
@@ -27,6 +34,62 @@ class Rutina
     public function getDescripcion()
     {
         return $this->descripcion;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNumeroDia()
+    {
+        return $this->numero_dia;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNombre()
+    {
+        return $this->nombre;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDuracion()
+    {
+        return $this->duracion;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSeries()
+    {
+        return $this->series;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRepeticionesSeries()
+    {
+        return $this->repeticiones_series;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getImagen()
+    {
+        return $this->imagen;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDescanso()
+    {
+        return $this->descanso;
     }
 
     /**
@@ -85,21 +148,24 @@ class Rutina
         return $this->fecha_registro;
     }
 
-
-
-
-
-    public function __construct($id="", $descripcion="", $fecha_inicio="", $fecha_fin="", $id_entrenador="", $id_cliente="", $fecha_registro="")
+    public function __construct($id="", $descripcion="", $numero_dia="", $nombre="", $duracion="", $series="", $repeticiones_series="", $imagen="", $descanso="", $fecha_inicio="", $fecha_fin="", $id_entrenador="", $id_cliente="", $fecha_registro="")
     {
         $this->id = $id;
         $this->descripcion = $descripcion;
+        $this->numero_dia = $numero_dia;
+        $this->nombre = $nombre;
+        $this->duracion = $duracion;
+        $this->series = $series;
+        $this->repeticiones_series = $repeticiones_series;
+        $this->imagen = $imagen;
+        $this->descanso = $descanso;
         $this->fecha_inicio = $fecha_inicio;
         $this->fecha_fin = $fecha_fin;
         $this->id_entrenador = $id_entrenador;
         $this->id_cliente = $id_cliente;
         $this->fecha_registro = $fecha_registro;
         $this->conexion = new Conexion();
-        $this->RutinaDAO = new RutinaDAO($id, $descripcion, $fecha_inicio, $fecha_fin, $id_entrenador, $id_cliente, $fecha_registro);
+        $this->RutinaDAO = new RutinaDAO($id, $descripcion, $numero_dia, $nombre, $duracion, $series, $repeticiones_series, $imagen, $descanso, $fecha_inicio, $fecha_fin, $id_entrenador, $id_cliente, $fecha_registro);
     }
 
     function registrarRutina(){
@@ -139,7 +205,10 @@ class Rutina
             $this->conexion->cerrar();
      }
 
-
-
+     function update(){
+         $this->conexion->abrir();
+         $this->conexion->ejecutar($this->RutinaDAO->update());
+         $this->conexion->cerrar();
+     }
 
 }
