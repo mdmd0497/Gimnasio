@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-10-2021 a las 03:28:33
+-- Tiempo de generación: 18-10-2021 a las 02:02:37
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 8.0.10
 
@@ -214,7 +214,9 @@ CREATE TABLE `rutina` (
 --
 
 INSERT INTO `rutina` (`id`, `descripcion`, `numero_dia`, `nombre`, `duracion`, `series`, `repeticiones_series`, `imagen`, `descanso`, `fecha_inicio`, `fecha_fin`, `entrenador_identrenador`, `cliente_idcliente`) VALUES
-(1, 'Flexiones de pecho', 1, 'Push Ups', 60, 4, 10, '1633915608203.jpg', 30, '2021-10-10', '2021-10-17', 3, 2);
+(1, 'Flexiones de pecho', 1, 'Push Ups', 60, 4, 10, '1633915608203.jpg', 30, '2021-10-10', '2021-10-17', 3, 2),
+(2, 'Baje su cuerpo hasta formar un angulo de 90 grados con las piernas', 2, 'Sentadillas', 30, 5, 12, '1634076050432.jpg', 60, '2021-10-12', '2021-10-19', 3, 2),
+(3, 'Tome un banca, sujete firmemente la barra del banco y haga un ejercicio supino', 1, 'Press de banca', 20, 4, 10, '1634076337569.jpg', 20, '2021-10-11', '2021-10-18', 3, 2);
 
 --
 -- Índices para tablas volcadas
@@ -320,7 +322,7 @@ ALTER TABLE `rh`
 -- AUTO_INCREMENT de la tabla `rutina`
 --
 ALTER TABLE `rutina`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Restricciones para tablas volcadas
