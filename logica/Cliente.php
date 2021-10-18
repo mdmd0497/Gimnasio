@@ -40,7 +40,7 @@ class Cliente extends Persona
      */
     public function getEntrenador()
     {
-        return $this->entrenador;
+        return $this->identre;
     }
 
     /**

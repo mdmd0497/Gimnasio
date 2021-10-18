@@ -8,14 +8,14 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://gitlab.com/oscarce10/proygym.git"
+		"url": "git+https://github.com/mdmd0497/Gimnasio.git"
 	},
-	"author": "Oscar Cely, Michael",
+	"author": "Michael Moreno, David Delgado",
 	"license": "ISC",
 	"bugs": {
-		"url": "https://gitlab.com/oscarce10/proygym/issues"
+		"url": "https://gitlab.com/mdmd0497/Gimnasio/issues"
 	},
-	"homepage": "https://gitlab.com/oscarce10/proygym#readme",
+	"homepage": "https://gitlab.com/mdmd0497/Gimnasio#readme",
 	"devDependencies": {
 		"browser-sync": "^2.26.7",
 		"gulp": "^4.0.2",

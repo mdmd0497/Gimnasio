@@ -148,7 +148,7 @@ class Rutina
         return $this->fecha_registro;
     }
 
-    public function __construct($id="", $descripcion="", $numero_dia="", $nombre="", $duracion="", $series="", $repeticiones_series="", $imagen="", $descanso="", $fecha_inicio="", $fecha_fin="", $id_entrenador="", $id_cliente="", $fecha_registro="")
+    public function __construct($id = "", $descripcion = "", $numero_dia = "", $nombre = "", $duracion = "", $series = "", $repeticiones_series = "", $imagen = "", $descanso = "", $fecha_inicio = "", $fecha_fin = "", $id_entrenador = "", $id_cliente = "")
     {
         $this->id = $id;
         $this->descripcion = $descripcion;
@@ -163,12 +163,12 @@ class Rutina
         $this->fecha_fin = $fecha_fin;
         $this->id_entrenador = $id_entrenador;
         $this->id_cliente = $id_cliente;
-        $this->fecha_registro = $fecha_registro;
         $this->conexion = new Conexion();
-        $this->RutinaDAO = new RutinaDAO($id, $descripcion, $numero_dia, $nombre, $duracion, $series, $repeticiones_series, $imagen, $descanso, $fecha_inicio, $fecha_fin, $id_entrenador, $id_cliente, $fecha_registro);
+        $this->RutinaDAO = new RutinaDAO($id, $descripcion, $numero_dia, $nombre, $duracion, $series, $repeticiones_series, $imagen, $descanso, $fecha_inicio, $fecha_fin, $id_entrenador, $id_cliente);
     }
 
-    function registrarRutina(){
+    function registrarRutina()
+    {
         $this->conexion->abrir();
         $this->conexion->ejecutar($this->RutinaDAO->registrarRutina());
         $this->conexion->cerrar();
@@ -185,7 +185,21 @@ class Rutina
             $resultados = array();
             $i = 0;
             while (($registro = $this->conexion->extraer()) != null) {
-                $resultados[$i] = new Rutina($registro[0], $registro[1], $registro[2], $registro[3], $registro[4], $registro[5], $registro[6]);
+                $resultados[$i] = new Rutina(
+                    $registro[0],
+                    $registro[1],
+                    $registro[2],
+                    $registro[3],
+                    $registro[4],
+                    $registro[5],
+                    $registro[6],
+                    $registro[7],
+                    $registro[8],
+                    $registro[9],
+                    $registro[10],
+                    $registro[11],
+                    $registro[12]
+                );
                 $i++;
             }
             $this->conexion->cerrar();
@@ -193,22 +207,30 @@ class Rutina
         }
     }
 
-     function consultar(){
-            $this->conexion->abrir();
-            $this->conexion->ejecutar($this->RutinaDAO->consultar());
-            $resultado = $this->conexion->extraer();
-            $this->descripcion=$resultado[1];
-            $this->fecha_inicio=$resultado[2];
-            $this->fecha_fin=$resultado[3];
-            $this->id_cliente=$resultado[5];
-            $this->fecha_registro=$resultado[6];
-            $this->conexion->cerrar();
-     }
+    function consultar()
+    {
+        $this->conexion->abrir();
+        $this->conexion->ejecutar($this->RutinaDAO->consultar());
+        $resultado = $this->conexion->extraer();
+        $this->descripcion = $resultado[1];
+        $this->numero_dia =$resultado[2];
+        $this->nombre = $resultado[3];
+        $this->duracion = $resultado[4];
+        $this->series = $resultado[5];
+        $this->repeticiones_series = $resultado[6];
+        $this->imagen =$resultado[7];
+        $this->descanso = $resultado[8];
+        $this->fecha_inicio = $resultado[9];
+        $this->fecha_fin =$resultado[10];
 
-     function update(){
-         $this->conexion->abrir();
-         $this->conexion->ejecutar($this->RutinaDAO->update());
-         $this->conexion->cerrar();
-     }
+        $this->conexion->cerrar();
+    }
+
+    function update()
+    {
+        $this->conexion->abrir();
+        $this->conexion->ejecutar($this->RutinaDAO->update());
+        $this->conexion->cerrar();
+    }
 
 }

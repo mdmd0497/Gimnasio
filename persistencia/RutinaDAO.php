@@ -123,14 +123,6 @@ class RutinaDAO
     }
 
     /**
-     * @param mixed|string $fecha_registro
-     */
-    public function setFechaRegistro($fecha_registro)
-    {
-        $this->fecha_registro = $fecha_registro;
-    }
-
-    /**
      * @return mixed
      */
     public function getNumeroDia()
@@ -219,14 +211,6 @@ class RutinaDAO
     }
 
     /**
-     * @return mixed|string
-     */
-    public function getFechaRegistro()
-    {
-        return $this->fecha_registro;
-    }
-
-    /**
      * @return string
      */
     public function getId()
@@ -242,7 +226,7 @@ class RutinaDAO
         return $this->descripcion;
     }
 
-    public function __construct($id="", $descripcion="", $numero_dia="", $nombre="", $duracion="", $series="", $repeticiones_series="", $imagen="", $descanso="", $fecha_inicio="", $fecha_fin="", $id_entrenador="", $id_cliente="", $fecha_registro="")
+    public function __construct($id="", $descripcion="", $numero_dia="", $nombre="", $duracion="", $series="", $repeticiones_series="", $imagen="", $descanso="", $fecha_inicio="", $fecha_fin="", $id_entrenador="", $id_cliente="")
     {
         $this->id = $id;
         $this->descripcion = $descripcion;
@@ -257,7 +241,6 @@ class RutinaDAO
         $this->fecha_fin = $fecha_fin;
         $this->id_entrenador = $id_entrenador;
         $this->id_cliente = $id_cliente;
-        $this->fecha_registro=$fecha_registro;
     }
 
     function registrarRutina(){
@@ -267,7 +250,8 @@ class RutinaDAO
 
     function consultarRutinas(){
         return "SELECT * FROM rutina 
-                WHERE entrenador_identrenador = " . $this->id_entrenador . " AND cliente_idcliente = " . $this->id_cliente . ";";
+                WHERE entrenador_identrenador = " . $this->id_entrenador . " AND cliente_idcliente = " . $this->id_cliente . "
+                ORDER BY numero_dia ASC;";
     }
 
     function consultar()
