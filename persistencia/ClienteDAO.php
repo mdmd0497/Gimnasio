@@ -10,13 +10,13 @@ class ClienteDAO extends Persona
     private $observaciones;
 
     private $estado;
-    
+
     private $identre;
-    
+
     private $idenfer;
-    
+
     private $id_gen;
-    
+
     private $id_rh;
 
     function __construct($id = "", $nombre = "", $apellido = "", $correo = "", $clave = "", $foto = "", $telefono = "", $observaciones = "", $estado = "", $identre = "", $idenfer = "", $id_gen = "", $id_rh = "")
@@ -36,7 +36,7 @@ class ClienteDAO extends Persona
     {
         return "INSERT INTO cliente (nombre, apellido, correo, clave, telefono, observaciones, estado,entrenador_id,enfermero_id,genero_id,rh_id)
                 VALUES ('" . $this->nombre . "', '" . $this->apellido . "', '" . $this->correo .
-                        "', '" . $this->clave . "', '" . $this->telefono . "', '" . $this->observaciones . "', 0, '$this->identre','$this->idenfer','$this->id_gen','$this->id_rh');";
+            "', '" . $this->clave . "', '" . $this->telefono . "', '" . $this->observaciones . "', 0, '$this->identre','$this->idenfer','$this->id_gen','$this->id_rh');";
     }
 
     function existeCorreo()
@@ -53,14 +53,14 @@ class ClienteDAO extends Persona
                 WHERE correo LIKE '" . $this->correo . "'
                 OR id = " . $this->id;
     }
-    
+
     public function consultarmodal()
     {
         return "SELECT c.id,c.nombre,c.apellido,c.correo,c.foto,c.telefono,c.estado,CONCAT(e.nombre, ' ', e.apellido),CONCAT(en.nombre, ' ' , en.apellido), g.genero,r.rh
                 FROM cliente as c,entrenador as e,enfermero as en,genero as g,rh as r
-                WHERE c.id = " . $this->id. " AND c.entrenador_id = e.id AND c.enfermero_id = en.id AND c.genero_id = g.id AND c.rh_id = r.id";
+                WHERE c.id = " . $this->id . " AND c.entrenador_id = e.id AND c.enfermero_id = en.id AND c.genero_id = g.id AND c.rh_id = r.id";
     }
-    
+
     function actualizar()
     {
         return "update cliente set
@@ -70,14 +70,14 @@ class ClienteDAO extends Persona
                 telefono='" . $this->telefono . "'
                 where id=" . $this->id;
     }
-    
+
     function fotoExiste()
     {
         return "SELECT foto
                 FROM cliente
                 WHERE id = " . $this->id;
     }
-    
+
     function actualizarFoto()
     {
         return "UPDATE cliente
@@ -91,54 +91,92 @@ class ClienteDAO extends Persona
 				FROM cliente 
 				WHERE nombre LIKE '%" . $filtro . "%' OR apellido LIKE '%" . $filtro . "%' OR CONCAT(nombre, ' ', apellido) LIKE '%" . $filtro . "%';";
     }
-    
-    public function filtroClienteEnfermero($idenfermero,$filtro)
+
+    public function filtroClienteEnfermero($idenfermero, $filtro)
     {
         return "SELECT id, nombre, apellido, correo, foto, telefono, observaciones, estado
 				FROM cliente
-				WHERE CONCAT(nombre, ' ', apellido) LIKE '%" . $filtro . "%' AND enfermero_id = ". $idenfermero . " AND estado != 0;";
+				WHERE CONCAT(nombre, ' ', apellido) LIKE '%" . $filtro . "%' AND enfermero_id = " . $idenfermero . " AND estado != 0;";
     }
 
-    public function filtroClienteEntrenador($identrenador,$filtro)
+    public function filtroClienteEntrenador($identrenador, $filtro)
     {
         return "SELECT id, nombre, apellido, correo, foto, telefono, observaciones, estado
 				FROM cliente
-				WHERE CONCAT(nombre, ' ', apellido) LIKE '%" . $filtro . "%' AND entrenador_id = ". $identrenador . " AND estado != 0;";
+				WHERE CONCAT(nombre, ' ', apellido) LIKE '%" . $filtro . "%' AND entrenador_id = " . $identrenador . " AND estado != 0;";
     }
-    
+
     function consultarTodos($idenfermero)
     {
         return "SELECT id, nombre, apellido, correo, foto, telefono, estado,genero_id
                 FROM cliente
-                WHERE enfermero_id = ". $idenfermero . " AND estado != 0
+                WHERE enfermero_id = " . $idenfermero . " AND estado != 0
                 ORDER BY id;";
     }
-    
-    
-    function actualizarEstado(){
-        $est = ($this->estado==1)?"0":"1";
+
+
+    function actualizarEstado()
+    {
+        $est = ($this->estado == 1) ? "0" : "1";
         return "UPDATE cliente
                 SET estado = " . $est .
-                " WHERE id = " . $this->id;
-        
+            " WHERE id = " . $this->id;
     }
-    
-    function agruparPorGenero(){
+
+    function agruparPorGenero()
+    {
         return "SELECT c.genero_id, COUNT(c.genero_id) 
                 FROM cliente as c,enfermero as e, genero as g 
                 WHERE c.enfermero_id=e.id AND c.genero_id=g.id AND c.estado != 0 
                 GROUP BY c.genero_id";
     }
 
-    function actualizarEntrenador(){
+    function actualizarEntrenador()
+    {
         return "UPDATE cliente
                 SET entrenador_id = " . $this->identre .
-                " WHERE id = " . $this->id;
+            " WHERE id = " . $this->id;
     }
 
-    function consultarMedidas($idCliente){
+    function consultarMedidas($idCliente)
+    {
         return "SELECT altura,peso,fecha FROM `medidas` WHERE cliente_idcliente = $idCliente ";
     }
-}
+    function consultarCuello($idCliente)
+    {
+        return "SELECT cuello,fecha FROM `medidas` WHERE cliente_idcliente = $idCliente ";
+    }
+    function consultarHombros($idCliente)
+    {
+        return "SELECT hombros,fecha FROM `medidas` WHERE cliente_idcliente = $idCliente ";
+    }
 
-?>
+    function consultarPecho($idCliente)
+    {
+        return "SELECT pecho,fecha FROM `medidas` WHERE cliente_idcliente = $idCliente ";
+    }
+    function consultarCintura($idCliente)
+    {
+        return "SELECT cintura,fecha FROM `medidas` WHERE cliente_idcliente = $idCliente ";
+    }
+    function consultarAntebrazos($idCliente)
+    {
+        return "SELECT antebrazos,fecha FROM `medidas` WHERE cliente_idcliente = $idCliente ";
+    }
+    function consultarMuslo($idCliente)
+    {
+        return "SELECT muslo,fecha FROM `medidas` WHERE cliente_idcliente = $idCliente ";
+    }
+    function consultarPantorrillas($idCliente)
+    {
+        return "SELECT pantorrillas,fecha FROM `medidas` WHERE cliente_idcliente = $idCliente ";
+    }
+    function consultarBiceps($idCliente)
+    {
+        return "SELECT biceps,fecha FROM `medidas` WHERE cliente_idcliente = $idCliente ";
+    }
+    function consultarCadera($idCliente)
+    {
+        return "SELECT cadera,fecha FROM `medidas` WHERE cliente_idcliente = $idCliente ";
+    }
+}

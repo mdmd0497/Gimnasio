@@ -5,7 +5,7 @@ require_once 'logica/Medida.php';
 
 $idCliente = $_SESSION["id"];
 
-$medida = new Medida("","","","","",$idCliente);
+$medida = new Medida("","","","","","","","","","","","","","",$idCliente);
 $medidas = $medida->obtenerMedidas();
 ?>
 <header>

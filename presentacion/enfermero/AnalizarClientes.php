@@ -90,7 +90,7 @@ $clientePorGenero = $cliente->agruparPorGenero();
     	        $json .= "[\"". $id_porgenero . "\", " . $clientePorGenero[$i][1]."],";
     	    }
     	    $json .= "]";
-    	    echo "new Chartkick.PieChart(\"generoAgrupar\", ". $json .")";
+    	    echo "new Chartkick.PieChart(\"generoAgrupar\", ". $json .",{colors: ['#ec12f0', '#122df0']})";
     	    echo "</script>"; 
 	    ?>  
 		

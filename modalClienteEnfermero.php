@@ -7,7 +7,7 @@ $idCliente = $_GET['idCliente'];
 $Cliente = new Cliente($idCliente);
 $Cliente->consultarmodal();
 
-$medida = new Medida("","","","","",$idCliente);
+$medida = new Medida("","","","","","","","","","","","","","",$idCliente);
 $medida->consultarmodalenfermero();
 
 ?>

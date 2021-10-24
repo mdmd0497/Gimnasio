@@ -34,7 +34,7 @@ if (isset($_POST["filtro"])) {
 
             <?php
             foreach ($clientes as $p) {
-                $medida = new Medida("", "", "", "", "", $p->getId());
+                $medida = new Medida("", "", "", "", "","","","","","","","","","", $p->getId());
                 $medida->obtenerMedidas();
                 // Esta capa correspondiente a la fila del paciente a actualizar permitira agregar subcapas de estado y el candado a cambiar
                 echo "<tr id='cli" . $p->getId() . "'>";

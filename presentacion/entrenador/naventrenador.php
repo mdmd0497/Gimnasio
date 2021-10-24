@@ -33,12 +33,12 @@ $entrenador->consultar();
 
                 <ul class="social-list list-inline mt-3 mt-lg-0 mb-lg-0 d-flex ml-lg-5 mr-lg-5">
                     <li class="list-inline-item">
-                        <a class="menu" id="tool" data-toggle="tooltip" data-placement="bottom" title="Github" href="https://github.com/oscarce10" target="_blank">
+                        <a class="menu" id="tool" data-toggle="tooltip" data-placement="bottom" title="Github" href="https://github.com/mdmd0497" target="_blank">
                             <i class="fab fa-github"></i>
                         </a>
                     </li>
                     <li class="list-inline-item">
-                        <a class="menu" id="tool" data-toggle="tooltip" data-placement="bottom" title="GitLab" href="https://gitlab.com/oscarce10" target="_blank">
+                        <a class="menu" id="tool" data-toggle="tooltip" data-placement="bottom" title="GitLab" href="https://gitlab.com/mdmd0497" target="_blank">
                             <i class="fab fa-gitlab"></i>
                         </a>
                     </li>

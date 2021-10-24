@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 18-10-2021 a las 02:02:37
--- Versión del servidor: 10.4.21-MariaDB
--- Versión de PHP: 8.0.10
+-- Servidor: localhost:3307
+-- Tiempo de generación: 24-10-2021 a las 04:20:51
+-- Versión del servidor: 10.4.19-MariaDB
+-- Versión de PHP: 7.3.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -69,7 +69,10 @@ CREATE TABLE `cliente` (
 --
 
 INSERT INTO `cliente` (`id`, `nombre`, `apellido`, `correo`, `clave`, `foto`, `telefono`, `observaciones`, `estado`, `entrenador_id`, `enfermero_id`, `genero_id`, `rh_id`) VALUES
-(2, 'Alejandro', 'ruiz', '1@c.com', '$2y$10$KB4AQUAhX954/Gy3qtN4aOu.xjBCYyG7yy5Xq0VrcctEzVUONnBVa', '1584899455404.png', '7846385', '', 1, 3, 4, 1, 3);
+(2, 'Alejandro', 'ruiz', '1@c.com', '$2y$10$KB4AQUAhX954/Gy3qtN4aOu.xjBCYyG7yy5Xq0VrcctEzVUONnBVa', '1584899455404.png', '7846385', '', 1, 3, 4, 1, 3),
+(3, 'Michael', 'Moreno', '2@c.com', '$2y$10$6okIkDnt8oJLyJ.3/3UvO.m2AqNw7gKM8iKmZAg/aa3hO.wzaoHyS', NULL, '3105731968', '', 1, 2, 3, 1, 1),
+(4, 'Julia', 'Moreno', '3@c.com', '$2y$10$N5TTDqq.zx3Z/ih98BeSROyuREtIztKRBVj2J.prUVvXbBnVLDdcu', NULL, '3105731968', '', 1, 2, 3, 2, 1),
+(5, 'Julia Morocha', 'Moreno', '4@c.com', '$2y$10$MeSF2FzzgHMGIQu9o945yeCqz0hh3Ew.ihgUptYzAe8rwvkZw9VjW', NULL, '3105731968', '', 1, 2, 3, 1, 7);
 
 -- --------------------------------------------------------
 
@@ -149,6 +152,15 @@ CREATE TABLE `medidas` (
   `id` int(11) NOT NULL,
   `altura` int(11) DEFAULT NULL,
   `peso` int(11) DEFAULT NULL,
+  `cuello` float DEFAULT NULL,
+  `hombros` float DEFAULT NULL,
+  `pecho` float DEFAULT NULL,
+  `cintura` float DEFAULT NULL,
+  `antebrazos` float DEFAULT NULL,
+  `muslo` float DEFAULT NULL,
+  `pantorrillas` float DEFAULT NULL,
+  `biceps` float DEFAULT NULL,
+  `cadera` float DEFAULT NULL,
   `fecha` date DEFAULT NULL,
   `enfermero_idenfermero` int(11) NOT NULL,
   `cliente_idcliente` int(11) NOT NULL
@@ -158,9 +170,12 @@ CREATE TABLE `medidas` (
 -- Volcado de datos para la tabla `medidas`
 --
 
-INSERT INTO `medidas` (`id`, `altura`, `peso`, `fecha`, `enfermero_idenfermero`, `cliente_idcliente`) VALUES
-(1, 170, 48, '2021-09-21', 4, 2),
-(2, 170, 58, '2021-09-26', 4, 2);
+INSERT INTO `medidas` (`id`, `altura`, `peso`, `cuello`, `hombros`, `pecho`, `cintura`, `antebrazos`, `muslo`, `pantorrillas`, `biceps`, `cadera`, `fecha`, `enfermero_idenfermero`, `cliente_idcliente`) VALUES
+(1, 170, 48, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-09-21', 4, 2),
+(2, 170, 58, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-09-26', 4, 2),
+(3, 170, 70, 32, 12, 60, 35, 15, 58, 35, 28, 66, '2021-10-15', 3, 3),
+(4, 158, 58, 30, 45, 14, 54, 45, 68, 78, 45, 36, '2021-10-18', 3, 3),
+(5, 170, 65, 37, 115, 70, 75, 23, 51, 32, 33, 92, '2021-10-19', 3, 3);
 
 -- --------------------------------------------------------
 
@@ -216,7 +231,8 @@ CREATE TABLE `rutina` (
 INSERT INTO `rutina` (`id`, `descripcion`, `numero_dia`, `nombre`, `duracion`, `series`, `repeticiones_series`, `imagen`, `descanso`, `fecha_inicio`, `fecha_fin`, `entrenador_identrenador`, `cliente_idcliente`) VALUES
 (1, 'Flexiones de pecho', 1, 'Push Ups', 60, 4, 10, '1633915608203.jpg', 30, '2021-10-10', '2021-10-17', 3, 2),
 (2, 'Baje su cuerpo hasta formar un angulo de 90 grados con las piernas', 2, 'Sentadillas', 30, 5, 12, '1634076050432.jpg', 60, '2021-10-12', '2021-10-19', 3, 2),
-(3, 'Tome un banca, sujete firmemente la barra del banco y haga un ejercicio supino', 1, 'Press de banca', 20, 4, 10, '1634076337569.jpg', 20, '2021-10-11', '2021-10-18', 3, 2);
+(3, 'Tome un banca, sujete firmemente la barra del banco y haga un ejercicio supino', 1, 'Press de banca', 20, 4, 10, '1634076337569.jpg', 20, '2021-10-11', '2021-10-18', 3, 2),
+(4, 'flexiones de pecho', 1, 'Push ups', 30, 4, 10, '1634520514139.jpg', 30, '2021-10-17', '2021-10-24', 2, 3);
 
 --
 -- Índices para tablas volcadas
@@ -292,7 +308,7 @@ ALTER TABLE `administrador`
 -- AUTO_INCREMENT de la tabla `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `enfermero`
@@ -310,7 +326,7 @@ ALTER TABLE `entrenador`
 -- AUTO_INCREMENT de la tabla `medidas`
 --
 ALTER TABLE `medidas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `rh`
@@ -322,7 +338,7 @@ ALTER TABLE `rh`
 -- AUTO_INCREMENT de la tabla `rutina`
 --
 ALTER TABLE `rutina`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Restricciones para tablas volcadas

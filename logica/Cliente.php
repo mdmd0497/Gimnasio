@@ -545,6 +545,123 @@ class Cliente extends Persona
         $this->conexion->cerrar();
         return $resultados;
     }
+    function consultarCuello($idCliente) {
+        $this->conexion->abrir();
+        $this->conexion->ejecutar($this->clienteDAO->consultarCuello($idCliente));
+        $resultados = array();
+        $i = 0;
+        while (($registro = $this->conexion->extraer()) != null) {
+            $resultados[$i][0]=$registro[0];
+            $resultados[$i][1]=$registro[1];
+            $i++;
+        }
+        $this->conexion->cerrar();
+        return $resultados;
+    }
+    function consultarHombros($idCliente) {
+        $this->conexion->abrir();
+        $this->conexion->ejecutar($this->clienteDAO->consultarHombros($idCliente));
+        $resultados = array();
+        $i = 0;
+        while (($registro = $this->conexion->extraer()) != null) {
+            $resultados[$i][0]=$registro[0];
+            $resultados[$i][1]=$registro[1];
+            $i++;
+        }
+        $this->conexion->cerrar();
+        return $resultados;
+    }
+    function consultarPecho($idCliente) {
+        $this->conexion->abrir();
+        $this->conexion->ejecutar($this->clienteDAO->consultarPecho($idCliente));
+        $resultados = array();
+        $i = 0;
+        while (($registro = $this->conexion->extraer()) != null) {
+            $resultados[$i][0]=$registro[0];
+            $resultados[$i][1]=$registro[1];
+            $i++;
+        }
+        $this->conexion->cerrar();
+        return $resultados;
+    }
+    function consultarCintura($idCliente) {
+        $this->conexion->abrir();
+        $this->conexion->ejecutar($this->clienteDAO->consultarCintura($idCliente));
+        $resultados = array();
+        $i = 0;
+        while (($registro = $this->conexion->extraer()) != null) {
+            $resultados[$i][0]=$registro[0];
+            $resultados[$i][1]=$registro[1];
+            $i++;
+        }
+        $this->conexion->cerrar();
+        return $resultados;
+    }
+    function consultarAntebrazos($idCliente) {
+        $this->conexion->abrir();
+        $this->conexion->ejecutar($this->clienteDAO->consultarAntebrazos($idCliente));
+        $resultados = array();
+        $i = 0;
+        while (($registro = $this->conexion->extraer()) != null) {
+            $resultados[$i][0]=$registro[0];
+            $resultados[$i][1]=$registro[1];
+            $i++;
+        }
+        $this->conexion->cerrar();
+        return $resultados;
+    }
+    function consultarMuslo($idCliente) {
+        $this->conexion->abrir();
+        $this->conexion->ejecutar($this->clienteDAO->consultarMuslo($idCliente));
+        $resultados = array();
+        $i = 0;
+        while (($registro = $this->conexion->extraer()) != null) {
+            $resultados[$i][0]=$registro[0];
+            $resultados[$i][1]=$registro[1];
+            $i++;
+        }
+        $this->conexion->cerrar();
+        return $resultados;
+    }
+    function consultarPantorrillas($idCliente) {
+        $this->conexion->abrir();
+        $this->conexion->ejecutar($this->clienteDAO->consultarPantorrillas($idCliente));
+        $resultados = array();
+        $i = 0;
+        while (($registro = $this->conexion->extraer()) != null) {
+            $resultados[$i][0]=$registro[0];
+            $resultados[$i][1]=$registro[1];
+            $i++;
+        }
+        $this->conexion->cerrar();
+        return $resultados;
+    }
+    function consultarBiceps($idCliente) {
+        $this->conexion->abrir();
+        $this->conexion->ejecutar($this->clienteDAO->consultarBiceps($idCliente));
+        $resultados = array();
+        $i = 0;
+        while (($registro = $this->conexion->extraer()) != null) {
+            $resultados[$i][0]=$registro[0];
+            $resultados[$i][1]=$registro[1];
+            $i++;
+        }
+        $this->conexion->cerrar();
+        return $resultados;
+    }
+    function consultarCadera($idCliente) {
+        $this->conexion->abrir();
+        $this->conexion->ejecutar($this->clienteDAO->consultarCadera($idCliente));
+        $resultados = array();
+        $i = 0;
+        while (($registro = $this->conexion->extraer()) != null) {
+            $resultados[$i][0]=$registro[0];
+            $resultados[$i][1]=$registro[1];
+            $i++;
+        }
+        $this->conexion->cerrar();
+        return $resultados;
+    }
 }
 ?>
     
