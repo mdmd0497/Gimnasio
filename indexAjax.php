@@ -16,6 +16,8 @@ require_once 'logica/rh.php';
 require_once 'persistencia/rhDAO.php';
 require_once 'logica/Medida.php';
 require_once 'persistencia/MedidaDAO.php';
+require_once 'logica/Facturacion.php';
+require_once 'persistencia/FacturacionDAO.php';
 $pid = base64_decode($_GET["pid"]);
 if ($_SESSION['id'] != "") {
     include $pid;

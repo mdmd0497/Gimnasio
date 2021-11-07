@@ -17,9 +17,11 @@ $cliente->consultar();
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Consultar </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="index.php?pid=<?php echo base64_encode("presentacion/cliente/verRutina.php"); ?>">Rutinas</a> <a class="dropdown-item" href="index.php?pid=<?php echo base64_encode("presentacion/cliente/consultarEntrenador.php"); ?>">Entrenador</a>
+                            <a class="dropdown-item" href="index.php?pid=<?php echo base64_encode("presentacion/cliente/verRutina.php"); ?>">Rutinas</a>
+                            <a class="dropdown-item" href="index.php?pid=<?php echo base64_encode("presentacion/cliente/consultarEntrenador.php"); ?>">Entrenador</a>
                             <a class="dropdown-item" href="index.php?pid=<?php echo base64_encode("presentacion/cliente/consultarMedidas.php") ?>">Medidas</a>
                             <a class="dropdown-item" href="index.php?pid=<?php echo base64_encode("presentacion/cliente/analizarMedidas.php") ?>">Analizar Medidas</a>
+                            <a class="dropdown-item" href="index.php?pid=<?php echo base64_encode("presentacion/cliente/historicoFacturas.php") ?>">Historial de Facturas</a>
                         </div>
                     </li>
                     <li class="nav-item mr-lg-4"><a class="nav-link" href="index.php?pid=<?php echo base64_encode("presentacion/salir.php"); ?>&logout=true">
