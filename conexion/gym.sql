@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: localhost:3307
--- Tiempo de generación: 24-10-2021 a las 04:20:51
--- Versión del servidor: 10.4.19-MariaDB
--- Versión de PHP: 7.3.28
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 12-11-2021 a las 03:29:14
+-- Versión del servidor: 10.4.21-MariaDB
+-- Versión de PHP: 8.0.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -122,6 +122,34 @@ CREATE TABLE `entrenador` (
 INSERT INTO `entrenador` (`id`, `nombre`, `apellido`, `correo`, `clave`, `foto`, `telefono`, `rutina`) VALUES
 (2, 'pedro', 'ruiz', '2@en.com', '$2y$10$G/4gAa/Y480vgJehQHP.UOtO15DWkuD5wTDLzDg5mc9owWUYkvikW', NULL, '7484165', NULL),
 (3, 'maximilio', 'ledger', '4@en.com', '$2y$10$aKbeyUaYQPa/GTqWE1sE6O0SDckD2QgqTZVkSydL5NpO3Z9aPL6SG', '1632184343893.jpg', '4234368', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `facturacion`
+--
+
+CREATE TABLE `facturacion` (
+  `id` int(11) NOT NULL,
+  `valor` float DEFAULT NULL,
+  `descuento` float DEFAULT NULL,
+  `tipo_tarifa` int(11) DEFAULT NULL,
+  `fecha_inicio` date DEFAULT NULL,
+  `fecha_vencimiento` date DEFAULT NULL,
+  `cliente_id` int(11) DEFAULT NULL,
+  `administrador_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `facturacion`
+--
+
+INSERT INTO `facturacion` (`id`, `valor`, `descuento`, `tipo_tarifa`, `fecha_inicio`, `fecha_vencimiento`, `cliente_id`, `administrador_id`) VALUES
+(1, 50000, 25, 1, '2021-10-27', '2021-11-03', 2, 1),
+(5, 50000, 0, 1, '2021-10-28', '2021-10-29', 2, 1),
+(6, 1000000, 15, 4, '2021-09-02', '2021-10-02', 2, 1),
+(7, 200000, 5, 3, '2021-11-02', '2022-05-02', 2, 1),
+(8, 55000, 10, 2, '2021-11-07', '2022-02-07', 3, 1);
 
 -- --------------------------------------------------------
 
@@ -267,6 +295,14 @@ ALTER TABLE `entrenador`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `facturacion`
+--
+ALTER TABLE `facturacion`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `FK_cliente_id_factura` (`cliente_id`),
+  ADD KEY `FK_admin_id_factura` (`administrador_id`);
+
+--
 -- Indices de la tabla `genero`
 --
 ALTER TABLE `genero`
@@ -308,7 +344,7 @@ ALTER TABLE `administrador`
 -- AUTO_INCREMENT de la tabla `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `enfermero`
@@ -321,6 +357,12 @@ ALTER TABLE `enfermero`
 --
 ALTER TABLE `entrenador`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `facturacion`
+--
+ALTER TABLE `facturacion`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `medidas`
@@ -352,6 +394,13 @@ ALTER TABLE `cliente`
   ADD CONSTRAINT `fk_cliente_entrenador1` FOREIGN KEY (`entrenador_id`) REFERENCES `entrenador` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_cliente_genero1` FOREIGN KEY (`genero_id`) REFERENCES `genero` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_cliente_rh1` FOREIGN KEY (`rh_id`) REFERENCES `rh` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Filtros para la tabla `facturacion`
+--
+ALTER TABLE `facturacion`
+  ADD CONSTRAINT `FK_admin_id_factura` FOREIGN KEY (`administrador_id`) REFERENCES `administrador` (`id`),
+  ADD CONSTRAINT `FK_cliente_id_factura` FOREIGN KEY (`cliente_id`) REFERENCES `cliente` (`id`);
 
 --
 -- Filtros para la tabla `medidas`

@@ -365,4 +365,39 @@ class Medida
         $this->conexion->cerrar();
         return $resultados;
     }
+
+    function consultarPorPagina($cantidad, $pagina, $orden, $dir){
+        $this -> conexion -> abrir();
+        $this -> conexion -> ejecutar($this -> MedidaDAO -> consultarPorPagina($cantidad, $pagina, $orden, $dir));
+        $this -> conexion -> cerrar();
+        $medidas = array();
+        while(($registro = $this -> conexion -> extraer()) != null){
+            array_push($medidas, new Medida(
+                $registro[0],
+                $registro[1],
+                $registro[2],
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                $registro[3],
+                $registro[4],
+                $registro[5],
+            ));
+        }
+        return $medidas;
+    }
+
+    function consultarTotalRegistros(){
+        $this -> conexion -> abrir();
+        $this -> conexion -> ejecutar($this -> MedidaDAO -> consultarTotalRegistros());
+        $this -> conexion -> cerrar();
+        $resultado = $this -> conexion -> extraer();
+        return $resultado[0];
+    }
 }

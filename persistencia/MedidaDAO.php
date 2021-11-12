@@ -67,4 +67,24 @@ class MedidaDAO
     {
         return "SELECT id,altura,peso,fecha,enfermero_idenfermero,cliente_idcliente FROM medidas WHERE cliente_idcliente = " . $this->id_cliente . " ORDER BY fecha DESC ";
     }
+
+    function consultarPorPagina ($cantidad, $pagina, $orden, $dir) {
+        if($orden == "" || $dir == ""){
+            return "select id,altura,peso,fecha,enfermero_idenfermero,cliente_idcliente
+                from medidas
+                WHERE cliente_idcliente = '" . $this->id_cliente . "' ORDER BY fecha DESC
+                limit " . strval(($pagina - 1) * $cantidad) . ", " . $cantidad;
+        }else{
+            return "select id,altura,peso,fecha,enfermero_idenfermero,cliente_idcliente
+                from medidas
+                WHERE cliente_idcliente = '" . $this->id_cliente . "' ORDER BY fecha DESC
+                order by " . $orden . " " . $dir . "
+                limit " . strval(($pagina - 1) * $cantidad) . ", " . $cantidad;
+        }
+    }
+
+    function consultarTotalRegistros(){
+        return "select count(id)
+                from medidas";
+    }
 }
