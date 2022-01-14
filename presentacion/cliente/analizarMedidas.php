@@ -39,14 +39,50 @@ $clienteCadera = $cliente->consultarCadera($idcliente);
                     $IMC = ($clienteMedidas[$i][1] / pow($clienteMedidas[$i][0] / 100, 2));
                 }
 
-                $json .= "[\"" . $clienteMedidas[$i][2] . "\", " .  $IMC . "],";
+                $json .= "[\"" . $clienteMedidas[$i][2] . "\", " . $IMC . "],";
             }
             $json .= "]";
             echo "new Chartkick.LineChart(\"Analisis-IMC\", " . $json . ")";
             echo "</script>";
             ?>
             <div>
-            <img src="img/índice IMC.jpg" alt="imagen indice IMC" width='800px'>
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th class="table-secondary" scope="col">Clasificación</th>
+                        <th class="table-secondary" scope="col">IMC</th>
+                        <th class="table-secondary" scope="col">Riesgo</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th class="table-success">Normal</th>
+                        <td class="table-light">18.5 - 24.9</td>
+                        <td class="table-light">Promedio</td>
+                    </tr>
+                    <tr>
+                        <th class="table-warning">Sobrepeso</th>
+                        <td class="table-light">25 - 29.9</td>
+                        <td class="table-light">Aumentado</td>
+                    </tr>
+                    <tr>
+                        <th class="table-danger">Obesidad Grado I</th>
+                        <td class="table-light">30 - 34.9</td>
+                        <td class="table-light">Moderado</td>
+                    </tr>
+                    <tr>
+                        <th class="table-danger">Obesidad Grado II</th>
+                        <td class="table-light">35 - 39.9</td>
+                        <td class="table-light">Severo</td>
+                    </tr>
+                    <tr>
+                        <th class="table-danger">Obesidad Grado III</th>
+                        <td class="table-light">Más de 40</td>
+                        <td class="table-light">Muy Severo</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <p>Fuente: OMS (Organización Mundial de la Salud)</p>
             </div>
         </div>
     </div>
@@ -60,7 +96,7 @@ $clienteCadera = $cliente->consultarCadera($idcliente);
             echo "<script>";
             $json = "[";
             for ($i = 0; $i < count($clienteCuello); $i++) {
-                $json .= "[\"" . $clienteCuello[$i][1] . "\", " .  $clienteCuello[$i][0] . "],";
+                $json .= "[\"" . $clienteCuello[$i][1] . "\", " . $clienteCuello[$i][0] . "],";
             }
             $json .= "]";
             echo "new Chartkick.AreaChart(\"Analisis-cuello\", " . $json . ",{colors: ['#dc631e', '#a61edc']})"; //a61edc
@@ -80,7 +116,7 @@ $clienteCadera = $cliente->consultarCadera($idcliente);
             echo "<script>";
             $json = "[";
             for ($i = 0; $i < count($clienteHombros); $i++) {
-                $json .= "[\"" . $clienteHombros[$i][1] . "\", " .  $clienteHombros[$i][0] . "],";
+                $json .= "[\"" . $clienteHombros[$i][1] . "\", " . $clienteHombros[$i][0] . "],";
             }
             $json .= "]";
             echo "new Chartkick.AreaChart(\"Analisis-hombros\", " . $json . ",{colors: ['#d01313', '#a61edc']})";
@@ -100,7 +136,7 @@ $clienteCadera = $cliente->consultarCadera($idcliente);
             echo "<script>";
             $json = "[";
             for ($i = 0; $i < count($clientePecho); $i++) {
-                $json .= "[\"" . $clientePecho[$i][1] . "\", " .  $clientePecho[$i][0] . "],";
+                $json .= "[\"" . $clientePecho[$i][1] . "\", " . $clientePecho[$i][0] . "],";
             }
             $json .= "]";
             echo "new Chartkick.AreaChart(\"Analisis-pecho\", " . $json . ",{colors: ['#3af215', '#a61edc']})";
@@ -120,7 +156,7 @@ $clienteCadera = $cliente->consultarCadera($idcliente);
             echo "<script>";
             $json = "[";
             for ($i = 0; $i < count($clienteCintura); $i++) {
-                $json .= "[\"" . $clienteCintura[$i][1] . "\", " .  $clienteCintura[$i][0] . "],";
+                $json .= "[\"" . $clienteCintura[$i][1] . "\", " . $clienteCintura[$i][0] . "],";
             }
             $json .= "]";
             echo "new Chartkick.AreaChart(\"Analisis-cintura\", " . $json . ",{colors: ['#12d9df', '#a61edc']})";
@@ -140,7 +176,7 @@ $clienteCadera = $cliente->consultarCadera($idcliente);
             echo "<script>";
             $json = "[";
             for ($i = 0; $i < count($clienteAntebrazos); $i++) {
-                $json .= "[\"" . $clienteAntebrazos[$i][1] . "\", " .  $clienteAntebrazos[$i][0] . "],";
+                $json .= "[\"" . $clienteAntebrazos[$i][1] . "\", " . $clienteAntebrazos[$i][0] . "],";
             }
             $json .= "]";
             echo "new Chartkick.AreaChart(\"Analisis-antebrazos\", " . $json . ",{colors: ['#1e12df', '#a61edc']})";
@@ -160,7 +196,7 @@ $clienteCadera = $cliente->consultarCadera($idcliente);
             echo "<script>";
             $json = "[";
             for ($i = 0; $i < count($clienteMuslo); $i++) {
-                $json .= "[\"" . $clienteMuslo[$i][1] . "\", " .  $clienteMuslo[$i][0] . "],";
+                $json .= "[\"" . $clienteMuslo[$i][1] . "\", " . $clienteMuslo[$i][0] . "],";
             }
             $json .= "]";
             echo "new Chartkick.AreaChart(\"Analisis-muslo\", " . $json . ",{colors: ['#cb0ddb', '#a61edc']})";
@@ -180,7 +216,7 @@ $clienteCadera = $cliente->consultarCadera($idcliente);
             echo "<script>";
             $json = "[";
             for ($i = 0; $i < count($clientePantorrillas); $i++) {
-                $json .= "[\"" . $clientePantorrillas[$i][1] . "\", " .  $clientePantorrillas[$i][0] . "],";
+                $json .= "[\"" . $clientePantorrillas[$i][1] . "\", " . $clientePantorrillas[$i][0] . "],";
             }
             $json .= "]";
             echo "new Chartkick.AreaChart(\"Analisis-pantorrillas\", " . $json . ",{colors: ['#432c99', '#a61edc']})";
@@ -200,7 +236,7 @@ $clienteCadera = $cliente->consultarCadera($idcliente);
             echo "<script>";
             $json = "[";
             for ($i = 0; $i < count($clienteBiceps); $i++) {
-                $json .= "[\"" . $clienteBiceps[$i][1] . "\", " .  $clienteBiceps[$i][0] . "],";
+                $json .= "[\"" . $clienteBiceps[$i][1] . "\", " . $clienteBiceps[$i][0] . "],";
             }
             $json .= "]";
             echo "new Chartkick.AreaChart(\"Analisis-biceps\", " . $json . ",{colors: ['#5acf63', '#a61edc']})";
@@ -220,7 +256,7 @@ $clienteCadera = $cliente->consultarCadera($idcliente);
             echo "<script>";
             $json = "[";
             for ($i = 0; $i < count($clienteCadera); $i++) {
-                $json .= "[\"" . $clienteCadera[$i][1] . "\", " .  $clienteCadera[$i][0] . "],";
+                $json .= "[\"" . $clienteCadera[$i][1] . "\", " . $clienteCadera[$i][0] . "],";
             }
             $json .= "]";
             echo "new Chartkick.AreaChart(\"Analisis-cadera\", " . $json . ",{colors: ['#2b8bdc', '#a61edc']})";

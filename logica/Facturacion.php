@@ -196,6 +196,34 @@ class Facturacion
         $this->administrador_id = $resultado[7];
     }
 
+    function consultarPorPagina($cantidad, $pagina, $orden, $dir){
+        $this -> conexion -> abrir();
+        $this -> conexion -> ejecutar($this -> FacturacionDAO -> consultarPorPagina($cantidad, $pagina, $orden, $dir));
+        $this -> conexion -> cerrar();
+        $facturas = array();
+        while(($resultado = $this -> conexion -> extraer()) != null){
+            array_push($facturas, new Facturacion(
+                $resultado[0],
+                $resultado[1],
+                $resultado[2],
+                $resultado[3],
+                $resultado[4],
+                $resultado[5],
+                $resultado[6],
+                $resultado[7]
+            ));
+        }
+        return $facturas;
+    }
+
+    function consultarTotalRegistros(){
+        $this -> conexion -> abrir();
+        $this -> conexion -> ejecutar($this -> FacturacionDAO -> consultarTotalRegistros());
+        $this -> conexion -> cerrar();
+        $resultado = $this -> conexion -> extraer();
+        return $resultado[0];
+    }
+
     function update(){
         $this -> conexion -> abrir();
         $this -> conexion -> ejecutar($this->FacturacionDAO->update());

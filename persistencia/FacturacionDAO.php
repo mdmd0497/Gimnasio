@@ -33,6 +33,26 @@ class FacturacionDAO
                 WHERE id = '". $this->id ."'";
     }
 
+    function consultarPorPagina ($cantidad, $pagina, $orden, $dir) {
+        if($orden == "" || $dir == ""){
+            return "SELECT * FROM facturacion
+                WHERE cliente_id = '" . $this->cliente_id . "' 
+                ORDER BY id DESC
+                limit " . strval(($pagina - 1) * $cantidad) . ", " . $cantidad;
+        }else{
+            return "SELECT * FROM facturacion
+                WHERE cliente_id = '" . $this->cliente_id . "' 
+                ORDER BY id DESC
+                ORDER BY " . $orden . " " . $dir . "
+                limit " . strval(($pagina - 1) * $cantidad) . ", " . $cantidad;
+        }
+    }
+
+    function consultarTotalRegistros(){
+        return "select count(id)
+                from facturacion";
+    }
+
     function registrarFactura(){
         return "INSERT INTO facturacion (valor, descuento, tipo_tarifa, fecha_inicio, fecha_vencimiento, cliente_id, administrador_id)
                 VALUES ('".$this->valor."', '".$this->descuento."', '".$this->tipo_tarifa."', '".$this->fecha_inicio."', '".$this->fecha_vencimiento."', '".$this->cliente_id."', '".$this->administrador_id."');";

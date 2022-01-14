@@ -250,13 +250,38 @@ class RutinaDAO
 
     function consultarRutinas(){
         return "SELECT * FROM rutina 
-                WHERE entrenador_identrenador = " . $this->id_entrenador . " AND cliente_idcliente = " . $this->id_cliente . "
+                WHERE entrenador_identrenador = " . $this->id_entrenador . " 
+                AND cliente_idcliente = " . $this->id_cliente . "
                 ORDER BY numero_dia ASC;";
     }
 
     function consultar()
     {
         return "SELECT * FROM rutina WHERE id=". $this->id .";";
+    }
+
+    function consultarPorPagina ($cantidad, $pagina, $orden, $dir) {
+        if($orden == "" || $dir == ""){
+            return "SELECT *
+                FROM rutina
+                WHERE entrenador_identrenador = '" . $this->id_entrenador . "' 
+                AND cliente_idcliente = '" . $this->id_cliente . "'
+                ORDER BY numero_dia ASC
+                limit " . strval(($pagina - 1) * $cantidad) . ", " . $cantidad;
+        }else{
+            return "SELECT *
+                FROM rutina
+                WHERE entrenador_identrenador = '" . $this->id_entrenador . "' 
+                AND cliente_idcliente = '" . $this->id_cliente . "'
+                ORDER BY numero_dia ASC
+                ORDER BY " . $orden . " " . $dir . "
+                limit " . strval(($pagina - 1) * $cantidad) . ", " . $cantidad;
+        }
+    }
+
+    function consultarTotalRegistros(){
+        return "select count(id)
+                from rutina";
     }
 
     function update()

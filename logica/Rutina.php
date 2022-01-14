@@ -226,6 +226,39 @@ class Rutina
         $this->conexion->cerrar();
     }
 
+    function consultarPorPagina($cantidad, $pagina, $orden, $dir){
+        $this -> conexion -> abrir();
+        $this -> conexion -> ejecutar($this -> RutinaDAO -> consultarPorPagina($cantidad, $pagina, $orden, $dir));
+        $this -> conexion -> cerrar();
+        $rutinas = array();
+        while(($registro = $this -> conexion -> extraer()) != null){
+            array_push($rutinas, new Rutina(
+                $registro[0],
+                $registro[1],
+                $registro[2],
+                $registro[3],
+                $registro[4],
+                $registro[5],
+                $registro[6],
+                $registro[7],
+                $registro[8],
+                $registro[9],
+                $registro[10],
+                $registro[11],
+                $registro[12]
+            ));
+        }
+        return $rutinas;
+    }
+
+    function consultarTotalRegistros(){
+        $this -> conexion -> abrir();
+        $this -> conexion -> ejecutar($this -> RutinaDAO -> consultarTotalRegistros());
+        $this -> conexion -> cerrar();
+        $resultado = $this -> conexion -> extraer();
+        return $resultado[0];
+    }
+
     function update()
     {
         $this->conexion->abrir();
