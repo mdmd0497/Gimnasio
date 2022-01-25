@@ -66,7 +66,6 @@ class ClienteDAO extends Persona
         return "update cliente set
                 nombre = '" . $this->nombre . "',
                 apellido='" . $this->apellido . "',
-                correo ='" . $this->correo . "',
                 telefono='" . $this->telefono . "'
                 where id=" . $this->id;
     }

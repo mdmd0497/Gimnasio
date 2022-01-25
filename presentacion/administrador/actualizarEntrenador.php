@@ -10,18 +10,10 @@ if (isset($_POST["actualizar"])) {
     $nombre = $_POST["nombre"];
     $apellido = $_POST["apellido"];
     $telefono = $_POST["telefono"];
-    $correo = $_POST["correo"];
 
-    $entrenador = new Entrenador("", "", "", $correo);
-    if ($correo == $correoPrin || !$entrenador->existeCorreo()) {
-        $entrenador = new Entrenador($_GET["idEntrenador"], $nombre, $apellido, $correo, "", "", $telefono, "");
-        $entrenador->actualizar();
-        $error = 0;
-    } else {
-        $error = 1;
-        $entrenador = new Entrenador($_GET["idEntrenador"]);
-        $entrenador->consultarmodal();
-    }
+    $entrenador = new Entrenador($_GET["idEntrenador"], $nombre, $apellido, "", "", "", $telefono, "");
+    $entrenador->actualizar();
+    $error = 0;
 
 }
 ?>
@@ -64,10 +56,6 @@ if (isset($_POST["actualizar"])) {
                         <div class="form-group">
                             <input type="text" name="telefono" class="form-control" placeholder="telefono"
                                    required="required" value="<?php echo $entrenador->getTelefono(); ?>">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" name="correo" class="form-control" placeholder="correo"
-                                   required="required" value="<?php echo $entrenador->getCorreo(); ?>">
                         </div>
                         <button type="submit" name="actualizar" class="btn btn-primary">Actualizar</button>
                         <a class="btn btn-light"

@@ -3,7 +3,7 @@
 $administrador = new Administrador($_SESSION["id"]);
 $administrador->consultar();
 ?>
-<title>Consultar Enfermero</title>
+<title>Consultar Médico</title>
 
 <header>
     <?php
@@ -14,7 +14,7 @@ $administrador->consultar();
 
 <div class="container" style="margin-top: 20px;">
     <div class="card" id="inicio-admin">
-        <div class="card-header bg-primary text-white">Consultar Enfermero
+        <div class="card-header bg-primary text-white">Consultar Médico
 
         </div>
         <div class="card-body">
@@ -24,7 +24,7 @@ $administrador->consultar();
                     <i class="fas fa-search" aria-hidden="true"></i> <input
                             class="form-control form-control-sm ml-3 w-75" type="text"
                             id="formConsulta"
-                            placeholder="Buscar Enfermero por nombre o apellido"
+                            placeholder="Buscar Médico por nombre o apellido"
                             aria-label="Search">
                 </form>
             </div>

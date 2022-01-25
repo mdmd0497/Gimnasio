@@ -6,7 +6,7 @@ if (!isset($_SESSION["id"])) {
 $administrador = new Administrador($_SESSION["id"]);
 $administrador->consultar();
 ?>
-<title>Registro Enfermero</title>
+<title>Registro Médico</title>
 
 <header>
     <?php
@@ -28,14 +28,18 @@ if (isset($_POST["registrar_enfermero"])) {
     $telefono = $_POST["telefono"];
 
     $enfermero = new Enfermero("", "", "", $correo);
-    if (!$enfermero->existeCorreo()) {
-        $password = $_POST["clave"];
-        $enfermero = new Enfermero("", $nombre, $apellido, $correo, password_hash($password, PASSWORD_BCRYPT), "", $telefono);
-        $enfermero->registrar();
-        $error = 0;
+    if (strlen($telefono) == 6 || strlen($telefono) == 10) {
+        if (!$enfermero->existeCorreo()) {
+            $password = $_POST["clave"];
+            $enfermero = new Enfermero("", $nombre, $apellido, $correo, password_hash($password, PASSWORD_BCRYPT), "", $telefono);
+            $enfermero->registrar();
+            $error = 0;
+        } else {
+            $error = 1;
+            $correo = $_POST["correo"];
+        }
     } else {
-        $error = 1;
-        $correo = $_POST["correo"];
+        $error = 2;
     }
 }
 
@@ -45,17 +49,21 @@ if (isset($_POST["registrar_enfermero"])) {
     <div class="row justify-content-center">
         <div class="col col-md-auto col-lg-9">
             <div class="card">
-                <div class="card-header bg-primary text-white">Registro Enfermero</div>
+                <div class="card-header bg-primary text-white">Registro Médico</div>
                 <div class="card-body">
                     <?php
                     if ($error == 0) {
                         ?>
                         <div class="alert alert-success" role="alert">
-                            enfermero registrado exitosamente.
+                            Médico registrado exitosamente.
                         </div>
                     <?php } else if ($error == 1) { ?>
                         <div class="alert alert-danger" role="alert">
                             El correo <?php echo $correo; ?> ya existe
+                        </div>
+                    <?php } elseif ($error == 2) { ?>
+                        <div class="alert alert-danger" role="alert">
+                            El teléfono <?php echo $telefono; ?> no es valido
                         </div>
                     <?php } ?>
                     <form

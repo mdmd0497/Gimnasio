@@ -12,7 +12,7 @@ if (isset($_POST["filtro"])) {
 
 
 <div class="card">
-    <div class="card-header bg-primary text-white">Resultado enfermeros
+    <div class="card-header bg-primary text-white">Resultado médicos
 
     </div>
     <div class="card-body">

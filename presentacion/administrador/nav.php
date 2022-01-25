@@ -36,7 +36,7 @@ $administrador->consultar();
                                 Entrenadores
                             </a>
                             <a class="menu dropdown-item"href="index.php?pid=<?php echo base64_encode("presentacion/administrador/consultarEnfermero.php"); ?>">
-                                 Enfermero
+                                Médico
                             </a>
                         </div>
                     </li>
@@ -47,7 +47,7 @@ $administrador->consultar();
                         	<div class="menu dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="menu dropdown-item" href="index.php?pid=<?php echo base64_encode("presentacion/administrador/registroCliente.php")?>&action=regCliente"> registrar Cliente</a>
                           			<a class="menu dropdown-item" href="index.php?pid=<?php echo base64_encode("presentacion/administrador/registroEntrenador.php")?>&action=regEnf"> registrar Entrenador</a>
-                          			<a class="menu dropdown-item" href="index.php?pid=<?php echo base64_encode("presentacion/administrador/registroEnfermero.php")?>&action=regEnfero"> Registrar Enfermero </a>
+                          			<a class="menu dropdown-item" href="index.php?pid=<?php echo base64_encode("presentacion/administrador/registroEnfermero.php")?>&action=regEnfero"> Registrar Médico </a>
                         		</div>
                       </li>
                     <ul class="social-list list-inline mt-3 mt-lg-0 mb-lg-0 d-flex ml-lg-5 mr-lg-5">

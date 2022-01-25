@@ -36,7 +36,7 @@ $medida->consultarmodalenfermero();
                 ?>
             </tr>
             <tr>
-                <th width="20%">telefono</th>
+                <th width="20%">Telefono</th>
                 <td><?php echo $Cliente->getTelefono(); ?></td>
             </tr>
             <tr>
@@ -49,22 +49,22 @@ $medida->consultarmodalenfermero();
             </tr>
             
             <tr>
-                <th width="20%">entrenador</th>
+                <th width="20%">Entrenador</th>
                 <td><?php echo $Cliente->getEntrenador(); ?></td>
             </tr>
             
             <tr>
-                <th width="20%">enfermero</th>
+                <th width="20%">Médico</th>
                 <td><?php echo $Cliente->getEnfermero(); ?></td>
             </tr>
             
             <tr>
-                <th width="20%">genero</th>
+                <th width="20%">Género</th>
                 <td><?php echo   $Cliente->getGenero() != 'M'?"Masculino":"Femenino";?></td>
             </tr>
             
             <tr>
-                <th width="20%">rh</th>
+                <th width="20%">RH</th>
                 <td><?php echo $Cliente->getRh(); ?></td>
             </tr>
 

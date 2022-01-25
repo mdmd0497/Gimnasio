@@ -166,6 +166,7 @@ include 'naventrenador.php';
                             <p class="font-italic text-white text-center">Visualizar la imagen a subir.</p>
                             <div class="image-area mt-4"><img id="imageResult" src="#" alt=""
                                                               class="img-fluid rounded shadow-sm mx-auto d-block"></div>
+                            <p>Las imágenes deben estar sujetas a derechos de autor.</p>
                         </div>
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">Descanso entre series</label>

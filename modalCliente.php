@@ -50,7 +50,7 @@ $Cliente->consultarmodal();
             </tr>
             
             <tr>
-                <th width="20%">enfermero</th>
+                <th width="20%">médico</th>
                 <td><?php echo $Cliente->getEnfermero(); ?></td>
             </tr>
             

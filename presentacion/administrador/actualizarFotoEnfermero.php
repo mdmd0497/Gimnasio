@@ -38,7 +38,7 @@ if (isset($_FILES['foto'])) {
         <div class="col-3"></div>
         <div class="col-6">
             <div class="card">
-                <div class="card-header bg-primary text-white">Actualizar Foto Enfermero</div>
+                <div class="card-header bg-primary text-white">Actualizar Foto Médico</div>
                 <div class="card-body">
                     <?php
                     if (isset($_POST["actualizar"])) {
@@ -52,7 +52,7 @@ if (isset($_FILES['foto'])) {
                             echo '</div>';
                         } else {
                             echo '<div class="alert alert-success" role="alert">';
-                            echo 'Foto del Enfermero actualizada exitosamente.';
+                            echo 'Foto del Médico actualizada exitosamente.';
                             echo '</div>';
                         }
                     }

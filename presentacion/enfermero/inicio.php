@@ -2,7 +2,7 @@
 $enfermero = new Enfermero($_SESSION["id"]);
 $enfermero->consultar();
 ?>
-<title>Inicio Enfermero</title>
+<title>Inicio Médico</title>
 
 <header>
     <?php
@@ -24,10 +24,9 @@ $enfermero->consultar();
             <?php }
                 ?>
 			<div class="card">
-				<div class="card-header bg-primary text-white">Bienvenido
-					Enfermero</div>
+				<div class="card-header bg-primary text-white">Bienvenido Médico</div>
 				<div class="card-body">
-					<p>Enfermero: <?php echo $enfermero -> getNombre() . " " . $enfermero -> getApellido() ?></p>
+					<p>Médico: <?php echo $enfermero -> getNombre() . " " . $enfermero -> getApellido() ?></p>
 					<p>Correo: <?php echo  $enfermero -> getCorreo(); ?></p>
 					<p>Hoy es: <?php echo date("d-M-Y"); ?></p>
 				</div>

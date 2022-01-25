@@ -62,7 +62,6 @@ class EnfermeroDAO extends Persona
         return "update enfermero set
                 nombre = '" . $this->nombre . "',
                 apellido='" . $this->apellido . "',
-                correo ='" . $this->correo . "',
                 telefono='" . $this->telefono . "'
                 where id=" . $this->id;
     }

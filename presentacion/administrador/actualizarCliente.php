@@ -10,18 +10,10 @@ if (isset($_POST["actualizar"])) {
     $nombre = $_POST["nombre"];
     $apellido = $_POST["apellido"];
     $telefono = $_POST["telefono"];
-    $correo = $_POST["correo"];
 
-    $cliente = new Cliente("", "", "", $correo);
-    if ($correo == $correoPrin || !$cliente->existeCorreo()) {
-        $cliente = new Cliente($_GET["idCliente"], $nombre, $apellido, $correo, "", "", $telefono, "", "", "", "");
-        $cliente->actualizar();
-        $error = 0;
-    } else {
-        $error = 1;
-        $cliente = new Cliente($_GET["idCliente"]);
-        $cliente->consultarmodal();
-    }
+    $cliente = new Cliente($_GET["idCliente"], $nombre, $apellido, "", "", "", $telefono, "", "", "", "");
+    $cliente->actualizar();
+    $error = 0;
 
 }
 ?>
@@ -64,10 +56,6 @@ if (isset($_POST["actualizar"])) {
                         <div class="form-group">
                             <input type="text" name="telefono" class="form-control" placeholder="telefono"
                                    required="required" value="<?php echo $cliente->getTelefono(); ?>">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" name="correo" class="form-control" placeholder="correo"
-                                   required="required" value="<?php echo $cliente->getCorreo(); ?>">
                         </div>
                         <button type="submit" name="actualizar" class="btn btn-primary">Actualizar</button>
                         <a class="btn btn-light"

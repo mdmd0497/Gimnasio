@@ -79,7 +79,6 @@ class EntrenadorDAO extends Persona
         return "update entrenador set
                 nombre = '" . $this->nombre . "',
                 apellido='" . $this->apellido . "',
-                correo ='" . $this->correo . "',
                 telefono='" . $this->telefono . "'
                 where id=" . $this->id;
     }
