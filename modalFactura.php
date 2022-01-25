@@ -85,13 +85,6 @@ $facturas->consultar();
                             <span class="description-text text-secondary">Fecha Vencimiento</span>
                         </div>
                     </div>
-                    <div class="col-sm-3">
-                        <div class="description-block">
-                            <a class="btn btn-primary btn-sm" href="index.php?pid=<?php echo base64_encode("") . "&idFactura=". $facturas->getId(); ?>">
-                                Imprimir Recibo
-                            </a>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
